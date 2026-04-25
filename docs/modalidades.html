@@ -1,0 +1,284 @@
+<!DOCTYPE html><html class="dark" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#ffdad6",
+              "on-secondary": "#303030",
+              "on-tertiary-container": "#002b4f",
+              "on-tertiary-fixed-variant": "#00497f",
+              "surface": "#131313",
+              "outline": "#a58c7d",
+              "surface-dim": "#131313",
+              "primary-fixed": "#ffdbc7",
+              "background": "#131313",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container-highest": "#353534",
+              "on-primary-fixed-variant": "#733600",
+              "on-primary-container": "#471e00",
+              "primary": "#ffb688",
+              "brand-orange": "#CC6400",
+              "surface-container-high": "#2a2a2a",
+              "on-background": "#e5e2e1",
+              "surface-container": "#201f1f",
+              "on-secondary-container": "#b7b5b4",
+              "on-secondary-fixed": "#1b1c1c",
+              "inverse-on-surface": "#313030",
+              "on-primary": "#512400",
+              "on-secondary-fixed-variant": "#474746",
+              "secondary-fixed-dim": "#c8c6c5",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed": "#001c37",
+              "primary-container": "#e07317",
+              "on-surface-variant": "#ddc1b1",
+              "tertiary": "#a0c9ff",
+              "tertiary-fixed": "#d2e4ff",
+              "secondary-container": "#474746",
+              "tertiary-fixed-dim": "#a0c9ff",
+              "on-tertiary": "#00325a",
+              "primary-fixed-dim": "#ffb688",
+              "secondary": "#c8c6c5",
+              "outline-variant": "#564337",
+              "on-surface": "#e5e2e1",
+              "inverse-surface": "#e5e2e1",
+              "on-primary-fixed": "#311300",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed": "#e4e2e1",
+              "surface-tint": "#ffb688",
+              "surface-variant": "#353534",
+              "surface-bright": "#393939",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "inverse-primary": "#974800",
+              "tertiary-container": "#2c94f1"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .kinetic-gradient {
+        background: linear-gradient(45deg, #CC6400 0%, #e07317 100%);
+      }
+      .mask-vignette {
+        mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+      }
+      .industrial-overlay {
+        background: linear-gradient(to bottom, rgba(19, 19, 19, 0.8), rgba(19, 19, 19, 0.95));
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-md flex justify-between items-center px-8 py-4">
+<div class="text-2xl font-bold tracking-tighter text-[#e5e2e1] font-['Space_Grotesk'] uppercase" style="">URBANLIFT</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#e5e2e1] hover:text-[#ffb688] transition-colors font-['Space_Grotesk'] uppercase tracking-tighter" href="#" style="">Inicio</a>
+<a class="text-[#e07317] border-b-2 border-[#e07317] pb-1 font-['Space_Grotesk'] uppercase tracking-tighter" href="#" style="">Modalidades</a>
+<a class="text-[#e5e2e1] hover:text-[#ffb688] transition-colors font-['Space_Grotesk'] uppercase tracking-tighter" href="#" style="">Nuestro Espacio</a>
+<a class="text-[#e5e2e1] hover:text-[#ffb688] transition-colors font-['Space_Grotesk'] uppercase tracking-tighter" href="#" style="">Conócenos</a>
+<a class="text-[#e5e2e1] hover:text-[#ffb688] transition-colors font-['Space_Grotesk'] uppercase tracking-tighter" href="#" style="">Comunidad</a>
+</div>
+<button class="kinetic-gradient text-white font-headline font-bold text-sm tracking-widest px-6 py-2 rounded-xl uppercase hover:opacity-90 transition-all active:scale-95" style="">
+            UNIRSE AHORA
+        </button>
+</nav>
+<main class="pt-24 min-h-screen">
+<!-- Hero Header with Large Watermark -->
+<header class="px-8 mb-16 max-w-7xl mx-auto relative overflow-hidden">
+<div class="absolute -top-10 -left-10 text-[12rem] font-black text-white/[0.03] pointer-events-none font-headline tracking-tighter leading-none select-none" style="">URBANLIFT</div>
+<h1 class="font-headline text-7xl md:text-9xl font-extrabold uppercase tracking-tighter leading-none mb-4 relative z-10" style=""><span class="text-brand-orange italic" style=""><font color="#e5e2e1"><span class="" style="font-style: normal;">&nbsp;nuestras</span></font></span><div><span class="text-brand-orange italic" style="">modalidades</span></div></h1>
+<p class="font-body text-xl text-on-surface-variant max-w-2xl relative z-10" style="">
+                Elige la modalidad que más se adapte a ti</p>
+</header>
+<!-- Category Grid: 2x2 Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-0 border-t border-white/5">
+<!-- Category 1: Clases grupales de calistenia -->
+<section class="relative group overflow-hidden border-b border-r border-white/5 bg-surface min-h-[600px] flex flex-col">
+<div class="absolute inset-0 z-0">
+<img alt="Calistenia" class="w-full h-full object-cover grayscale opacity-40 transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtQRBJfoZGMoc5VWznNmbrxSGU8CHZBhqajGXGyIjr0PibT6182qgGoqfqEe6CH0bLaqfPukmYKHXUBtcXDdY4suwklU5Bj6jWOunF8rZwmxktmpqzk4STmIpJYjomVNLj8kl0HF0zbz0VwFzJddsryXDyLw0QPESo4DwCmjMXc1c6tjgm3K2qhFAMtH40SpDndhA7zE5jRjH7lHkiKAwTB32-4EoTPVaBA1C-ttcdMAbs7G1vmpw_PuQLkfFW8Y62Yb20i7lO9mQ" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 p-12 mt-auto">
+<h2 class="font-headline text-4xl font-bold uppercase tracking-tighter mb-4 text-white" style="">1. Clases grupales de calistenia</h2>
+<p class="font-body text-on-surface-variant mb-8 max-w-md text-lg" style="">Únete a nuestras clases grupales de calistenia mulnivel. En dónde aprenderas todo lo necesario para dominar tu cuerpo.</p>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h3 class="font-headline text-xs font-bold uppercase tracking-widest text-brand-orange mb-4" style="">COACHES</h3>
+<div class="flex gap-4">
+<div class="text-center">
+<img alt="Thomas" class="w-12 h-12 rounded-full border border-brand-orange mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlaEozdDxFaMRVtKFQXsJzZhkV_2ZF5QBDzezpnT_wmRK1oESInV_JIf3oIM_oohuDR5s93rax7jv-h_R_uOF3bkVdDo6GjwN1MiBtiNciQMV2lAJNikpeI6CJd_qI4YdhDYZfTyOaogy6M2sOJgUQS4zFrBytE3lCm3savYV2YZKcijWI3BgXPngQaawsqAwnNv_s1g0taDWEY9wpZGm8guEbNeDNjdMvrGYHS1X4Xuo606N7hstbLFGrkdZVkEMcgtAZrZmXqc0" style="">
+<span class="text-[10px] font-bold uppercase tracking-tighter" style="">Thomas</span>
+</div>
+<div class="text-center">
+<img alt="Allison" class="w-12 h-12 rounded-full border border-brand-orange mb-2" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaWpGZH6S-OWI2bQlpPwKaYrNyzsCFO3QIxekh6_2lklivvOBOYGs2pQ6RrTXw53F7OcLs2Bw2ZZnheWSZInLK7E-Uad1I02bThNqpeiIpqBjvy4rlzH3Nqya_on4cFtYYA2r6QJ7SL0Jj3uMFQ7XHKmqfk2MLapUOdxiMf_Ywd68vQpl39BsnIjyDu6FvcxJl06kBheGfP36fk0Muq1oqn-K91M_XA2VfbHSpiMgm-mIWKo_fgP1-JrjzRNkj_V55BUHA3eb4iYc" style="">
+<span class="text-[10px] font-bold uppercase tracking-tighter" style="">Allison</span>
+</div>
+</div>
+</div>
+</div>
+<button class="mt-8 border-b-2 border-brand-orange text-brand-orange font-headline font-bold uppercase tracking-widest pb-1 hover:text-white hover:border-white transition-all text-sm" style="">Revisa nuestros horarios y valores</button>
+</div>
+</section>
+<!-- Category 2: Clases exclusivas -->
+<section class="relative group overflow-hidden border-b border-white/5 bg-surface-container-low min-h-[600px] flex flex-col">
+<div class="absolute inset-0 z-0">
+<img alt="Clases exclusivas" class="w-full h-full object-cover grayscale opacity-20 transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Vz5zasWSg958cRTtTQb2GXAMm2Cy_W1fmhCfS_V6bU6-kgiaU8QtpvdtQb739SkfSXMe-OP59b34Vk0AcOgFv8irrJfZXo37gq1S0mIr9xlJIM7Rjrc7-AJF4rU-NpcKO8Tb53dAHtCoj9f2mERgyuijbLRBuEDeOP3Qkw52HOvQr5ALs0UcCJ-FlsRKCmhvkmOz0g1hr7oeXdP0po5vDEHvSGH3j1WbdGcjlh76KaEdv4NyIKL43sPYUJVUGIuwJPZIx1mbD6Q" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
+</div>
+<div class="relative z-10 p-12 mt-auto">
+<h2 class="font-headline text-4xl font-bold uppercase tracking-tighter mb-4 text-white" style="">2. Clases semi-personalizadas</h2>
+<p class="font-body text-on-surface-variant mb-8 max-w-md text-lg" style="">Entrena 1:1 junto a tu coach o en un grupo reducido (máx 4 personas).</p>
+<div class="space-y-4 mb-8">
+<div class="flex items-start gap-4 p-4 bg-white/5 border-l-2 border-brand-orange">
+<span class="material-symbols-outlined text-brand-orange" data-icon="groups" style="">groups</span>
+<div>
+<div class="font-headline font-bold text-sm uppercase" style="">Atención Especializada</div>
+<div class="text-xs text-on-surface-variant" style="">Corrección técnica al detalle en cada repetición.</div>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 bg-white/5 border-l-2 border-outline-variant">
+<span class="material-symbols-outlined text-brand-orange" data-icon="timer" style="">timer</span>
+<div>
+<div class="font-headline font-bold text-sm uppercase" style="">Optimización del Tiempo</div>
+<div class="text-xs text-on-surface-variant" style="">Sesiones dinámicas adaptadas a tu ritmo.</div>
+</div>
+</div>
+</div>
+<button class="kinetic-gradient w-full py-4 text-white font-headline font-bold uppercase tracking-widest rounded-xl hover:shadow-[0_0_20px_rgba(204,100,0,0.4)] transition-all" style="">RESERVAR CUPO</button>
+</div>
+</section>
+<!-- Category 3: Asesorías Online -->
+<section class="relative group overflow-hidden border-r border-white/5 bg-surface-container-high min-h-[600px] flex flex-col">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
+</div>
+<div class="relative z-10 p-12 mt-auto">
+<h2 class="font-headline text-4xl font-bold uppercase tracking-tighter mb-4 text-white" style="">3. Asesorías Online</h2>
+<p class="font-body text-on-surface-variant mb-8 max-w-md text-lg" style="">Entrena en nuestro gimnasio o cualquier parte del mundo con la guía profesional de nuestros entrenadores.</p>
+<div class="grid grid-cols-1 gap-6 mb-8">
+<div class="flex gap-4 items-center border-b border-white/10 pb-4">
+<div class="w-12 h-12 rounded-lg bg-brand-orange/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-orange" data-icon="language" style="">language</span>
+</div>
+<div>
+<div class="font-headline font-bold uppercase text-sm" style="">SIN FRONTERAS</div>
+<div class="text-xs text-on-surface-variant" style="">Planificación 100% remota y personalizada.</div>
+</div>
+</div>
+<div class="flex gap-4 items-center border-b border-white/10 pb-4">
+<div class="w-12 h-12 rounded-lg bg-brand-orange/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-brand-orange" data-icon="verified" style="">verified</span>
+</div>
+<div>
+<div class="font-headline font-bold uppercase text-sm" style="">GARANTÍA DE RESULTADOS</div>
+<div class="text-xs text-on-surface-variant" style="">Feedback semanal y ajustes de programa.</div>
+</div>
+</div>
+</div>
+<button class="border-2 border-brand-orange w-full py-4 text-white font-headline font-bold uppercase tracking-widest rounded-xl hover:bg-brand-orange transition-all" style="">SABER MÁS</button>
+</div>
+</section>
+<!-- Category 4: Conoce a nuestros profesionales (Updated Section) -->
+<section class="relative group overflow-hidden bg-surface-container-lowest min-h-[600px] flex flex-col p-12">
+<div class="absolute inset-0 z-0">
+<img alt="Fondo industrial" class="w-full h-full object-cover grayscale opacity-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Vz5zasWSg958cRTtTQb2GXAMm2Cy_W1fmhCfS_V6bU6-kgiaU8QtpvdtQb739SkfSXMe-OP59b34Vk0AcOgFv8irrJfZXo37gq1S0mIr9xlJIM7Rjrc7-AJF4rU-NpcKO8Tb53dAHtCoj9f2mERgyuijbLRBuEDeOP3Qkw52HOvQr5ALs0UcCJ-FlsRKCmhvkmOz0g1hr7oeXdP0po5vDEHvSGH3j1WbdGcjlh76KaEdv4NyIKL43sPYUJVUGIuwJPZIx1mbD6Q" style="">
+<div class="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface"></div>
+</div>
+<div class="relative z-10 w-full flex flex-col h-full">
+<header class="mb-12">
+<h2 class="font-headline text-4xl font-bold uppercase tracking-tighter text-white" style="">CONOCE A NUESTROS<br><span class="text-brand-orange" style="">PROFESIONALES</span></h2>
+<p class="font-body text-on-surface-variant mt-2 text-sm uppercase tracking-widest" style="">El equipo de élite detrás de tu transformación</p>
+</header>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-6 flex-grow">
+<!-- Coach 1 -->
+<div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50">
+<div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+<span class="material-symbols-outlined text-white/20 text-4xl" data-icon="person" style="">person</span>
+</div>
+<div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors" style="">Allison Bassa</div>
+<div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest" style="">Calistenia y<div>stret lifting</div></div>
+</div>
+<!-- Coach 2 -->
+<div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50">
+<div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+<span class="material-symbols-outlined text-white/20 text-4xl" data-icon="person" style="">person</span>
+</div>
+<div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors" style="">Thomas Cabezas</div>
+<div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest" style="">Calistenia y<div style="--tw-border-spacing-y: 0; --tw-translate-x: 0; --tw-translate-y: 0; --tw-rotate: 0; --tw-skew-x: 0; --tw-skew-y: 0; --tw-scale-x: 1; --tw-scale-y: 1; --tw-pan-x: ; --tw-pan-y: ; --tw-pinch-zoom: ; --tw-scroll-snap-strictness: proximity; --tw-gradient-from-position: ; --tw-gradient-via-position: ; --tw-gradient-to-position: ; --tw-ordinal: ; --tw-slashed-zero: ; --tw-numeric-figure: ; --tw-numeric-spacing: ; --tw-numeric-fraction: ; --tw-ring-inset: ; --tw-ring-offset-width: 0px; --tw-ring-offset-color: #fff; --tw-ring-color: rgb(59 130 246 / 0.5); --tw-ring-offset-shadow: 0 0 #0000; --tw-ring-shadow: 0 0 #0000; --tw-shadow: 0 0 #0000; --tw-shadow-colored: 0 0 #0000; --tw-blur: ; --tw-brightness: ; --tw-contrast: ; --tw-grayscale: ; --tw-hue-rotate: ; --tw-invert: ; --tw-saturate: ; --tw-sepia: ; --tw-drop-shadow: ; --tw-backdrop-blur: ; --tw-backdrop-brightness: ; --tw-backdrop-contrast: ; --tw-backdrop-grayscale: ; --tw-backdrop-hue-rotate: ; --tw-backdrop-invert: ; --tw-backdrop-opacity: ; --tw-backdrop-saturate: ; --tw-backdrop-sepia: ; --tw-contain-size: ; --tw-contain-layout: ; --tw-contain-paint: ; --tw-contain-style: ;">stret lifting</div></div>
+</div>
+<!-- Coach 3 -->
+<div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50">
+<div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+<span class="material-symbols-outlined text-white/20 text-4xl" data-icon="person" style="">person</span>
+</div>
+<div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors" style="">Fabian Lopez</div>
+<div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest" style="">Power lifting</div>
+</div>
+<!-- Coach 4 -->
+<div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50">
+<div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+<span class="material-symbols-outlined text-white/20 text-4xl" data-icon="person" style="">person</span>
+</div>
+<div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors" style="">Alfonso Moya</div>
+<div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest" style="">musculación/fitness y powerlifting</div>
+</div>
+<!-- Coach 5 -->
+<div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50">
+<div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+<span class="material-symbols-outlined text-white/20 text-4xl" data-icon="person" style="">person</span>
+</div>
+<div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors" style="">Marisa Trujillo</div>
+<div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest" style="">Musculación fitness</div>
+</div>
+<!-- View More / Stats -->
+<div class="relative overflow-hidden bg-brand-orange/5 border border-brand-orange/20 rounded-lg p-4 flex flex-col items-center justify-center text-center">
+<div class="text-3xl font-headline font-extrabold text-brand-orange" style="">+10</div>
+<div class="text-[10px] text-white font-bold uppercase tracking-widest mt-1" style="">Años de exp</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer Shell -->
+<footer class="bg-[#0e0e0e] w-full py-12 px-8 border-t border-white/5">
+<div class="flex flex-col md:flex-row justify-between items-start gap-8 w-full max-w-7xl mx-auto">
+<div class="flex flex-col gap-4">
+<div class="text-xl font-bold text-brand-orange uppercase font-headline" style="">URBANLIFT</div>
+<p class="font-['Manrope'] text-sm text-[#e5e2e1]/60 max-w-xs" style="">
+                    © 2024 URBANLIFT. Eusebio Lillo 525, Piso 3.
+                </p>
+</div>
+<div class="flex flex-wrap gap-12">
+<div class="flex flex-col gap-4">
+<span class="font-headline text-xs font-bold tracking-widest text-brand-orange uppercase" style="">Contacto</span>
+<a class="font-['Manrope'] text-sm text-[#e5e2e1] hover:text-brand-orange underline underline-offset-4 transition-opacity" href="#" style="">WhatsApp</a>
+<a class="font-['Manrope'] text-sm text-[#e5e2e1] hover:text-brand-orange underline underline-offset-4 transition-opacity" href="#" style="">Instagram</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="font-headline text-xs font-bold tracking-widest text-brand-orange uppercase" style="">Soporte</span>
+<a class="font-['Manrope'] text-sm text-[#e5e2e1] hover:text-brand-orange underline underline-offset-4 transition-opacity" href="#" style="">Ubicación</a>
+<a class="font-['Manrope'] text-sm text-[#e5e2e1] hover:text-brand-orange underline underline-offset-4 transition-opacity" href="#" style="">Términos</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

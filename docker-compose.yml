@@ -1,0 +1,15 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: urbanlift-website
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - dokploy-network
+
+networks:
+  dokploy-network:
+    external: true

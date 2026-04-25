@@ -1,0 +1,235 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="URBANLIFT - Forjando atletas, esculpiendo cuerpos">
+  <!-- Hero Section -->
+  <header class="relative h-screen w-full overflow-hidden flex items-center justify-start px-8 md:px-24">
+    <!-- Video Background Mock -->
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+      <img alt="Gym background" class="w-full h-full object-cover video-mask-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO5cX3KIQsBNajjJqNH_r8XKjwXIcESD_NjfjR5vXp1Whi4eiquSk-4rDHv5rlwbegsrxdVeyeqnzXvGrrD7s2Zlyc7GfeYWw_0j66Igx9M3Ci9lLer7U19sofG__7VJEDo8NxDBwgr3yuHJwrmh8a4mGQ2KK2opZitlQDRWXbX76RzKVBwMV-PX3XJZqJp89QNjRajosWjFZl2oGoyGXwibH3Dm-CP3yYSmCBZ9M79mQB-NFD0jmq7JJ14NiUjeqiuQyeF7RIi44"/>
+    </div>
+    <div class="relative z-20 max-w-4xl">
+      <h1 class="font-headline text-6xl md:text-8xl font-extrabold uppercase leading-none tracking-tighter text-on-background mb-6 text-overlap">
+        Forjando <span class="text-primary italic">atletas</span>,<br/>esculpiendo cuerpos
+      </h1>
+      <p class="font-body text-xl md:text-2xl text-on-surface-variant mb-10 max-w-xl">
+        Lleva tu rendimiento al siguiente nivel en el epicentro de la fuerza urbana. Sin excusas, solo resultados.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4">
+        <a class="kinetic-gradient text-on-primary-container font-bold px-10 py-5 rounded-xl uppercase text-sm tracking-widest text-center hover:shadow-[0_0_30px_rgba(224,115,23,0.4)] transition-all" href="#plans">Conoce nuestros planes</a>
+        <button class="bg-surface-container-high border border-outline-variant/30 text-on-surface font-bold px-10 py-5 rounded-xl uppercase text-sm tracking-widest hover:bg-surface-container-highest transition-all">
+          Conoce nuestro espacio</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Info Bento Grid -->
+  <section class="py-24 px-8 max-w-7xl mx-auto">
+    <!-- Opening Hours -->
+    <div class="w-full bg-surface-container-low p-10 md:p-16 rounded-none relative overflow-hidden group">
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <span class="text-primary-container font-headline font-bold text-xs uppercase tracking-[0.3em] mb-4 block text-center">Disponibilidad</span>
+        <h3 class="font-headline text-4xl md:text-5xl font-bold uppercase mb-12 text-center">Horarios de Apertura</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 font-body">
+          <!-- Category 1 -->
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <span class="text-on-surface/60 uppercase text-xs tracking-widest mb-4">Lunes a Viernes</span>
+            <div class="text-2xl font-headline font-bold text-on-background">06:00 - 22:00</div>
+            <div class="w-12 h-1 bg-primary-container mt-6"></div>
+          </div>
+          <!-- Category 2 -->
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <span class="text-on-surface/60 uppercase text-xs tracking-widest mb-4">Sábados y Domingos</span>
+            <div class="space-y-2">
+              <div class="flex items-center gap-4 justify-center md:justify-start">
+                <span class="text-sm font-bold opacity-50">SÁB</span>
+                <span class="text-xl font-headline font-bold">09:00 - 16:00</span>
+              </div>
+              <div class="flex items-center gap-4 justify-center md:justify-start">
+                <span class="text-sm font-bold opacity-50">DOM</span>
+                <span class="text-xl font-headline font-bold">09:00 - 14:00</span>
+              </div>
+            </div>
+            <div class="w-12 h-1 bg-primary-container mt-6"></div>
+          </div>
+          <!-- Category 3 -->
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <span class="text-on-surface/60 uppercase text-xs tracking-widest mb-4">Festivos</span>
+            <div class="text-2xl font-headline font-bold text-on-background">09:00 - 16:00</div>
+            <div class="w-12 h-1 bg-primary-container mt-6"></div>
+          </div>
+        </div>
+      </div>
+      <span class="material-symbols-outlined absolute -bottom-12 -right-12 text-surface-container-high text-9xl opacity-10 pointer-events-none" style="font-size: 20rem;">schedule</span>
+    </div>
+  </section>
+
+  <!-- Founding Members Promotion Section -->
+  <section class="py-12 bg-surface-container-lowest overflow-hidden">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="relative bg-surface-container-high border-2 border-brand-orange p-8 md:p-12 industrial-texture flex flex-col md:flex-row items-center gap-10 overflow-hidden">
+        <!-- Background Accent -->
+        <div class="absolute -top-12 -right-12 w-64 h-64 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 flex-grow">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="bg-brand-orange text-white text-[10px] font-bold tracking-[0.2em] px-3 py-1 uppercase">OFERTA LIMITADA</span>
+            <h2 class="font-headline text-2xl md:text-3xl font-extrabold uppercase tracking-tighter">PROMOCIÓN: <span class="text-brand-orange">SOCIOS FUNDADORES</span></h2>
+          </div>
+          <h3 class="font-headline text-4xl md:text-6xl font-black uppercase leading-none mb-6 text-on-background">
+            PLAN ANUAL CON <span class="text-brand-orange">40%</span> DE DESCUENTO
+          </h3>
+          <div class="flex flex-col md:flex-row md:items-center gap-6 mb-8">
+            <div class="flex flex-col">
+              <span class="text-xs uppercase tracking-widest text-on-surface-variant font-bold mb-1">PAGO INMEDIATO</span>
+              <div class="flex items-baseline gap-2">
+                <span class="text-3xl font-headline font-bold text-on-background">$251.928</span>
+                <span class="text-on-surface-variant text-sm uppercase">anual</span>
+              </div>
+              <p class="text-xs text-on-surface-variant italic">equivalente a $20.994 mensual</p>
+            </div>
+            <div class="hidden md:block w-px h-12 bg-outline-variant/30"></div>
+            <div>
+              <p class="text-on-surface font-medium uppercase text-sm tracking-wide flex items-center gap-2">
+                <span class="material-symbols-outlined text-brand-orange">warning</span>
+                Solo para los primeros 100 miembros
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="relative z-10 flex flex-col items-center gap-6 min-w-[280px]">
+          <div class="bg-surface-container-lowest p-6 border border-brand-orange/30 text-center w-full">
+            <div class="text-xs uppercase tracking-[0.3em] text-on-surface-variant mb-2">Estado de la promoción</div>
+            <div class="font-headline text-4xl font-black text-brand-orange mb-1">QUEDAN 87/100</div>
+            <div class="w-full bg-surface-container-highest h-1.5 rounded-full mt-4 overflow-hidden">
+              <div class="bg-brand-orange h-full w-[87%]"></div>
+            </div>
+            <div class="text-[10px] uppercase text-on-surface-variant mt-2 tracking-widest">CUPOS DISPONIBLES</div>
+          </div>
+          <button class="brand-gradient w-full text-on-primary-container font-black px-10 py-5 rounded-none uppercase text-sm tracking-[0.15em] hover:shadow-[0_0_40px_rgba(204,100,0,0.4)] hover:-translate-y-1 transition-all duration-300">
+            ASEGURAR MI LUGAR
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plans Section -->
+  <section class="py-24 bg-surface-container-lowest" id="plans">
+    <div class="px-8 max-w-[1600px] mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div>
+          <h2 class="font-headline text-5xl md:text-7xl font-extrabold uppercase leading-none tracking-tighter mb-4">Elige tu <span class="text-primary">PLAN</span></h2>
+          <p class="text-on-surface-variant max-w-xl font-body">Evoluciona con el plan que mejor se adapte a tu estilo de entrenamiento. Transparencia total y sin sorpresas.</p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <!-- Plan 1 -->
+        <div class="bg-surface p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
+          <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
+          <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN MENSUAL (PREPAGO)</h4>
+          <div class="text-3xl font-extrabold font-headline mb-8">$34.990</div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+              <span>MATRÍCULA $0 POR MAYO Y JUNIO</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
+              Acceso Total Gimnasio
+            </li>
+          </ul>
+          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Seleccionar</button>
+        </div>
+        <!-- Plan 2 -->
+        <div class="bg-surface p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
+          <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
+          <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN TRIMESTRAL 10%OFF (PREPAGO)</h4>
+          <div class="text-3xl font-extrabold font-headline mb-8">$94.473</div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+              <span>MATRÍCULA $0 POR MAYO Y JUNIO</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
+              Precio preferencial por trimestre
+            </li>
+          </ul>
+          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Seleccionar</button>
+        </div>
+        <!-- Plan 3 -->
+        <div class="bg-surface-container-high p-6 rounded-none border-l-4 border-primary-container shadow-2xl z-10 flex flex-col h-full lg:scale-105">
+          <div class="flex justify-between items-start mb-2">
+            <span class="text-primary font-headline font-bold text-xs uppercase tracking-widest">PAGO ÚNICO</span>
+            <span class="bg-primary-container text-[9px] text-on-primary-container px-2 py-1 font-bold rounded">POPULAR</span>
+          </div>
+          <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN SEMESTRAL 15%OFF (PREPAGO)</h4>
+          <div class="text-3xl font-extrabold font-headline mb-8">$178.452</div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-start gap-3 text-sm font-bold">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+              <span>MATRÍCULA $0 POR MAYO Y JUNIO</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
+              Ahorro del 15% semestral
+            </li>
+          </ul>
+          <button class="w-full py-4 kinetic-gradient text-on-primary-container font-bold uppercase text-[10px] tracking-widest transition-all">Seleccionar</button>
+        </div>
+        <!-- Plan 4 -->
+        <div class="bg-surface p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
+          <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
+          <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">ANUAL PREPAGO 30%OFF (PREPAGO)</h4>
+          <div class="text-3xl font-extrabold font-headline mb-8">$293.916</div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+              <span>MATRÍCULA $0 POR MAYO Y JUNIO</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
+              Máximo ahorro anual (30%)
+            </li>
+          </ul>
+          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Seleccionar</button>
+        </div>
+        <!-- Plan 5 -->
+        <div class="bg-surface p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
+          <span class="text-primary font-headline font-bold text-[9px] mb-2 uppercase tracking-tighter">DESCUENTA MES A MES DE TU TARJETA</span>
+          <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">SUSCRIPCIÓN ANUAL 20%OFF (CREDITO)</h4>
+          <div class="text-3xl font-extrabold font-headline mb-8">$335.904</div>
+          <ul class="space-y-4 mb-10 flex-grow">
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
+              <span>MATRÍCULA $0 POR MAYO Y JUNIO</span>
+            </li>
+            <li class="flex items-start gap-3 text-sm">
+              <span class="material-symbols-outlined text-primary text-lg mt-0.5">credit_card</span> 
+              Cargo mensual automático
+            </li>
+          </ul>
+          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Seleccionar</button>
+        </div>
+      </div>
+      <!-- Daily Pass Sub-section -->
+      <div class="mt-12 bg-surface-container-low p-6 flex flex-col md:flex-row items-center justify-between border-dashed border border-outline-variant/40">
+        <div class="flex items-center gap-4 mb-4 md:mb-0">
+          <div class="bg-primary-container/20 p-3 rounded-full">
+            <span class="material-symbols-outlined text-primary-container">confirmation_number</span>
+          </div>
+          <div>
+            <h5 class="font-bold uppercase font-headline">PASE DIARIO</h5>
+            <p class="text-xs text-on-surface-variant">¿Estás de paso? Entrena hoy mismo sin compromisos.</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <span class="text-2xl font-bold font-headline">$5.000</span>
+          <button class="bg-on-surface text-surface font-bold px-6 py-2 rounded-xl text-xs uppercase tracking-tighter hover:bg-primary transition-colors">Comprar Pase</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

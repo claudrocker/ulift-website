@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Comunidad - URBANLIFT">
+  <main class="pt-24 min-h-screen">
+    <!-- Hero Section: Community Voice -->
+    <section class="relative h-[450px] flex items-center px-8 overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img alt="Community training" class="w-full h-full object-cover opacity-40 desaturate-[0.15]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQBQyhcr71tavuj0xsMohgv54aMhlGBeiyye6b0RPnO-g_J6T1i5iTT65_M3bKew7a4jNb0lyJgzf9pV7mRqK0m8HtmVAhOMGIeXoTSHeeMlj8AHySx181bdFpFs1AjsMhX5Dwc6-IBvwAjm1spj3y6uOzaXDTPQfrSo69wpdLAvnJF55q1nTX3ocgNHsYLeugSB6hPn0pzxNlJb3Q_ErsS1wdBWo8LZqekiOWUKIZoXivz0N1D3nyETEuQpMX7ZbRDZT9bOcwo4E" />
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+      </div>
+      <div class="relative z-10 max-w-4xl">
+        <h1 class="font-headline text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none mb-4 -ml-1">
+          NUESTRA<br/> <span class="text-primary italic">COMUNIDAD</span>
+        </h1>
+        <p class="font-body text-xl text-on-surface-variant max-w-xl">
+          Sé parte del movimiento. Mira lo que nuestra tribu está construyendo hoy.
+        </p>
+      </div>
+    </section>
+
+    <!-- Community Feed Layout -->
+    <section class="px-8 pb-24">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Main Feed Grid: Reels Style -->
+        <div class="flex-grow">
+          <div class="flex items-center justify-between mb-8 border-b border-outline-variant/20 pb-4">
+            <h2 class="font-headline text-2xl uppercase tracking-widest font-bold">NUESTROS ÚLTIMOS VIDEOS Y TUTORIALES</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <!-- Feed Item 1 -->
+            <div class="relative group aspect-[9/16] overflow-hidden bg-surface-container-high rounded-xl">
+              <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSEuMyk-P_lFjH5L7RMmkizgWnkeUXqqwBqhiNfgIPE1F9QRidvQnv2rm7sUFLaD8LGu6vNPPbGgJOsMSs9v1rsDdupRtK6fz7rwQd6-N5mMOXouxaSjmoHwt0ikP_22pvRb_ugpgcz9Jb25DZEYF5ATxRlMRjiFAkMeUraOY48HxBnZSFqSV0oNUdvDeM1i9XekRUvk88h54Pj3NSSSA0SSEtSFvM0OJLsE2kY8pOeKCuRUIVqGqUnN992qD2hwvJ9XmpZ13NByM" />
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-5xl opacity-0 group-hover:opacity-100 transition-opacity" style='font-variation-settings: "FILL" 1;'>play_circle</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="flex items-center gap-2 mb-2">
+                  <div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center font-bold text-[10px]">ML</div>
+                  <span class="font-bold text-sm">@marcos_lift</span>
+                </div>
+                <p class="line-clamp-2 text-sm text-on-surface/90">Nuevo PR en peso muerto. La atmósfera en Urbanlift hoy está a otro nivel. 🔥</p>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="material-symbols-outlined text-white" style='font-variation-settings: "FILL" 1;'>videocam</span>
+              </div>
+            </div>
+            <!-- Feed Item 2 -->
+            <div class="relative group aspect-[9/16] overflow-hidden bg-surface-container-high rounded-xl">
+              <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCikbd1Rmw3QgzMmdAeyFp3ex1GwHCSJqAY-RgPwE0ZOl_o7J5x7XgfUGxRWxPA6e1ASJo3FZSh5u8wCaCXbI61N5LVt03AVdKp7aX9EGKR4ddwXU0Z64q3rgOZcSQtBhcyZAPugPtI8LILfE9EcH-93-ysu19AQYUd9Z1msObUCAupSBnRIYMOwq5N9nHkZ3MlVTEGg5_6pE0Lq-Aj50r8hByf8cu3lFZ_8hIcG4ybAfSftNkwumYs0HbzxogHrpE06bkuf6ZxPVc" />
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="flex items-center gap-2 mb-2">
+                  <div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center font-bold text-[10px]">KC</div>
+                  <span class="font-bold text-sm">@karla_coach</span>
+                </div>
+                <p class="line-clamp-2 text-sm text-on-surface/90">Saturdays are for the grind. Community class was electric! #TeamUrban</p>
+              </div>
+            </div>
+            <!-- Feed Item 3 -->
+            <div class="relative group aspect-[9/16] overflow-hidden bg-surface-container-high rounded-xl">
+              <img alt="" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC23rKnJd0aZA0QjsMbj8G2Fi4dClPEHz2gxTWDcgWCpqKZPHwzc7-BKgJO-tXab1XdcNeg-vuYHO8JWWQmVAXMz36TeH-RnD_pqF2pX2yTUzs28U6c5okTizZVge8r1fl5rPiP1Y8qyQVDeXhQ7jFdlsIbBWWLXRhBq91XWUswZVs1DSPq0TOI1jBq1uPDfNm2KwFbQ1CLvHKF67EZiJhN4j4bhrs-9omy9NwFsgY_pcYfGLNrPvOtiTGDTqVqasXVpxgfurN0_AU" />
+              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all flex items-center justify-center">
+                <span class="material-symbols-outlined text-white text-5xl opacity-0 group-hover:opacity-100 transition-opacity" style='font-variation-settings: "FILL" 1;'>play_circle</span>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent">
+                <div class="flex items-center gap-2 mb-2">
+                  <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center font-bold text-[10px] text-on-primary">UL</div>
+                  <span class="font-bold text-sm">@urbanlift_oficial</span>
+                </div>
+                <p class="line-clamp-2 text-sm text-on-surface/90">Recuperación post-sesión. El descanso es parte del proceso.</p>
+              </div>
+              <div class="absolute top-4 right-4">
+                <span class="material-symbols-outlined text-white" style='font-variation-settings: "FILL" 1;'>videocam</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar: Connect -->
+        <aside class="w-full lg:w-80 flex flex-col gap-8">
+          <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 sticky top-28">
+            <h3 class="font-headline text-xl uppercase tracking-tighter mb-8 border-b border-primary/20 pb-4">Sincroniza tu Fuerza</h3>
+            <div class="space-y-4">
+              <a class="flex items-center justify-between p-5 bg-surface rounded-lg hover:bg-primary/10 transition-all group border border-outline-variant/5" href="#">
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">chat</span>
+                  <span class="font-bold uppercase tracking-wider text-sm">WhatsApp</span>
+                </div>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-primary">arrow_forward</span>
+              </a>
+              <a class="flex items-center justify-between p-5 bg-surface rounded-lg hover:bg-primary/10 transition-all group border border-outline-variant/5" href="#">
+                <div class="flex items-center gap-4">
+                  <span class="material-symbols-outlined text-primary text-2xl">share</span>
+                  <span class="font-bold uppercase tracking-wider text-sm">Instagram</span>
+                </div>
+                <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-primary">arrow_forward</span>
+              </a>
+            </div>
+            <div class="mt-12">
+              <p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-4">nUESTRO PRÓXIMO CAMPEONATO</p>
+              <div class="relative overflow-hidden rounded-lg aspect-square group cursor-pointer">
+                <img alt="Championship" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5glmWON85ZXulO6X9bjxr-Sm8NUtwqP6uR3B7DWllZvAfxEGFGcvEKVAs_XS8v6S2HuGT2n4vHPf2Kalw-QYfNTw3hkvBwJqppWKihf3Ld7n5GBJ4Bv31Y1itMIWlbeL6kBIznAx2lkZut8rEr6Fg3stR7BTD3rEGNt5NqeHVL01FqOTy73_jqTi7V0fWa8JAcMcELLyTNwpHlWucViPDKdH-6GcGcWKRWNXRVGFI9iaW50Jhm0ExxjLP1pqFlBGIjVHrSKf3xtM" />
+                <div class="absolute inset-0 bg-primary-container/20 mix-blend-multiply"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                <div class="absolute bottom-4 left-4">
+                  <h4 class="font-headline text-lg font-bold uppercase leading-none">URBANLIFT GYM</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-error-container": "#ffdad6",
+              "on-secondary": "#303030",
+              "on-tertiary-container": "#002b4f",
+              "on-tertiary-fixed-variant": "#00497f",
+              "surface": "#131313",
+              "outline": "#a58c7d",
+              "surface-dim": "#131313",
+              "primary-fixed": "#ffdbc7",
+              "background": "#131313",
+              "surface-container-lowest": "#0e0e0e",
+              "surface-container-highest": "#353534",
+              "on-primary-fixed-variant": "#733600",
+              "on-primary-container": "#471e00",
+              "primary": "#ffb688",
+              "surface-container-high": "#2a2a2a",
+              "on-background": "#e5e2e1",
+              "surface-container": "#201f1f",
+              "on-secondary-container": "#b7b5b4",
+              "on-secondary-fixed": "#1b1c1c",
+              "inverse-on-surface": "#313030",
+              "on-primary": "#512400",
+              "on-secondary-fixed-variant": "#474746",
+              "secondary-fixed-dim": "#c8c6c5",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed": "#001c37",
+              "primary-container": "#e07317",
+              "on-surface-variant": "#ddc1b1",
+              "tertiary": "#a0c9ff",
+              "tertiary-fixed": "#d2e4ff",
+              "secondary-container": "#474746",
+              "tertiary-fixed-dim": "#a0c9ff",
+              "on-tertiary": "#00325a",
+              "primary-fixed-dim": "#ffb688",
+              "secondary": "#c8c6c5",
+              "outline-variant": "#564337",
+              "on-surface": "#e5e2e1",
+              "inverse-surface": "#e5e2e1",
+              "on-primary-fixed": "#311300",
+              "surface-container-low": "#1c1b1b",
+              "secondary-fixed": "#e4e2e1",
+              "surface-tint": "#ffb688",
+              "surface-variant": "#353534",
+              "surface-bright": "#393939",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "inverse-primary": "#974800",
+              "tertiary-container": "#2c94f1"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(45deg, #ffb688 0%, #e07317 100%);
+        }
+        .video-mask {
+            mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-white">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-md flex justify-between items-center px-8 py-4 w-full">
+<div class="text-2xl font-bold tracking-tighter text-[#e5e2e1] font-headline uppercase" style="">hURBANLIFT</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-[#e5e2e1] hover:text-[#ffb688] transition-colors" href="#" style="">Inicio</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-[#e5e2e1] hover:text-[#ffb688] transition-colors" href="#" style="">Categoría</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-[#e07317] border-b-2 border-[#e07317] pb-1" href="#" style="">Nuestro Espacio</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-[#e5e2e1] hover:text-[#ffb688] transition-colors" href="#" style="">Conócenos</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-tighter text-[#e5e2e1] hover:text-[#ffb688] transition-colors" href="#" style="">Comunidad</a>
+</div>
+<button class="kinetic-gradient text-on-primary font-headline font-bold px-6 py-2 rounded-xl uppercase text-sm tracking-widest hover:scale-95 transition-transform active:duration-100" style="">
+            UNIRSE AHORA
+        </button>
+</nav>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-end px-8 pb-16 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 desaturate-[15%]" data-alt="Cinematic wide shot of a premium industrial gym with concrete walls, high ceilings, and warm orange accent lighting reflecting off steel equipment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9zEMBwOmYsDANHlL-4XPSZMIgn_-dL3zxtjWQA4Z3m9McDHMu9-5e1tGwWRQHqTeJCCPle6QMOLlhBGDP9GG_I13uemMwU1MhdV_Dx9BSu2PvE1gopwhqBhjHNh7tbcTtQD9yy2DQT6DnedosQ1nDSD6U7pcoL2hDaUttZyAvxy2IMxLmia-ee7uToSI58NWc3wIO3bVZvMA9y3zc8EOj2ZyJ6B1baViIk3EFuQylThN3j7sL24Yayt9pkle9739JkiOMGUDjM5U" style=""/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-4xl">
+<h1 class="font-headline text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-[0.85] text-on-background" style="">
+                    NUESTRO <br/> <span class="text-primary italic" style="">SANTUARIO</span>
+</h1>
+<p class="mt-6 text-xl text-on-surface-variant max-w-xl font-light" style="">
+                    Conoce nuestras instalaciones pensadas y diseñadas para ti. Entrena con el equipo de más alta calidad</p>
+</div>
+</section>
+<!-- Bento Grid Zones Section -->
+<section class="px-8 py-24 bg-surface-container-lowest">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto">
+<!-- Zone: Calistenia (Large Vertical) -->
+<div class="md:col-span-4 md:row-span-2 group relative overflow-hidden rounded-none border-none bg-surface-container-high aspect-[3/4] md:aspect-auto">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Athletic man performing muscle-up on industrial metal pull-up bars in a moody high-contrast training facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq8o3qx493MVZmUoNliaMYYcjdgMXDhNGgBkqqQjGCclardSNfnGYEabLoIRMPrqeApkIuF00p-l8N9Q1p7Bdb8IKLyHRFLU9WMEecjG5sU2h8j_o48fbdFC48VVttc1rLJQ1rV-B_l8KCiuiS0G4IDoArABbNB-JChlJ1qHojLCURq5dLpI2Y98QFNYu7GlHESMfTLtIi_rUgF39KDbhAw_hVWDusPynAZJrs0d9sQO_TbqMuIy17h8WlH9qWHpdxLB8sHP-QHZI" style=""/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="text-primary font-headline text-xs tracking-[0.2em] uppercase mb-2 block" style=""><br/></span>
+<h3 class="font-headline text-3xl font-bold uppercase tracking-tight" style="">Zona calistenia y stret lifting</h3>
+<div class="h-1 w-0 group-hover:w-full bg-primary transition-all duration-500 mt-2"></div>
+</div>
+</div>
+<!-- Zone: Powerlifting (Landscape) -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-none bg-surface-container-high aspect-video md:aspect-auto h-[300px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Heavy duty power rack with loaded barbell and iron plates in a dark professional strength training room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAklvuafn7V9iIy1ZypK08ZSgEUqNk4Cu2i23RShgBmcpfhY9S2uJsxRiLQzIDyEuKZxtVo599Z9e_ENwte3FwJ7ctjulN-fJYO7ZlFlPuBYAWH4IatpTImPuyHyIE5Pf8AkeEOUurvv913kXbAE66m5nZzvwL442rxE3MvCRDwgBzUkcXVBtYau_jj0Sv5js6BY8SEv_wUPWpRwB94uAxZ7CA3KDOePeZpursWxplLarDsEQEeTDECYJG3JDzTvKB16up3r0KB2t0" style=""/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="text-primary font-headline text-xs tracking-[0.2em] uppercase mb-2 block" style=""><br/></span>
+<h3 class="font-headline text-3xl font-bold uppercase tracking-tight" style="">Zona powerlifting</h3>
+</div>
+</div>
+<!-- Zone: Máquinas (Square) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-none bg-surface-container-high aspect-square">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Modern high-end selectorized gym machines arranged in a clean industrial line with ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCguMQFlOT1OKDLdA3m4v0mqZdXzuaYF4MKPSEa4K_E7bHOHz-xQP5ZZQOTn0DMPpdwWcMcuhKLU8881qVN7XY1lb-ONWrb7BnGp9j55i8G5PfTflJHuRMCnnmSTzkLgLWLZvXrkrqoJhHr03EuLc6dxylfZVmyT3y_aYXIaJnWMGPe8N02_I2WfseyLL5luKXQ7Epk2kUIcQg7dkOsVzDw2uUerLo3tCSwqzo6Ni7lqL8gU4cyBcpgvLLk353eA2aavLE-27OCrIY" style=""/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="text-primary font-headline text-xs tracking-[0.2em] uppercase mb-2 block" style=""><br/></span>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight" style="">Zona máquinas</h3>
+</div>
+</div>
+<!-- Zone: Peso Libre (Square) -->
+<div class="md:col-span-4 group relative overflow-hidden rounded-none bg-surface-container-high aspect-square">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Rows of heavy black dumbbells on professional steel racks in a dark atmospheric fitness studio" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBhuxfQPl6j6YozwBUNwi38372m3eJFc7j6ek_T6Ya5Te5jB1bpmnse49n6EY4EiCRBKrBYv7TC2-6RwvNxUyArZzClZbuXS0IH3jI6lubleyUChlHy9DhUWCOLIaMTjwHyU-aeIIp7BRHpffX3f7vq7PRUtPqiJzT7ZfaAuh-Net7lVxAmej0QArCiLQ1RTxA-mswlp3zZnopBaZj0OwNBf99hZPexTtTpOvLlhKW5qs8Tqo0yuU0RYPhnDjumtazPujkQCHmm-0" style=""/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="text-primary font-headline text-xs tracking-[0.2em] uppercase mb-2 block" style=""><br/></span>
+<h3 class="font-headline text-2xl font-bold uppercase tracking-tight" style="">Zona peso libre</h3>
+</div>
+</div>
+<!-- Zone: Descanso (Landscape Medium) -->
+<div class="md:col-span-7 group relative overflow-hidden rounded-none bg-surface-container-high h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Luxury lounge area with leather seating and industrial minimalist decor for athlete recovery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD20d6CH5U7lYloYovns5hQe5RUfFyYuQ2dIbjwlGCjT41BYWqyoVNitGw1V8J5t_KI2fo81vJMEEv-c2Gk7oj6cD4E7eVO1wMY_XiUT7ffD2hk9n6INLcxOZhLq_g_--EsXyqJMI6GP-IfH84aei_Mlu9SbRycPdZPGxDSjgygDer2Udi1vprCtBZ2gJOdpvDTI7Mj9SA1oQoFRzP7P7Bl1e1JLv-AeEIoQz4nOoeYKdPLh9SpgWcg0gK_NCTkd1qEH1BrdqyAzfs" style=""/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="text-primary font-headline text-xs tracking-[0.2em] uppercase mb-2 block" style=""><br/></span>
+<h3 class="font-headline text-3xl font-bold uppercase tracking-tight" style="">Zona de descanso</h3>
+</div>
+</div>
+<!-- Zone: Camarines (Vertical Slim) -->
+<div class="md:col-span-5 group relative overflow-hidden rounded-none bg-surface-container-high h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Modern premium gym locker room with dark wood lockers and sleek vanity lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl1sknUuS9_g6FqlYKkj62yQSiZXEc9Hy_vv8oigA__IgAHz_uwM9WPS0PlXH15T37Lw_Lk_F0bkLX40s3kbKeVsPZg1v4baIfFVO7WGX7kp48zZvbcHEO-_quDW82bnJH_juAk5FuduqyHbSbxfB9tJl2sgp_oK7BIldfy7BZ6lfCdvv3vHzPkQZ6AlY4IGRYQ5u4C2Q6aUyAgvCwqlCCnHxTKeKhy00xWD2AADy_belFhk2uXoYI1r89mCFhO9iJ2los4aZhLG8" style=""/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="text-primary font-headline text-xs tracking-[0.2em] uppercase mb-2 block" style=""><br/></span>
+<h3 class="font-headline text-3xl font-bold uppercase tracking-tight" style="">Zona baños y camarines</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs Section -->
+<!-- CTA Section -->
+</main>
+<!-- Footer -->
+<footer class="bg-[#0e0e0e] w-full py-12 px-8">
+<div class="flex flex-col md:flex-row justify-between items-start gap-8 w-full max-w-7xl mx-auto">
+<div class="flex flex-col gap-4">
+<div class="text-xl font-bold text-[#e07317] uppercase font-headline" style="">URBANLIFT</div>
+<p class="font-['Manrope'] text-sm text-[#e5e2e1] max-w-xs opacity-60" style="">
+                    Construyendo la elite del entrenamiento de fuerza en un entorno industrial premium.
+                </p>
+</div>
+<div class="flex flex-col md:flex-row gap-12">
+<div class="flex flex-col gap-3">
+<span class="font-headline uppercase text-xs tracking-widest text-primary" style="">Navegación</span>
+<a class="font-['Manrope'] text-sm text-[#e5e2e1]/60 hover:text-[#ffb688] underline underline-offset-4 transition-opacity" href="#" style="">WhatsApp</a>
+<a class="font-['Manrope'] text-sm text-[#e5e2e1]/60 hover:text-[#ffb688] underline underline-offset-4 transition-opacity" href="#" style="">Instagram</a>
+<a class="font-['Manrope'] text-sm text-[#e5e2e1]/60 hover:text-[#ffb688] underline underline-offset-4 transition-opacity" href="#" style="">Ubicación</a>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-white/5 w-full max-w-7xl mx-auto flex justify-between items-center">
+<p class="font-['Manrope'] text-sm text-[#e5e2e1]/40" style="">© 2024 URBANLIFT. Eusebio Lillo 525, Piso 3.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface/20" style="">fitness_center</span>
+<span class="material-symbols-outlined text-on-surface/20" style="">bolt</span>
+</div>
+</div>
+</footer>
+</body></html>

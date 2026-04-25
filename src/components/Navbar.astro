@@ -1,0 +1,46 @@
+---
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+
+const navLinks = [
+  { name: 'Inicio', href: '/' },
+  { name: 'Conócenos', href: '/conocenos' },
+  { name: 'Nuestro Espacio', href: '/nuestro-espacio' },
+  { name: 'Categoría', href: '/modalidades' },
+  { name: 'Comunidad', href: '/comunidad' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/' && currentPath === '/') return true;
+  if (href !== '/' && currentPath.startsWith(href)) return true;
+  return false;
+};
+---
+
+<nav class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md flex justify-between items-center px-8 py-4">
+  <div class="text-2xl font-bold tracking-tighter text-on-background font-headline uppercase">URBANLIFT</div>
+  
+  <!-- Desktop Nav -->
+  <div class="hidden md:flex items-center gap-8">
+    {navLinks.map((link) => (
+      <a 
+        href={link.href}
+        class:list={[
+          "font-headline uppercase tracking-tighter transition-all",
+          isActive(link.href) 
+            ? "text-primary-container border-b-2 border-primary-container pb-1" 
+            : "text-on-background hover:text-primary"
+        ]}
+      >
+        {link.name}
+      </a>
+    ))}
+  </div>
+
+  <button class="kinetic-gradient text-on-primary-container font-bold px-6 py-2 rounded-xl uppercase text-xs tracking-widest scale-95 active:duration-100 hover:opacity-90 transition-all">
+    UNIRSE AHORA
+  </button>
+</nav>
