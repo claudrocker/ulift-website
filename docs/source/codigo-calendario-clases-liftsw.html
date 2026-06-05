@@ -1,0 +1,281 @@
+<!DOCTYPE html><html class="dark" lang="es"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#e07317",
+                        "inverse-surface": "#e5e2e1",
+                        "on-primary-fixed": "#311300",
+                        "on-primary-container": "#471e00",
+                        "on-secondary": "#303030",
+                        "on-tertiary-container": "#002b4f",
+                        "inverse-primary": "#974800",
+                        "surface-container-highest": "#353534",
+                        "on-surface-variant": "#ddc1b1",
+                        "surface-variant": "#353534",
+                        "on-secondary-container": "#b7b5b4",
+                        "primary-fixed": "#ffdbc7",
+                        "error": "#ffb4ab",
+                        "tertiary-fixed": "#d2e4ff",
+                        "surface-bright": "#393939",
+                        "primary": "#ffb688",
+                        "surface": "#131313",
+                        "tertiary-container": "#2c94f1",
+                        "surface-dim": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "outline-variant": "#564337",
+                        "on-tertiary-fixed": "#001c37",
+                        "inverse-on-surface": "#313030",
+                        "on-background": "#e5e2e1",
+                        "error-container": "#93000a",
+                        "surface-container": "#201f1f",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#c8c6c5",
+                        "on-tertiary-fixed-variant": "#00497f",
+                        "on-secondary-fixed-variant": "#474746",
+                        "on-primary-fixed-variant": "#733600",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary": "#512400",
+                        "tertiary": "#a0c9ff",
+                        "surface-container-high": "#2a2a2a",
+                        "on-tertiary": "#00325a",
+                        "primary-fixed-dim": "#ffb688",
+                        "surface-tint": "#ffb688",
+                        "tertiary-fixed-dim": "#a0c9ff",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-error-container": "#ffdad6",
+                        "outline": "#a58c7d",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "secondary-container": "#474746",
+                        "on-error": "#690005",
+                        "secondary-fixed": "#e4e2e1",
+                        "background": "#131313"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(45deg, #ffb688 0%, #e07317 100%);
+        }
+        .video-mask-bottom {
+            background: linear-gradient(to top, #131313 0%, transparent 100%);
+        }
+        .video-mask-top {
+            background: linear-gradient(to bottom, #131313 0%, transparent 100%);
+        }
+        .asymmetric-clip {
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-neutral-900/70 backdrop-blur-md shadow-2xl">
+<div class="flex justify-between items-center px-6 py-4 max-w-full mx-auto">
+<div class="text-2xl font-black tracking-tighter text-orange-500 uppercase font-['Space_Grotesk']">
+                LIFTSW.ACADEMY
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Manrope']">
+<a class="text-orange-500 border-b-2 border-orange-500 pb-1 font-bold" href="#">CLASES</a>
+<a class="text-neutral-400 font-medium hover:text-orange-300 transition-colors" href="#">PERSONALIZADOS</a>
+<a class="text-neutral-400 font-medium hover:text-orange-300 transition-colors" href="#">ASESORÍA ONLINE</a>
+<a class="text-neutral-400 font-medium hover:text-orange-300 transition-colors" href="#">COACHES</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden sm:block text-neutral-400 font-medium hover:text-orange-400 transition-all duration-300 scale-95 active:scale-100 uppercase tracking-widest text-xs">INGRESAR</button>
+<button class="kinetic-gradient text-on-primary-container font-bold px-6 py-2 rounded-xl scale-95 active:scale-100 transition-transform uppercase tracking-tighter text-sm">REGISTRARSE</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40" data-alt="Industrial gym interior with high contrast lighting, steel pull-up bars, and a gritty atmospheric aesthetic with dark shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9R3xVI_S1tFDWMT9wtbah3vcMfQqoi6x3rFj6d_-KkbqiqkjwS28moaR5NPmoriUPfPndvil1wTFIh5DLAs2SEmh0ddZjgQmE6FqYT1Ojxmhe-AAEX9B_02TZv7GApY0rSFSBsoH16tqN2B_JddinVgkSMFC2Lgoqvn93oLPtVSnUiJ3AfCLkeHpOvXrV4KqNBYe4KU-wqbJoBG8H_ZdUnkg2_3InTdKtWhg_iBHiYueX2SY27TEKYsnwnI7lC9rdam7S5eC2n1I">
+<div class="absolute inset-0 video-mask-top h-1/4"></div>
+<div class="absolute inset-0 video-mask-bottom mt-auto h-1/2"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-5xl">
+<h1 class="font-display font-black text-6xl md:text-9xl uppercase tracking-tighter leading-none mb-6 text-on-surface">
+                LIFT<span class="text-primary-container">SW</span>.ACADEMY
+            </h1>
+<p class="font-display text-xl md:text-3xl font-light uppercase tracking-widest text-on-surface-variant max-w-3xl mx-auto mb-10 border-l-4 border-primary-container pl-6 py-2">
+                Domina tu cuerpo, forja tu fuerza. Clases abiertas para todos los niveles.
+            </p>
+<div class="flex flex-wrap justify-center gap-6">
+<button class="kinetic-gradient text-on-primary-container font-bold px-10 py-5 rounded-xl uppercase tracking-widest text-lg shadow-2xl hover:scale-105 transition-all">
+                    COMENZAR AHORA
+                </button>
+<button class="border border-outline px-10 py-5 rounded-xl uppercase tracking-widest text-lg hover:bg-surface-container-high transition-all">
+                    VER HORARIOS
+                </button>
+</div>
+</div>
+</section>
+<!-- Methodology Section -->
+<section class="bg-surface-container-lowest py-32 px-6">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 blur-3xl rounded-full"></div>
+<img class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" data-alt="Close up of a person's chalked hands gripping a pull up bar in a dark industrial gym setting with dramatic orange side light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL3pKH30-vV1KIhLGbQD_0oOJ7MfXylZs659dlYH5PWUozu-n7Y8KAlk4BPIbKO00fJx__mK1N-RUjBW5IvMD_VCca6sbrWr1cPcF2T88pazXq4jNKfs1BfCtC3YbZACyT44VA-vHwk_hFMFTbdPNEQ3AErCqe7OGBZ19Uhgq_gPbY55KRbF82OuXy3SUZjatp_CCKicR3_3IKqWcOl-gGTUPaxngx5YcU9ySHZjoezuzDnufornmsrOJTBNAA1wNpZpL_B-TXiBg">
+<div class="absolute -bottom-6 -right-6 z-20 bg-primary-container text-on-primary-container p-8 font-display font-bold text-4xl uppercase tracking-tighter">
+                    RAW POWER
+                </div>
+</div>
+<div class="space-y-8">
+<h2 class="font-display text-5xl md:text-7xl font-black uppercase tracking-tighter text-primary">
+                    Nuestra Metodología
+                </h2>
+<div class="h-1 w-24 bg-primary-container"></div>
+<p class="font-body text-xl md:text-2xl text-on-surface-variant leading-relaxed font-light">
+                    Entrena en un ambiente de alto rendimiento adaptado a ti. Nuestras clases multinivel te enseñarán desde los básicos hasta los movimientos más avanzados de calistenia y street lifting.
+                </p>
+<div class="grid grid-cols-2 gap-8 pt-8">
+<div class="space-y-2">
+<span class="material-symbols-outlined text-primary text-4xl">fitness_center</span>
+<h4 class="font-display font-bold uppercase tracking-widest">Street Lifting</h4>
+<p class="text-sm text-on-secondary-container">Fuerza pura con lastre.</p>
+</div>
+<div class="space-y-2">
+<span class="material-symbols-outlined text-primary text-4xl">sports_gymnastics</span>
+<h4 class="font-display font-bold uppercase tracking-widest">Skills</h4>
+<p class="text-sm text-on-secondary-container">Control corporal total.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Schedules Section -->
+<section class="bg-surface py-32 px-6 relative overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<span class="text-primary-container font-display font-bold uppercase tracking-[0.3em] text-sm"></span>
+<h2 class="font-display text-6xl md:text-8xl font-black uppercase tracking-tighter mt-4">CALENDARIO SEMANAL</h2>
+</div>
+<div class="text-right hidden md:block">
+<p class="font-body italic text-outline"><br></p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-4">
+<!-- Monday -->
+<div class="bg-surface-container-high p-8 group hover:bg-primary-container transition-all duration-500 border-l-4 border-primary-container">
+<h3 class="font-display font-bold text-2xl uppercase mb-8 group-hover:text-on-primary-container">LUNES</h3>
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="text-3xl font-black font-display group-hover:text-on-primary-container">19:00</span>
+<span class="text-primary font-bold uppercase tracking-widest text-xs group-hover:text-on-primary-container">HRS</span>
+</div>
+<div class="pt-4 border-t border-outline-variant group-hover:border-on-primary-container/20">
+<span class="font-display font-bold group-hover:text-on-primary-container">COACH:</span>
+<p class="font-body group-hover:text-on-primary-container">THOMAS</p>
+</div>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="bg-surface-container-high p-8 group hover:bg-primary-container transition-all duration-500 border-l-4 border-primary-container">
+<h3 class="font-display font-bold text-2xl uppercase mb-8 group-hover:text-on-primary-container">MARTES</h3>
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="text-3xl font-black font-display group-hover:text-on-primary-container">19:00</span>
+<span class="text-primary font-bold uppercase tracking-widest text-xs group-hover:text-on-primary-container">HRS</span>
+</div>
+<div class="pt-4 border-t border-outline-variant group-hover:border-on-primary-container/20">
+<span class="font-display font-bold group-hover:text-on-primary-container">COACHES:</span>
+<p class="font-body group-hover:text-on-primary-container">THOMAS &amp; ALLISON</p>
+</div>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="bg-surface-container-high p-8 group hover:bg-primary-container transition-all duration-500 border-l-4 border-primary-container">
+<h3 class="font-display font-bold text-2xl uppercase mb-8 group-hover:text-on-primary-container">MIÉRCOLES</h3>
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="text-3xl font-black font-display group-hover:text-on-primary-container">19:00</span>
+<span class="text-primary font-bold uppercase tracking-widest text-xs group-hover:text-on-primary-container">HRS</span>
+</div>
+<div class="pt-4 border-t border-outline-variant group-hover:border-on-primary-container/20">
+<span class="font-display font-bold group-hover:text-on-primary-container">COACH:</span>
+<p class="font-body group-hover:text-on-primary-container">THOMAS</p>
+</div>
+</div>
+</div>
+<!-- Thursday -->
+<div class="bg-surface-container-high p-8 group hover:bg-primary-container transition-all duration-500 border-l-4 border-primary-container">
+<h3 class="font-display font-bold text-2xl uppercase mb-8 group-hover:text-on-primary-container">JUEVES</h3>
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="text-3xl font-black font-display group-hover:text-on-primary-container">19:00</span>
+<span class="text-primary font-bold uppercase tracking-widest text-xs group-hover:text-on-primary-container">HRS</span>
+</div>
+<div class="pt-4 border-t border-outline-variant group-hover:border-on-primary-container/20">
+<span class="font-display font-bold group-hover:text-on-primary-container">COACHES:</span>
+<p class="font-body group-hover:text-on-primary-container">THOMAS &amp; ALLISON</p>
+</div>
+</div>
+</div>
+<!-- Saturday -->
+<div class="bg-surface-container-high p-8 group hover:bg-primary-container transition-all duration-500 border-l-4 border-primary-container lg:scale-105 shadow-2xl">
+<h3 class="font-display font-bold text-2xl uppercase mb-8 group-hover:text-on-primary-container">SÁBADO</h3>
+<div class="space-y-4">
+<div class="flex flex-col">
+<span class="text-3xl font-black font-display group-hover:text-on-primary-container">10:00</span>
+<span class="text-primary font-bold uppercase tracking-widest text-xs group-hover:text-on-primary-container">HRS</span>
+</div>
+<div class="pt-4 border-t border-outline-variant group-hover:border-on-primary-container/20">
+<span class="font-display font-bold group-hover:text-on-primary-container">COACHES:</span>
+<p class="font-body group-hover:text-on-primary-container">THOMAS &amp; ALLISON</p>
+</div>
+</div>
+<div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-on-primary-container">bolt</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Visual Divider / CTA -->
+<section class="h-[512px] relative flex items-center justify-center">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-60" data-alt="A muscular athlete doing a human flag on a vertical bar, highly detailed silhouette against a dark industrial background with orange rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIB3Y3_9BTBOp0zZ9cwtRree0EchwBi85aFhOllW0rEvPbRFy3QUWh0Ce2nXAlaTMdrGp7QJ10i2YsC3ERWHp2GK31y7zPTF-2uJPnM6KKB9G7E5ADjsVR7nYOCADQWAnlL52y7aqxenbIoIFtBdWGcTh5nJPQ5GQJPjxwEGL7csbmSW7DmtJAB2ceuV_OypiOGTy_GOMiQ2Rty0FC-7RSCmGjZofhAFiyfvVONEJF1JcD8iDUKt-zCmgVXIcdwVmQ5z_M__1Z86U">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="relative z-10 text-center max-w-4xl px-6">
+<h2 class="font-display text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight">
+                ¿LISTO PARA EL SIGUIENTE NIVEL?
+            </h2>
+<button class="kinetic-gradient text-on-primary-container font-extrabold px-12 py-6 rounded-xl uppercase tracking-widest text-xl shadow-2xl transform hover:scale-110 transition-all">
+                RESERVAR MI CLASE
+            </button>
+</div>
+</section>
+<!-- Footer -->
+
+
+
+
+</body></html>
