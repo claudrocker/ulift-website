@@ -1,5 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import PlanModal from '../components/PlanModal.astro';
+import PlanMensual from '../components/plans/PlanMensual.astro';
+import PlanTrimestral from '../components/plans/PlanTrimestral.astro';
+import PlanSemestral from '../components/plans/PlanSemestral.astro';
+import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
+import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
 ---
 
 <Layout title="URBANLIFT - Forjando atletas, esculpiendo cuerpos">
@@ -19,8 +25,8 @@ import Layout from '../layouts/Layout.astro';
       </p>
       <div class="flex flex-col md:flex-row gap-4">
         <a class="kinetic-gradient text-on-primary-container font-bold px-10 py-5 rounded-xl uppercase text-sm tracking-widest text-center hover:shadow-[0_0_30px_rgba(224,115,23,0.4)] transition-all" href="#plans">Conoce nuestros planes</a>
-        <button class="bg-surface-container-high border border-outline-variant/30 text-on-surface font-bold px-10 py-5 rounded-xl uppercase text-sm tracking-widest hover:bg-surface-container-highest transition-all">
-          Conoce nuestro espacio</button>
+        <a href="/nuestro-espacio" class="bg-surface-container-high border border-outline-variant/30 text-on-surface font-bold px-10 py-5 rounded-xl uppercase text-sm tracking-widest hover:bg-surface-container-highest transition-all text-center">
+          Conoce nuestro espacio</a>
       </div>
     </div>
   </header>
@@ -126,7 +132,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <!-- Plan 1 -->
-        <div class="bg-surface p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
+        <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
           <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
           <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN MENSUAL (PREPAGO)</h4>
           <div class="text-3xl font-extrabold font-headline mb-8">$34.990</div>
@@ -140,10 +146,10 @@ import Layout from '../layouts/Layout.astro';
               Acceso Total Gimnasio
             </li>
           </ul>
-          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Seleccionar</button>
+          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-mensual">ver plan</button>
         </div>
         <!-- Plan 2 -->
-        <div class="bg-surface p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
+        <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
           <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
           <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN TRIMESTRAL 10%OFF (PREPAGO)</h4>
           <div class="text-3xl font-extrabold font-headline mb-8">$94.473</div>
@@ -157,10 +163,10 @@ import Layout from '../layouts/Layout.astro';
               Precio preferencial por trimestre
             </li>
           </ul>
-          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Seleccionar</button>
+          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-trimestral">ver plan</button>
         </div>
         <!-- Plan 3 -->
-        <div class="bg-surface-container-high p-6 rounded-none border-l-4 border-primary-container shadow-2xl z-10 flex flex-col h-full lg:scale-105">
+        <div class="bg-[#272727] hover:bg-[#343434] p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group shadow-2xl z-10 flex flex-col h-full lg:scale-105">
           <div class="flex justify-between items-start mb-2">
             <span class="text-primary font-headline font-bold text-xs uppercase tracking-widest">PAGO ÚNICO</span>
             <span class="bg-primary-container text-[9px] text-on-primary-container px-2 py-1 font-bold rounded">POPULAR</span>
@@ -177,10 +183,10 @@ import Layout from '../layouts/Layout.astro';
               Ahorro del 15% semestral
             </li>
           </ul>
-          <button class="w-full py-4 kinetic-gradient text-on-primary-container font-bold uppercase text-[10px] tracking-widest transition-all">Seleccionar</button>
+          <button class="w-full py-4 bg-surface border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-semestral">ver plan</button>
         </div>
         <!-- Plan 4 -->
-        <div class="bg-surface p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
+        <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
           <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
           <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">ANUAL PREPAGO 30%OFF (PREPAGO)</h4>
           <div class="text-3xl font-extrabold font-headline mb-8">$293.916</div>
@@ -194,10 +200,10 @@ import Layout from '../layouts/Layout.astro';
               Máximo ahorro anual (30%)
             </li>
           </ul>
-          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Seleccionar</button>
+          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-anual-prepago">ver plan</button>
         </div>
         <!-- Plan 5 -->
-        <div class="bg-surface p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
+        <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
           <span class="text-primary font-headline font-bold text-[9px] mb-2 uppercase tracking-tighter">DESCUENTA MES A MES DE TU TARJETA</span>
           <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">SUSCRIPCIÓN ANUAL 20%OFF (CREDITO)</h4>
           <div class="text-3xl font-extrabold font-headline mb-8">$335.904</div>
@@ -211,7 +217,7 @@ import Layout from '../layouts/Layout.astro';
               Cargo mensual automático
             </li>
           </ul>
-          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all">Seleccionar</button>
+          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-suscripcion-anual">ver plan</button>
         </div>
       </div>
       <!-- Daily Pass Sub-section -->
@@ -232,4 +238,54 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
   </section>
+
+  <!-- Plan Modals -->
+  <PlanModal id="plan-mensual"><PlanMensual /></PlanModal>
+  <PlanModal id="plan-trimestral"><PlanTrimestral /></PlanModal>
+  <PlanModal id="plan-semestral"><PlanSemestral /></PlanModal>
+  <PlanModal id="plan-anual-prepago"><PlanAnualPrepago /></PlanModal>
+  <PlanModal id="plan-suscripcion-anual"><SuscripcionAnual /></PlanModal>
 </Layout>
+
+<script>
+  function openPlanModal(id: string) {
+    const modal = document.getElementById(`modal-${id}`);
+    if (!modal) return;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePlanModal(modal: HTMLElement) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-plan-id]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const id = btn.dataset.planId;
+      if (id) openPlanModal(id);
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-plan-close]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const modal = btn.closest<HTMLElement>('[id^="modal-plan-"]');
+      if (modal) closePlanModal(modal);
+    });
+  });
+
+  document.querySelectorAll<HTMLElement>('[data-plan-backdrop]').forEach((backdrop) => {
+    backdrop.addEventListener('click', () => {
+      const modal = backdrop.closest<HTMLElement>('[id^="modal-plan-"]');
+      if (modal) closePlanModal(modal);
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll<HTMLElement>('[id^="modal-plan-"].flex').forEach(closePlanModal);
+    }
+  });
+</script>

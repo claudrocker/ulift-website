@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#a0c9ff",
+                      "tertiary-fixed": "#d2e4ff",
+                      "primary-fixed-dim": "#ffb688",
+                      "on-primary-fixed-variant": "#733600",
+                      "on-error-container": "#ffdad6",
+                      "error-container": "#93000a",
+                      "surface-container-low": "#1c1b1b",
+                      "surface-tint": "#ffb688",
+                      "on-tertiary-container": "#002b4f",
+                      "surface-variant": "#353534",
+                      "outline": "#a58c7d",
+                      "surface-dim": "#131313",
+                      "tertiary-fixed-dim": "#a0c9ff",
+                      "surface-container-high": "#2a2a2a",
+                      "on-primary-container": "#471e00",
+                      "inverse-on-surface": "#313030",
+                      "primary-fixed": "#ffdbc7",
+                      "secondary": "#c8c6c5",
+                      "on-surface": "#e5e2e1",
+                      "on-secondary-container": "#b7b5b4",
+                      "error": "#ffb4ab",
+                      "outline-variant": "#564337",
+                      "on-tertiary-fixed-variant": "#00497f",
+                      "surface-container-highest": "#353534",
+                      "on-background": "#e5e2e1",
+                      "on-tertiary": "#00325a",
+                      "surface-container": "#201f1f",
+                      "inverse-primary": "#974800",
+                      "secondary-container": "#474746",
+                      "primary": "#ffb688",
+                      "on-secondary-fixed": "#1b1c1c",
+                      "on-primary-fixed": "#311300",
+                      "on-secondary-fixed-variant": "#474746",
+                      "primary-container": "#e07317",
+                      "surface-bright": "#393939",
+                      "on-tertiary-fixed": "#001c37",
+                      "background": "#131313",
+                      "surface-container-lowest": "#0e0e0e",
+                      "on-surface-variant": "#ddc1b1",
+                      "on-error": "#690005",
+                      "inverse-surface": "#e5e2e1",
+                      "surface": "#131313",
+                      "secondary-fixed": "#e4e2e1",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-primary": "#512400",
+                      "tertiary-container": "#2c94f1",
+                      "on-secondary": "#303030"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(45deg, #ffb688 0%, #e07317 100%);
+        }
+        .mask-image-v {
+            mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background-color: rgba(19, 19, 19, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white overflow-x-hidden">
+<!-- Top Navigation Anchor (Suppressed standard shell for transactional focus) -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-20 bg-[#131313]/70 backdrop-blur-md">
+<div class="flex items-center">
+<button class="text-on-surface p-2 hover:bg-surface-container-high rounded-full transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="absolute left-1/2 -translate-x-1/2">
+<h1 class="text-2xl font-black text-orange-600 tracking-tighter font-headline uppercase">URBANLIFT</h1>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-zinc-400">info</span>
+</div>
+</header>
+<main class="relative pt-20 pb-32 min-h-screen">
+<!-- Background Asset with Overlay -->
+<div class="fixed inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40 desaturate-[15%]" data-alt="Cinematic wide shot of a dark industrial strength training facility with heavy iron plates, moody orange highlights and concrete walls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEkT4uH9xqxOD5tHdrtrfGA7gTeom-0XnW2aCubyVuXWlzNTaZGvyAVnJBsTLW_kbOeUC-2kx7g7KLh7omMr48K2CnSXFgHSExbcoQQdNKv5IDbsP9yvA4HHKAN80mNpzySF3jXy14trQ2LyNay2aB3bZ-e26fdz1j_Wg2dpQjKTzY4tVgMo_dgCOftBZRUWFjcrMWtoWAMsGmSuerQINOKB80R4I44UHEd2In8vD9nq-JC8CkhC73zPYBR_1N4KsTkE0OmQRo-B0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/80"></div>
+</div>
+<section class="relative z-10 px-6 max-w-4xl mx-auto mt-8">
+<!-- Hero High Impact Heading -->
+<div class="text-center mb-12">
+<h2 class="font-headline font-black text-5xl md:text-7xl lg:text-8xl leading-none tracking-tighter uppercase mb-4">
+                    SOCIOS <br/> <span class="text-primary">FUNDADORES</span>
+</h2>
+<div class="inline-block kinetic-gradient px-8 py-3 transform skew-x-[-12deg]">
+<span class="block skew-x-[12deg] font-headline font-black text-4xl md:text-6xl text-on-primary-container uppercase italic tracking-tighter">
+                        40% OFF
+                    </span>
+</div>
+</div>
+<!-- Scarcity / Progress Section -->
+<div class="bg-surface-container-low p-6 rounded-none mb-12 border-l-4 border-primary">
+<div class="flex justify-between items-end mb-4">
+<p class="font-headline font-bold text-lg md:text-xl tracking-widest uppercase">QUEDAN 87/100 CUPOS DISPONIBLES</p>
+<span class="text-primary font-black text-2xl">87%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full kinetic-gradient w-[87%]"></div>
+</div>
+<p class="mt-4 text-sm text-zinc-500 uppercase tracking-widest font-medium">Promoción exclusiva para los primeros 100 miembros</p>
+</div>
+<!-- Pricing Bento Layout -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+<div class="bg-surface-container-high p-8 flex flex-col justify-center">
+<p class="text-zinc-500 uppercase font-bold text-xs tracking-widest mb-2">Pago Anual Único</p>
+<h3 class="font-headline font-black text-4xl lg:text-5xl text-on-surface">$251.928 <span class="text-lg font-normal text-zinc-400">ANUAL</span></h3>
+</div>
+<div class="bg-surface-container-highest p-8 flex flex-col justify-center relative overflow-hidden">
+<div class="absolute top-0 right-0 p-2">
+<span class="bg-primary text-on-primary-fixed text-[10px] font-black px-2 py-1 uppercase tracking-tighter">Recomendado</span>
+</div>
+<p class="text-zinc-500 uppercase font-bold text-xs tracking-widest mb-2">Equivalente por mes</p>
+<h3 class="font-headline font-black text-4xl lg:text-5xl text-primary">$20.994 <span class="text-lg font-normal text-zinc-300">MENSUAL</span></h3>
+</div>
+</div><div class="flex justify-center mb-16">
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high border border-outline-variant/30 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm">payments</span>
+<span class="font-headline font-bold text-xs uppercase tracking-[0.2em] text-on-surface-variant">Cualquier método de pago</span>
+</div>
+</div>
+<!-- Exclusive Benefits -->
+</section>
+</main>
+<!-- Fixed Action Bar -->
+<div class="fixed bottom-0 w-full z-50 bg-[#131313]/80 backdrop-blur-xl p-6 flex flex-col items-center">
+<button class="w-full max-w-md kinetic-gradient h-16 rounded-xl flex items-center justify-center gap-3 active:scale-95 transition-all duration-200 shadow-[0_10px_30px_rgba(224,115,23,0.3)] group">
+<span class="font-headline font-black text-xl text-on-primary-container uppercase tracking-widest">ASEGURAR MI LUGAR</span>
+<span class="material-symbols-outlined text-on-primary-container group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<p class="mt-3 text-[10px] text-zinc-500 uppercase tracking-widest font-bold">Sin contratos de permanencia obligatoria</p>
+</div>
+<!-- Background Decorative Element (Asymmetric motion) -->
+<div class="fixed top-1/4 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="fixed bottom-1/4 -left-20 w-64 h-64 bg-orange-900/10 rounded-full blur-[80px] pointer-events-none"></div>
+</body></html>

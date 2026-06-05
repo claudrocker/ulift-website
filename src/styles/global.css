@@ -58,7 +58,7 @@
 
 @layer utilities {
   .kinetic-gradient {
-    background: linear-gradient(45deg, #ffb688 0%, #e07317 100%);
+    background: linear-gradient(45deg, #CC6400 0%, #e07317 100%);
   }
   .brand-gradient {
     background: linear-gradient(135deg, #CC6400 0%, #e07317 100%);

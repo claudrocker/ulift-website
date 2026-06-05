@@ -1,0 +1,157 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#ffdbc7",
+                    "outline-variant": "#564337",
+                    "tertiary-container": "#2c94f1",
+                    "tertiary-fixed-dim": "#a0c9ff",
+                    "surface-dim": "#131313",
+                    "on-background": "#e5e2e1",
+                    "error-container": "#93000a",
+                    "inverse-primary": "#974800",
+                    "surface-variant": "#353534",
+                    "on-surface": "#e5e2e1",
+                    "on-error": "#690005",
+                    "inverse-on-surface": "#313030",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary": "#c8c6c5",
+                    "error": "#ffb4ab",
+                    "on-tertiary": "#00325a",
+                    "on-tertiary-container": "#002b4f",
+                    "surface-container": "#201f1f",
+                    "on-secondary-fixed-variant": "#474746",
+                    "surface-tint": "#ffb688",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary": "#512400",
+                    "surface-container-highest": "#353534",
+                    "on-secondary-fixed": "#1b1c1c",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-tertiary-fixed-variant": "#00497f",
+                    "primary-fixed-dim": "#ffb688",
+                    "primary": "#ffb688",
+                    "on-primary-fixed-variant": "#733600",
+                    "on-secondary-container": "#b7b5b4",
+                    "tertiary-fixed": "#d2e4ff",
+                    "background": "#131313",
+                    "surface-container-low": "#1c1b1b",
+                    "on-error-container": "#ffdad6",
+                    "secondary-fixed": "#e4e2e1",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "outline": "#a58c7d",
+                    "on-tertiary-fixed": "#001c37",
+                    "tertiary": "#a0c9ff",
+                    "primary-container": "#e07317",
+                    "on-primary-container": "#471e00",
+                    "secondary-container": "#474746",
+                    "on-primary-fixed": "#311300",
+                    "on-surface-variant": "#ddc1b1",
+                    "on-secondary": "#303030",
+                    "surface-bright": "#393939",
+                    "surface": "#131313"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "display": ["Space Grotesk"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .kinetic-gradient {
+            background: linear-gradient(45deg, #ffb688 0%, #e07317 100%);
+        }
+        .glass-overlay {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body min-h-screen flex flex-col selection:bg-primary-container selection:text-white">
+<!-- TopNavBar -->
+<!-- Main Content: Coach Modal Card -->
+<main class="flex-grow flex items-center justify-center px-4 py-24 md:py-32">
+<div class="max-w-5xl w-full bg-surface-container overflow-hidden shadow-2xl flex flex-col md:flex-row relative">
+<!-- Close Button Fallback (Visual Only) -->
+<button class="absolute top-6 right-6 z-10 text-on-surface/40 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">close</span>
+</button>
+<!-- Left Side: Large Photo -->
+<div class="w-full md:w-1/2 h-[400px] md:h-auto relative overflow-hidden">
+<img alt="Coach Fabian Lopez" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida/ADBb0ugAH8gTIaDvTYZ2wAImOu2_KSO2GX16V7DaU0v89_ySvojtIPFOCXYrieNeMaAf86wm-A-VFEtf3LepLoVia8mdgI76CECpkEF48nd2RYcZnJlS3bFCxyaOT-dEFFcnstMqfOaApGtyhE9j6DUknhFRPqnCk7IaekbL3SGzujNTqpyKwkZZnjUdZOdhqndDrdrh8EaaJ9pl30ytC3CsPV1QI9HVHK2Y5VrBSYBENsiDQ_hLOkukuYIdvcpxeLpDwHJIQes8luaC">
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-surface-container"></div>
+</div>
+<!-- Right Side: Details -->
+<div class="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+<div class="mb-2">
+<span class="text-primary font-headline font-bold tracking-[0.2em] text-xs uppercase"></span>
+</div>
+<h1 class="text-5xl md:text-6xl font-headline font-black italic uppercase tracking-tighter text-on-surface mb-2 leading-none">
+                    thomas cabezas</h1>
+<h2 class="text-xl md:text-2xl font-body font-light text-primary-fixed mb-8 tracking-wide">
+                    Calisthenic Specialist
+                </h2>
+<div class="space-y-6 mb-10">
+<p class="text-on-surface/80 text-lg leading-relaxed font-light">
+                        Specializing in the raw mechanics of strength, Fabian focuses on mastering the big three: Squat, Bench, and Deadlift. His methodology strips away the noise to focus on compound lifting and progressive overload.
+                    </p>
+<p class="text-on-surface/60 text-sm italic border-l-2 border-primary-container pl-4">
+                        "Strength is a skill. We don't just lift; we engineer movement for maximum output and longevity."
+                    </p>
+</div>
+<!-- Action Buttons -->
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="kinetic-gradient flex-1 py-4 px-6 rounded-xl text-center font-headline font-bold text-on-primary-container text-sm uppercase tracking-widest hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+                        INSTAGRAM
+                    </a>
+<a class="border border-outline-variant/30 flex-1 py-4 px-6 rounded-xl text-center font-headline font-bold text-on-surface text-sm uppercase tracking-widest hover:bg-surface-container-high active:scale-[0.98] transition-all flex items-center justify-center gap-2" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="chat">chat</span>
+                        WHATSAPP
+                    </a>
+</div>
+<!-- Stats Footer Inside Content -->
+<div class="mt-12 grid grid-cols-3 gap-4 border-t border-outline-variant/10 pt-8">
+<div>
+<div class="text-primary font-headline font-black text-2xl"><br></div>
+<div class="text-[10px] text-on-surface/40 uppercase tracking-widest"><br></div>
+</div>
+<div>
+<div class="text-primary font-headline font-black text-2xl"><br></div>
+<div class="text-[10px] text-on-surface/40 uppercase tracking-widest"><br></div>
+</div>
+<div>
+<div class="text-primary font-headline font-black text-2xl"><br></div>
+<div class="text-[10px] text-on-surface/40 uppercase tracking-widest"><br></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+
+
+
+
+</body></html>

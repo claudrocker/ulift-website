@@ -7,9 +7,8 @@ const { currentPath } = Astro.props;
 
 const navLinks = [
   { name: 'Inicio', href: '/' },
-  { name: 'Conócenos', href: '/conocenos' },
+  { name: 'Modalidades', href: '/modalidades' },
   { name: 'Nuestro Espacio', href: '/nuestro-espacio' },
-  { name: 'Categoría', href: '/modalidades' },
   { name: 'Comunidad', href: '/comunidad' },
 ];
 
@@ -40,7 +39,7 @@ const isActive = (href: string) => {
     ))}
   </div>
 
-  <button class="kinetic-gradient text-on-primary-container font-bold px-6 py-2 rounded-xl uppercase text-xs tracking-widest scale-95 active:duration-100 hover:opacity-90 transition-all">
+  <button class="kinetic-gradient text-on-primary-container font-bold px-6 py-2 rounded-xl uppercase text-xs tracking-widest scale-95 active:duration-100 hover:brightness-110 transition-all">
     UNIRSE AHORA
   </button>
 </nav>

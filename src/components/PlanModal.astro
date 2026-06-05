@@ -1,0 +1,21 @@
+---
+interface Props {
+  id: string;
+}
+const { id } = Astro.props;
+---
+
+<div
+  id={`modal-${id}`}
+  class="fixed inset-0 z-[100] hidden items-center justify-center p-4"
+  role="dialog"
+  aria-modal="true"
+>
+  <!-- Backdrop -->
+  <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" data-plan-backdrop></div>
+
+  <!-- Modal card -->
+  <div class="relative z-10 w-full max-w-4xl bg-surface-container-high overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.6)] flex flex-col md:flex-row max-h-[90vh] overflow-y-auto">
+    <slot />
+  </div>
+</div>
