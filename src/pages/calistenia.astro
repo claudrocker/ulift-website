@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="LIFTSW.ACADEMY - Calendario de Clases">
+  <!-- Hero Section -->
+  <header class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+      <div class="absolute inset-0 bg-black/40 z-10"></div>
+      <img alt="Industrial gym interior with high contrast lighting, steel pull-up bars, and a gritty atmospheric aesthetic with dark shadows" class="w-full h-full object-cover video-mask-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9R3xVI_S1tFDWMT9wtbah3vcMfQqoi6x3rFj6d_-KkbqiqkjwS28moaR5NPmoriUPfPndvil1wTFIh5DLAs2SEmh0ddZjgQmE6FqYT1Ojxmhe-AAEX9B_02TZv7GApY0rSFSBsoH16tqN2B_JddinVgkSMFC2Lgoqvn93oLPtVSnUiJ3AfCLkeHpOvXrV4KqNBYe4KU-wqbJoBG8H_ZdUnkg2_3InTdKtWhg_iBHiYueX2SY27TEKYsnwnI7lC9rdam7S5eC2n1I"/>
+    </div>
+    <div class="relative z-20 text-center px-4 max-w-5xl">
+      <h1 class="font-headline font-black text-6xl md:text-9xl uppercase tracking-tighter leading-none mb-6 text-on-surface text-overlap">
+        LIFT<span class="text-primary-container">SW</span>.ACADEMY
+      </h1>
+      <p class="font-headline text-xl md:text-3xl font-light uppercase tracking-widest text-on-surface-variant max-w-3xl mx-auto mb-10 border-l-4 border-primary-container pl-6 py-2">
+        Domina tu cuerpo, forja tu fuerza. Clases abiertas para todos los niveles.
+      </p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="#calendario" class="kinetic-gradient text-on-primary-container font-bold px-10 py-5 rounded-xl uppercase tracking-widest text-lg shadow-2xl hover:scale-105 transition-all">
+          COMENZAR AHORA
+        </a>
+        <a href="#calendario" class="border border-outline px-10 py-5 rounded-xl uppercase tracking-widest text-lg hover:bg-surface-container-high transition-all">
+          VER HORARIOS
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Methodology Section -->
+  <section class="bg-surface-container-lowest py-32 px-6">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+      <div class="relative">
+        <div class="absolute -top-12 -left-12 w-64 h-64 bg-primary-container/10 blur-3xl rounded-full"></div>
+        <img alt="Close up of a person's chalked hands gripping a pull up bar in a dark industrial gym setting with dramatic orange side light" class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL3pKH30-vV1KIhLGbQD_0oOJ7MfXylZs659dlYH5PWUozu-n7Y8KAlk4BPIbKO00fJx__mK1N-RUjBW5IvMD_VCca6sbrWr1cPcF2T88pazXq4jNKfs1BfCtC3YbZACyT44VA-vHwk_hFMFTbdPNEQ3AErCqe7OGBZ19Uhgq_gPbY55KRbF82OuXy3SUZjatp_CCKicR3_3IKqWcOl-gGTUPaxngx5YcU9ySHZjoezuzDnufornmsrOJTBNAA1wNpZpL_B-TXiBg"/>
+        <div class="absolute -bottom-6 -right-6 z-20 bg-primary-container text-on-primary-container p-8 font-headline font-bold text-4xl uppercase tracking-tighter">
+          RAW POWER
+        </div>
+      </div>
+      <div class="space-y-8">
+        <h2 class="font-headline text-5xl md:text-7xl font-black uppercase tracking-tighter text-primary">
+          Nuestra Metodología
+        </h2>
+        <div class="h-1 w-24 bg-primary-container"></div>
+        <p class="font-body text-xl md:text-2xl text-on-surface-variant leading-relaxed font-light">
+          Entrena en un ambiente de alto rendimiento adaptado a ti. Nuestras clases multinivel te enseñarán desde los básicos hasta los movimientos más avanzados de calistenia y street lifting.
+        </p>
+        <div class="grid grid-cols-2 gap-8 pt-8">
+          <div class="space-y-2">
+            <span class="material-symbols-outlined text-primary text-4xl">fitness_center</span>
+            <h4 class="font-headline font-bold uppercase tracking-widest">Street Lifting</h4>
+            <p class="text-sm text-on-secondary-container">Fuerza pura con lastre.</p>
+          </div>
+          <div class="space-y-2">
+            <span class="material-symbols-outlined text-primary text-4xl">sports_gymnastics</span>
+            <h4 class="font-headline font-bold uppercase tracking-widest">Skills</h4>
+            <p class="text-sm text-on-secondary-container">Control corporal total.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schedules Section -->
+  <section class="bg-surface py-32 px-6 relative overflow-hidden" id="calendario">
+    <div class="max-w-7xl mx-auto">
+      <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <h2 class="font-headline text-6xl md:text-8xl font-black uppercase tracking-tighter mt-4">CALENDARIO SEMANAL</h2>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        <!-- Tuesday -->
+        <div class="bg-surface-container-high p-8 group hover:bg-primary-container transition-all duration-500 border-l-4 border-primary-container">
+          <h3 class="font-headline font-bold text-2xl uppercase mb-8 group-hover:text-on-primary-container">MARTES</h3>
+          <div class="space-y-4">
+            <div class="flex flex-col">
+              <span class="text-3xl font-black font-headline group-hover:text-on-primary-container">19:00 a 20:30</span>
+              <span class="text-primary font-bold uppercase tracking-widest text-xs group-hover:text-on-primary-container">HRS</span>
+            </div>
+            <div class="pt-4 border-t border-outline-variant group-hover:border-on-primary-container/20">
+              <span class="font-headline font-bold group-hover:text-on-primary-container">COACHES:</span>
+              <p class="font-body group-hover:text-on-primary-container">THOMAS &amp; ALLISON</p>
+            </div>
+          </div>
+        </div>
+        <!-- Thursday -->
+        <div class="bg-surface-container-high p-8 group hover:bg-primary-container transition-all duration-500 border-l-4 border-primary-container">
+          <h3 class="font-headline font-bold text-2xl uppercase mb-8 group-hover:text-on-primary-container">JUEVES</h3>
+          <div class="space-y-4">
+            <div class="flex flex-col">
+              <span class="text-3xl font-black font-headline group-hover:text-on-primary-container">19:00 a 20:30</span>
+              <span class="text-primary font-bold uppercase tracking-widest text-xs group-hover:text-on-primary-container">HRS</span>
+            </div>
+            <div class="pt-4 border-t border-outline-variant group-hover:border-on-primary-container/20">
+              <span class="font-headline font-bold group-hover:text-on-primary-container">COACHES:</span>
+              <p class="font-body group-hover:text-on-primary-container">THOMAS &amp; ALLISON</p>
+            </div>
+          </div>
+        </div>
+        <!-- Saturday -->
+        <div class="bg-surface-container-high p-8 group hover:bg-primary-container transition-all duration-500 border-l-4 border-primary-container relative">
+          <h3 class="font-headline font-bold text-2xl uppercase mb-8 group-hover:text-on-primary-container">SÁBADO</h3>
+          <div class="space-y-4">
+            <div class="flex flex-col">
+              <span class="text-3xl font-black font-headline group-hover:text-on-primary-container">10:00 a 11:30</span>
+              <span class="text-primary font-bold uppercase tracking-widest text-xs group-hover:text-on-primary-container">HRS</span>
+            </div>
+            <div class="pt-4 border-t border-outline-variant group-hover:border-on-primary-container/20">
+              <span class="font-headline font-bold group-hover:text-on-primary-container">COACHES:</span>
+              <p class="font-body group-hover:text-on-primary-container">THOMAS &amp; ALLISON</p>
+            </div>
+          </div>
+          <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+            <span class="material-symbols-outlined text-on-primary-container">bolt</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visual Divider / CTA -->
+  <section class="h-[512px] relative flex items-center justify-center">
+    <div class="absolute inset-0 z-0">
+      <img alt="A muscular athlete doing a human flag on a vertical bar, highly detailed silhouette against a dark industrial background with orange rim lighting" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIB3Y3_9BTBOp0zZ9cwtRree0EchwBi85aFhOllW0rEvPbRFy3QUWh0Ce2nXAlaTMdrGp7QJ10i2YsC3ERWHp2GK31y7zPTF-2uJPnM6KKB9G7E5ADjsVR7nYOCADQWAnlL52y7aqxenbIoIFtBdWGcTh5nJPQ5GQJPjxwEGL7csbmSW7DmtJAB2ceuV_OypiOGTy_GOMiQ2Rty0FC-7RSCmGjZofhAFiyfvVONEJF1JcD8iDUKt-zCmgVXIcdwVmQ5z_M__1Z86U"/>
+      <div class="absolute inset-0 bg-black/40"></div>
+    </div>
+    <div class="relative z-10 text-center max-w-4xl px-6">
+      <h2 class="font-headline text-4xl md:text-6xl font-black uppercase tracking-tighter mb-8 leading-tight">
+        ¿LISTO PARA EL SIGUIENTE NIVEL?
+      </h2>
+      <button class="kinetic-gradient text-on-primary-container font-extrabold px-12 py-6 rounded-xl uppercase tracking-widest text-xl shadow-2xl transform hover:scale-110 transition-all">
+        RESERVAR MI CLASE
+      </button>
+    </div>
+  </section>
+</Layout>
