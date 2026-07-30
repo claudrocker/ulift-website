@@ -1,246 +1,134 @@
-# CLAUDE.md — URBANLIFT Website
+# CLAUDE.md
 
-## Resumen del Proyecto
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Sitio web estático para **URBANLIFT**, un gimnasio de entrenamiento de fuerza urbana en Chile. Construido con **Astro 6.1.9** y **Tailwind CSS 4.x**, desplegado con Docker + Nginx en la plataforma Dokploy.
+Sitio estático de **URBANLIFT** (gimnasio de fuerza urbana en Chile). Astro 6 + Tailwind 4, sin backend ni CMS. Contenido en español de Chile, precios en CLP. Node >= 22.12.
 
-- **Idioma:** Español (Chile)
-- **Moneda:** CLP (Pesos Chilenos)
-- **Versión:** 0.0.1 (primera versión)
-- **Node requerido:** >=22.12.0
+`AGENTS.md` complementa este archivo con convenciones de estilo, commits y PRs — respetarlas.
 
 ---
 
-## Comandos Esenciales
+## Comandos
 
 ```bash
-npm run dev       # Servidor de desarrollo → http://localhost:4321
-npm run build     # Build de producción → /dist
-npm run preview   # Preview del build
+npm run dev       # dev server → http://localhost:4321
+npm run build     # build de producción → dist/
+npm run preview   # sirve el último build
 ```
 
-### Docker
+No hay tests, linter ni `astro check` configurados (`@astrojs/check` no está instalado). **`npm run build` es la única validación automática.** Para cambios de UI hay que verificar manualmente en el navegador a ancho móvil y desktop: navegación, apertura/cierre de modales, links externos y carga de imágenes.
 
-```bash
-docker build -t urbanlift-website .
-docker-compose up -d
-```
+Despliegue: Dockerfile multi-stage (Node 24 build → Nginx sirve `dist/`), `docker-compose.yml` conecta a la red externa `dokploy-network`. Plataforma Dokploy.
 
 ---
 
-## Stack Tecnológico
+## Arquitectura
 
-| Aspecto | Tecnología |
-|---------|-----------|
-| Framework | Astro 6.1.9 |
-| Estilos | Tailwind CSS 4.2.4 (via `@tailwindcss/vite`) |
-| Tipado | TypeScript (modo estricto) |
-| Íconos | Material Symbols Outlined (Google Fonts) |
-| Fuentes | Space Grotesk (titulares), Manrope (cuerpo) |
-| Sistema de color | Material Design 3 |
-| Despliegue | Docker multi-stage (Node 24 build + Nginx serve) |
-| Plataforma | Dokploy |
-| Package manager | npm |
+### Layout es el único punto de entrada
 
----
+`src/layouts/Layout.astro` (props: `title: string`) envuelve **todas** las páginas: importa `global.css`, monta `Navbar` (pasándole `Astro.url.pathname`) y `Footer`, y carga Space Grotesk + Manrope + Material Symbols desde Google Fonts.
 
-## Estructura del Proyecto
+**Trampa importante:** el `<head>` incluye un gate anti-FOUC — `body { visibility: hidden }` hasta que `document.fonts.ready` resuelva, con fallback de 2s por `setTimeout`. Se agregó para eliminar la deformación del texto al cargar las fuentes. Si algo aparece invisible en desarrollo, revisar ese gate antes de cualquier otra cosa. No romperlo al agregar scripts al `<head>`.
 
-```
-ulift-website/
-├── src/
-│   ├── pages/                    # Rutas (file-based routing de Astro)
-│   │   ├── index.astro           # Inicio: hero, horarios, promo, planes y precios
-│   │   ├── conocenos.astro       # Misión, visión, formulario de prueba gratis
-│   │   ├── nuestro-espacio.astro # Tour del espacio (bento grid de zonas)
-│   │   ├── modalidades.astro     # Categorías de entrenamiento y coaches
-│   │   └── comunidad.astro       # Feed tipo reels, redes sociales
-│   ├── components/
-│   │   ├── Navbar.astro          # Navegación fija, recibe `currentPath`
-│   │   └── Footer.astro          # Footer + botón flotante de WhatsApp
-│   ├── layouts/
-│   │   └── Layout.astro          # Layout master: recibe `title: string`
-│   └── styles/
-│       └── global.css            # @theme Tailwind, utilidades custom
-├── public/
-│   ├── favicon.svg
-│   └── favicon.ico
-├── docs/                         # HTMLs de referencia visual pre-generados
-│   ├── home.html
-│   ├── conocenos.html
-│   ├── modalidades.html
-│   ├── nuestro-espacio.html
-│   └── comunidad.html
-├── Dockerfile                    # Build multi-stage Node → Nginx
-├── docker-compose.yml            # Integración con red dokploy-network
-├── astro.config.mjs              # Config Astro + plugin Tailwind/Vite
-└── tsconfig.json                 # Extiende astro/tsconfigs/strict
+`<html class="dark">` y `color-scheme: dark` están presentes, pero **no se usa ni una sola variante `dark:` en el código** — el tema oscuro está hardcodeado en los tokens. La clase es decorativa; no asumir que existe un toggle claro/oscuro.
+
+### Patrón de modales (lo más importante del repo)
+
+Los modales son HTML estático oculto con `hidden`, activado por JS inline en la página que los usa. La mecánica es siempre la misma:
+
+- El disparador lleva un `data-*` con el id del modal (`data-coach-id="thomas-cabezas"`, `data-plan-id="plan-mensual"`).
+- El modal se renderiza con `id={`modal-${id}`}`.
+- Abrir = quitar `hidden`, agregar `flex`, `document.body.style.overflow = 'hidden'`. Cerrar = lo inverso.
+- Cierre por botón (`data-modal-close` / `data-plan-close`), por backdrop (`data-modal-backdrop` / `data-plan-backdrop`) y por tecla Escape.
+
+Existen **dos implementaciones duplicadas** de esta lógica, cada una en un `<script>` al final de su página:
+
+| | Modales de coaches | Modales de planes |
+|---|---|---|
+| Página | `src/pages/modalidades.astro` | `src/pages/index.astro` |
+| Componente | `CoachModal.astro` (recibe todos los datos por props) | `PlanModal.astro` (solo shell + `<slot />`) |
+| Atributos | `data-coach-id`, `data-modal-close`, `data-modal-backdrop` | `data-plan-id`, `data-plan-close`, `data-plan-backdrop` |
+| Selector de cierre | `[id^="modal-"]` | `[id^="modal-plan-"]` |
+
+Los prefijos de selector **colisionan**: `[id^="modal-"]` en modalidades matchea también cualquier `modal-plan-*`. Hoy no hay página que monte ambos tipos; si se mezclan, unificar la lógica en un módulo compartido antes que duplicarla una tercera vez.
+
+`PlanModal` es solo el contenedor (backdrop + card responsive); el contenido de cada plan vive en `src/components/plans/*.astro` como fragmentos sin frontmatter, insertados por slot:
+
+```astro
+<PlanModal id="plan-mensual"><PlanMensual /></PlanModal>
 ```
 
----
+Cada `plans/*.astro` incluye su propio botón `data-plan-close`. Agregar un plan = crear el fragmento, montar el `PlanModal` al final de `index.astro`, y agregar `data-plan-id` a la card correspondiente de la grilla de precios.
 
-## Páginas y sus Contenidos
+### Contenido: `src/data/` vs hardcodeado
 
-### `index.astro` — Inicio
-- Hero a pantalla completa con imagen de fondo y CTAs
-- Horarios: 3 columnas (Lun-Vie, Sáb-Dom, Festivos)
-- Promo socios fundadores: 40% descuento, cupos limitados (87/100)
-- Tabla de precios (5 columnas, 12 variaciones):
-  - Mensual prepago: $34.990
-  - Trimestral -10%: $94.473
-  - Semestral -15% (POPULAR): $178.452
-  - Anual -30%: $293.916
-  - Anual suscripción (con crédito): $335.904
-  - Pase diario: $5.000
+Solo los coaches están extraídos a módulos tipados: `src/data/coaches/<slug>.ts` exporta `export const coach = { id, name, specialty, description, quote, photo, instagramUrl, whatsappUrl }`. El `id` debe coincidir con el `data-coach-id` de la card. `modalidades.astro` los importa, arma el array `coaches` y los mapea a `<CoachModal {...coach} />`.
 
-### `conocenos.astro` — Conócenos
-- Bento grid con misión, visión e imagen de fondo
-- Formulario de prueba gratuita (nombre + email)
+Todo lo demás (horarios, promoción de socios fundadores, textos de planes, feed de comunidad, zonas del espacio) está hardcodeado en el markup. No hay Content Collections.
 
-### `nuestro-espacio.astro` — Nuestro Espacio
-- Bento grid de 12 columnas con 6 zonas del gimnasio:
-  - Calistenia y Street Lifting (4 cols, 2 rows)
-  - Powerlifting (8 cols, 1 row)
-  - Máquinas (4 cols, 1 row)
-  - Peso Libre (4 cols, 1 row)
-  - Zona Descanso (7 cols)
-  - Baños y Camarines (5 cols)
-- Efecto hover: scale + opacidad
+**Los precios están duplicados** entre las cards de la grilla en `index.astro` y los fragmentos en `components/plans/`. Al cambiar un precio hay que actualizar ambos lugares. Ya existe una divergencia: trimestral figura como `$94.473` en `index.astro` y `$95.823` en `PlanTrimestral.astro`.
 
-### `modalidades.astro` — Modalidades
-- Grid 2x2 con 4 categorías:
-  1. Clases Grupales de Calistenia (coaches: Thomas, Allison)
-  2. Clases Semi-Personalizadas (1:1 o grupos ≤4)
-  3. Asesorías Online (mundial, feedback semanal, garantía de resultados)
-  4. Equipo Profesional (Allison, Thomas, Fabian — +10 años experiencia)
+### Rutas
 
-### `comunidad.astro` — Comunidad
-- Feed tipo reels (3 columnas, ratio 9:16)
-  - Perfiles: @marcos_lift, @karla_coach, @urbanlift_oficial
-- Sidebar: WhatsApp e Instagram + campeonato próximo
+`src/pages/` mapea directo a URL: `/`, `/modalidades`, `/nuestro-espacio`, `/comunidad`, `/calistenia`, `/conocenos`.
+
+- `/calistenia` es una sub-marca distinta (**LIFTSW.ACADEMY**, academia de clases) con su propio hero y calendario; comparte el sistema de diseño pero no el naming de URBANLIFT.
+- `/conocenos` es una **ruta huérfana**: existe y funciona, pero no está en `navLinks` del Navbar ni linkeada desde ninguna página.
+
+`Navbar.astro` define `navLinks` en su frontmatter y marca activo con `currentPath.startsWith(href)`. Los links son `hidden md:flex` y **no hay menú móvil** — bajo `md` no hay navegación, solo el logo y el CTA. El botón "UNIRSE AHORA" es un `<button>` sin handler.
+
+En `Footer.astro` los links de Contacto son placeholders `href="#"` y el bloque "Explora" está comentado. El único link de WhatsApp real y funcional es el FAB flotante (`wa.me/56932818911`), el mismo número que usan los modales de coaches.
 
 ---
 
-## Componentes
+## Sistema de diseño
 
-### `Navbar.astro`
-```typescript
-interface Props { currentPath: string; }
-```
-- Fijo (top-0, z-50) con backdrop blur
-- Solo visible en desktop
-- Link activo con borde inferior
-- CTA "UNIRSE AHORA"
+Tokens Material Design 3 en `src/styles/global.css` dentro de `@theme` (Tailwind 4: no hay `tailwind.config.js`; el plugin se registra en `astro.config.mjs` vía `@tailwindcss/vite`). Cada `--color-x` genera `bg-x`, `text-x`, `border-x`, etc.
 
-### `Footer.astro`
-- Grid de links (Contacto, Legal, Explora)
-- WhatsApp FAB fijo en esquina inferior derecha
-- Copyright: © 2024 URBANLIFT — Eusebio Lillo 525, Piso 3
+Los tokens que más se usan y se confunden:
 
-### `Layout.astro`
-```typescript
-interface Props { title: string; }
-```
-- HTML `lang="es"` con `class="dark"`
-- Importa `global.css`, Navbar y Footer
-- Pasa `currentPath` al Navbar vía `Astro.url.pathname`
+| Token | Valor | Uso |
+|---|---|---|
+| `surface` / `background` | `#131313` | fondo base |
+| `surface-container-lowest` | `#0e0e0e` | secciones alternadas |
+| `surface-container` / `-high` / `-highest` | `#201f1f` / `#2a2a2a` / `#353534` | cards y modales |
+| `primary` | `#ffb688` | naranjo claro, texto de acento |
+| `primary-container` | `#e07317` | naranjo medio, links activos, énfasis |
+| `brand-orange` | `#CC6400` | naranjo de marca, promociones |
+| `on-background` / `on-surface` | `#e5e2e1` | texto principal |
+| `on-surface-variant` | `#ddc1b1` | texto secundario |
+| `outline` / `outline-variant` | `#a58c7d` / `#564337` | bordes |
 
----
+Antes de inventar un token, leer `global.css`: la paleta MD3 completa ya está declarada (`on-primary-container`, `primary-fixed`, `inverse-surface`, etc.).
 
-## Sistema de Diseño
+**El `@theme` reescribe la escala de radios** de Tailwind: `--radius-lg: 0.25rem` (default 0.5rem) y `--radius-xl: 0.5rem` (default 0.75rem) — todo sale más anguloso que en un proyecto Tailwind normal, es intencional (estética industrial). `--radius-full` y `--radius-default` también están declarados pero son **inertes**: en Tailwind 4 `rounded-full` es un valor estático (`calc(infinity * 1px)`) y no lee la escala. O sea, `rounded-full` sí produce círculos.
 
-### Paleta de Colores (Material Design 3)
+Utilidades custom (`@layer utilities` en `global.css`): `.kinetic-gradient` (gradiente 45° `#CC6400 → #e07317`, el CTA estándar), `.brand-gradient` (135°, mismos colores), `.video-mask-bottom` (fade inferior en imágenes de hero), `.text-overlap` (text-shadow para texto sobre imágenes), `.glass-panel`, `.industrial-texture`.
 
-```css
-/* Fondos */
---color-surface:         #131313   /* fondo principal */
---color-surface-lowest:  #0e0e0e   /* más oscuro */
---color-surface-high:    #2a2a2a   /* más claro */
-
-/* Primario (naranjo) */
---color-primary:         #ffb688   /* naranjo claro */
---color-primary-medium:  #e07317   /* naranjo medio */
---color-brand-orange:    #CC6400   /* naranjo marca */
-
-/* Texto */
---color-on-background:   #e5e2e1
---color-on-surface:      #ddc1b1
-```
-
-### Tipografía
-
-- **Titulares:** `Space Grotesk` (variable `--font-headline`)
-- **Cuerpo:** `Manrope` (variable `--font-body` y `--font-label`)
-
-### Utilidades Custom (global.css)
-
-```css
-.kinetic-gradient    /* Gradiente CTA: 45°, #ffb688 → #e07317 */
-.brand-gradient      /* Gradiente marca: 135°, #CC6400 → #e07317 */
-.video-mask-bottom   /* Máscara fade en parte inferior de imágenes */
-.text-overlap        /* Drop shadow para texto sobre imágenes */
-.industrial-texture  /* Textura de fondo (desde Google Drive) */
-.glass-panel         /* Efecto vidrio esmerilado (rgba + backdrop-blur) */
-```
+Tipografía: `font-headline` = Space Grotesk (titulares, casi siempre `uppercase tracking-tighter`), `font-body` = Manrope. Íconos con `<span class="material-symbols-outlined">nombre_del_icono</span>`; el relleno se controla con `style="font-variation-settings:'FILL' 1"`.
 
 ---
 
-## Convenciones de Código
+## `docs/source/` — referencias de diseño
 
-- Todo el contenido está **hardcodeado** en los archivos `.astro` (sin CMS)
-- Las imágenes se alojan en **Google Drive** (URLs públicas)
-- No hay backend, formularios o APIs conectadas actualmente
-- Sin Content Collections de Astro — contenido directo en páginas
-- Modo oscuro permanente (`class="dark"` en html, sin toggle)
-- TypeScript estricto en todos los componentes
+17 HTMLs pre-generados que son la **fuente de verdad de diseño y contenido**, no código de la aplicación. Cuando se pide una sección, página o modal nuevo, revisar primero si ya existe el HTML de referencia y portarlo al sistema de componentes:
 
----
+- Páginas: `pagina-inicio.html`, `pagina-conocenos.html`, `pagina-modalidades.html`, `pagina-nuestro-espacio.html`
+- Planes: `plan-mensual.html`, `plan-trimestral.html`, `plan-semestral.html`, `plan-anual-prepago.html`, `suscripcion-anual.html`, `plan-fundadores.html`
+- Coaches: `p-<slug>.html` (Alfonso Moya, Allison Bassa, Fabián López, Marisa Trujillo, Thomas Cabezas)
+- Flujo de clases: `codigo-calendario-clases-liftsw.html`, `exito-agendar-clase.html`
 
-## Despliegue
+Hay referencias aún no implementadas (`plan-fundadores`, el flujo de agendamiento de clases) — sirven de guía cuando se pidan.
 
-### Docker
-
-```dockerfile
-# Stage 1: Build
-FROM node:24-alpine AS build
-WORKDIR /app
-RUN npm install && npm run build
-
-# Stage 2: Serve
-FROM nginx:alpine
-COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 80
-```
-
-### docker-compose
-
-- Red externa: `dokploy-network`
-- Container: `urbanlift-website`
-- Restart: `always`
-- Puerto: `80:80`
+`README.md` es el template sin modificar de "Astro Starter Kit: Minimal"; no contiene información del proyecto.
 
 ---
 
-## Archivos de Referencia
+## Pendientes conocidos
 
-La carpeta `/docs/` contiene HTMLs pre-generados de referencia visual para cada página. Usarlos como guía de diseño y contenido cuando se agreguen nuevas secciones.
-
----
-
-## Estado Actual y Próximos Pasos
-
-### Listo
-- 5 páginas completas con contenido y estilos
-- Sistema de diseño Material Design 3 implementado
-- Navbar y Footer funcionales
-- Docker listo para producción
-
-### Pendiente
-- Conectar formularios (prueba gratuita, inscripción)
-- Integrar analíticas (Google Analytics o similar)
-- SEO: meta tags, Open Graph, schema markup
-- Optimización de imágenes (reemplazar Google Drive por assets locales o CDN)
-- CI/CD pipeline (GitHub Actions)
-- Variables de entorno para diferentes ambientes
-- Blog o contenido dinámico (opcional)
-- Integración de pagos (Transbank o Stripe)
+- Formularios sin conectar: el de prueba gratuita en `conocenos.astro` no tiene `action` ni handler.
+- Botones de compra en los modales de planes sin integración de pago (Transbank/Stripe).
+- SEO: `Layout.astro` tiene `<meta name="description" content="Astro description" />` (placeholder). Sin Open Graph ni schema markup.
+- Todas las imágenes son URLs de `lh3.googleusercontent.com` (Google Drive/AI Studio) — sin `astro:assets`, sin optimización, sin garantía de permanencia.
+- Sin menú de navegación móvil.
+- Sin analítica ni CI/CD.

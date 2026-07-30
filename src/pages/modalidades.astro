@@ -6,8 +6,9 @@ import { coach as thomasCabezas } from '../data/coaches/thomas-cabezas';
 import { coach as fabianLopez } from '../data/coaches/fabian-lopez';
 import { coach as alfonsoMoya } from '../data/coaches/alfonso-moya';
 import { coach as marisaTrujillo } from '../data/coaches/marisa-trujillo';
+import { coach as marceloHuichalaf } from '../data/coaches/marcelo-huichalaf';
 
-const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTrujillo];
+const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTrujillo, marceloHuichalaf];
 ---
 
 <Layout title="Modalidades - URBANLIFT">
@@ -17,7 +18,7 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
       <div class="absolute top-10 left-2 text-[12rem] font-black text-white/[0.03] pointer-events-none font-headline tracking-tighter leading-none select-none">URBANLIFT</div>
       <h1 class="font-headline text-7xl md:text-9xl font-extrabold uppercase tracking-tighter leading-none mb-4 relative z-10">
         <span class="text-on-background">nuestras</span><br/>
-        <span class="text-brand-orange italic">modalidades</span>
+        <span class="text-primary italic">modalidades</span>
       </h1>
       <p class="font-body text-xl text-on-surface-variant max-w-2xl relative z-10">
         Elige la modalidad que más se adapte a ti
@@ -50,7 +51,7 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
               </div>
             </div>
           </div>
-          <button class="mt-8 border-b-2 border-brand-orange text-brand-orange font-headline font-bold uppercase tracking-widest pb-1 hover:text-white hover:border-white transition-all text-sm">Revisa nuestros horarios y valores</button>
+          <a href="/calistenia" class="block text-center border-2 border-brand-orange w-full py-4 text-white font-headline font-bold uppercase tracking-widest rounded-xl hover:bg-brand-orange transition-all">Revisa nuestros horarios y valores</a>
         </div>
       </section>
 
@@ -79,45 +80,12 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
               </div>
             </div>
           </div>
-          <button class="kinetic-gradient w-full py-4 text-white font-headline font-bold uppercase tracking-widest rounded-xl hover:shadow-[0_0_20px_rgba(204,100,0,0.4)] transition-all">encuentra tu coach ideal</button>
-        </div>
-      </section>
-
-      <!-- Category 3: Asesorías Online -->
-      <section class="relative group overflow-hidden border-r border-white/5 bg-surface-container-high min-h-[600px] flex flex-col">
-        <div class="absolute inset-0 z-0">
-          <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
-          <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-transparent"></div>
-        </div>
-        <div class="relative z-10 p-12 mt-auto">
-          <h2 class="font-headline text-4xl font-bold uppercase tracking-tighter mb-4 text-white">Asesorías Online</h2>
-          <p class="font-body text-on-surface-variant mb-8 max-w-md text-lg">Entrena en nuestro gimnasio o cualquier parte del mundo con la guía profesional de nuestros entrenadores.</p>
-          <div class="grid grid-cols-1 gap-6 mb-8">
-            <div class="flex gap-4 items-center border-b border-white/10 pb-4">
-              <div class="w-12 h-12 rounded-lg bg-brand-orange/10 flex items-center justify-center">
-                <span class="material-symbols-outlined text-brand-orange">language</span>
-              </div>
-              <div>
-                <div class="font-headline font-bold uppercase text-sm">SIN FRONTERAS</div>
-                <div class="text-xs text-on-surface-variant">Planificación 100% remota y personalizada.</div>
-              </div>
-            </div>
-            <div class="flex gap-4 items-center border-b border-white/10 pb-4">
-              <div class="w-12 h-12 rounded-lg bg-brand-orange/10 flex items-center justify-center">
-                <span class="material-symbols-outlined text-brand-orange">verified</span>
-              </div>
-              <div>
-                <div class="font-headline font-bold uppercase text-sm">GARANTÍA DE RESULTADOS</div>
-                <div class="text-xs text-on-surface-variant">Feedback semanal y ajustes de programa.</div>
-              </div>
-            </div>
-          </div>
-          <button class="border-2 border-brand-orange w-full py-4 text-white font-headline font-bold uppercase tracking-widest rounded-xl hover:bg-brand-orange transition-all">SABER MÁS</button>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzSorOP0McSQrXfAcVBw9dTuXoC4kiqwrmrnh9a6Z4iK_dtQ/viewform" target="_blank" rel="noopener noreferrer" class="block text-center border-2 border-brand-orange w-full py-4 text-white font-headline font-bold uppercase tracking-widest rounded-xl hover:bg-brand-orange transition-all">encuentra tu coach ideal</a>
         </div>
       </section>
 
       <!-- Category 4: Conoce a nuestros profesionales -->
-      <section class="relative group overflow-hidden bg-surface-container-lowest min-h-[600px] flex flex-col p-12">
+      <section class="relative group overflow-hidden bg-surface-container-lowest min-h-[600px] flex flex-col p-12 lg:col-span-2">
         <div class="absolute inset-0 z-0">
           <img alt="Fondo industrial" class="w-full h-full object-cover grayscale opacity-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Vz5zasWSg958cRTtTQb2GXAMm2Cy_W1fmhCfS_V6bU6-kgiaU8QtpvdtQb739SkfSXMe-OP59b34Vk0AcOgFv8irrJfZXo37gq1S0mIr9xlJIM7Rjrc7-AJF4rU-NpcKO8Tb53dAHtCoj9f2mERgyuijbLRBuEDeOP3Qkw52HOvQr5ALs0UcCJ-FlsRKCmhvkmOz0g1hr7oeXdP0po5vDEHvSGH3j1WbdGcjlh76KaEdv4NyIKL43sPYUJVUGIuwJPZIx1mbD6Q" />
           <div class="absolute inset-0 bg-gradient-to-b from-surface via-transparent to-surface"></div>
@@ -168,10 +136,13 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
               <div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors">Marisa Trujillo</div>
               <div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest">Musculación fitness</div>
             </div>
-            <!-- Stats -->
-            <div class="relative overflow-hidden bg-brand-orange/5 border border-brand-orange/20 rounded-lg p-4 flex flex-col items-center justify-center text-center">
-              <div class="text-3xl font-headline font-extrabold text-brand-orange">+10</div>
-              <div class="text-[10px] text-white font-bold uppercase tracking-widest mt-1">Años de exp</div>
+            <!-- Coach 6 -->
+            <div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50 cursor-pointer" data-coach-id="marcelo-huichalaf">
+              <div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+                <span class="material-symbols-outlined text-white/20 text-4xl">person</span>
+              </div>
+              <div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors">Marcelo Huichalaf</div>
+              <div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest">Profesor de Musculación</div>
             </div>
           </div>
         </div>
