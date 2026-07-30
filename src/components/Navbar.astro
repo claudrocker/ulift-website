@@ -20,18 +20,42 @@ const isActive = (href: string) => {
 };
 ---
 
-<nav class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md grid grid-cols-[1fr_auto_1fr] items-center px-8 py-4">
-  <div class="text-2xl font-bold tracking-tighter text-on-background font-headline uppercase justify-self-start">URBANLIFT</div>
+<nav class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md grid grid-cols-[1fr_auto_1fr] items-center px-8 py-2">
+  <div class="flex items-center gap-3 justify-self-start">
+    <!--
+      Hamburguesa: solo bajo 880px. El breakpoint es propio del navbar (no `md`)
+      porque bajo ese ancho el logo más los 5 links ya no caben.
+    -->
+    <button
+      id="menu-toggle"
+      class="min-[880px]:hidden text-on-background hover:text-primary transition-colors"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <span class="material-symbols-outlined text-3xl">menu</span>
+    </button>
+
+    <a href="/" class="shrink-0" aria-label="URBANLIFT - Ir al inicio">
+      <img
+        src="/img/urbanlift-logo.png"
+        alt="URBANLIFT"
+        width="581"
+        height="241"
+        class="h-12 w-auto"
+      />
+    </a>
+  </div>
 
   <!-- Desktop Nav -->
-  <div class="hidden md:flex items-center gap-8 justify-self-center">
+  <div class="hidden min-[880px]:flex items-center gap-8 justify-self-center">
     {navLinks.map((link) => (
-      <a 
+      <a
         href={link.href}
         class:list={[
           "font-headline uppercase tracking-tighter transition-all",
-          isActive(link.href) 
-            ? "text-primary-container border-b-2 border-primary-container pb-1" 
+          isActive(link.href)
+            ? "text-primary-container border-b-2 border-primary-container pb-1"
             : "text-on-background hover:text-primary"
         ]}
       >
@@ -46,3 +70,93 @@ const isActive = (href: string) => {
   </button>
   -->
 </nav>
+
+<!--
+  Menú lateral móvil. Siempre presente en el DOM (no usa `hidden`) para que el
+  panel pueda animarse con transform; cerrado queda fuera de pantalla y con
+  `inert`, así no recibe foco ni clicks.
+-->
+<div id="mobile-menu" class="fixed inset-0 z-[60] min-[880px]:hidden" inert aria-hidden="true">
+  <div
+    class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+    data-menu-backdrop
+  ></div>
+
+  <aside
+    class="relative h-full w-72 max-w-[80vw] bg-surface-container border-r border-outline-variant/20 shadow-2xl flex flex-col p-8 -translate-x-full transition-transform duration-300 ease-out"
+    data-menu-panel
+  >
+    <button
+      class="self-end text-on-surface/40 hover:text-primary transition-colors mb-10"
+      data-menu-close
+      aria-label="Cerrar menú"
+    >
+      <span class="material-symbols-outlined text-3xl">close</span>
+    </button>
+
+    <nav class="flex flex-col gap-6">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          data-menu-link
+          class:list={[
+            "font-headline text-xl uppercase tracking-tighter border-l-2 pl-4 transition-all",
+            isActive(link.href)
+              ? "text-primary-container border-primary-container"
+              : "text-on-background border-transparent hover:text-primary hover:border-outline-variant"
+          ]}
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+  </aside>
+</div>
+
+<script>
+  const menu = document.getElementById('mobile-menu');
+  const toggle = document.getElementById('menu-toggle');
+  const panel = menu?.querySelector<HTMLElement>('[data-menu-panel]');
+  const backdrop = menu?.querySelector<HTMLElement>('[data-menu-backdrop]');
+
+  function openMenu() {
+    if (!menu || !panel || !backdrop) return;
+    menu.removeAttribute('inert');
+    menu.setAttribute('aria-hidden', 'false');
+    toggle?.setAttribute('aria-expanded', 'true');
+    panel.classList.remove('-translate-x-full');
+    backdrop.classList.remove('opacity-0');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    if (!menu || !panel || !backdrop) return;
+    // Ya está cerrado: no tocar el overflow del body, que lo comparten los modales.
+    if (panel.classList.contains('-translate-x-full')) return;
+    menu.setAttribute('inert', '');
+    menu.setAttribute('aria-hidden', 'true');
+    toggle?.setAttribute('aria-expanded', 'false');
+    panel.classList.add('-translate-x-full');
+    backdrop.classList.add('opacity-0');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  backdrop?.addEventListener('click', closeMenu);
+  menu?.querySelector('[data-menu-close]')?.addEventListener('click', closeMenu);
+
+  // Al navegar, el drawer se cierra antes de que cargue la página nueva.
+  menu?.querySelectorAll('[data-menu-link]').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // Al pasar a desktop el panel se oculta por CSS, pero el scroll del body
+  // seguiría bloqueado si quedó abierto. Debe coincidir con `min-[880px]`.
+  window.matchMedia('(min-width: 880px)').addEventListener('change', (e) => {
+    if (e.matches) closeMenu();
+  });
+</script>

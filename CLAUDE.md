@@ -75,7 +75,13 @@ Todo lo demás (horarios, promoción de socios fundadores, textos de planes, fee
 - `/calistenia` es una sub-marca distinta (**LIFTSW.ACADEMY**, academia de clases) con su propio hero y calendario; comparte el sistema de diseño pero no el naming de URBANLIFT.
 - `/conocenos` es una **ruta huérfana**: existe y funciona, pero no está en `navLinks` del Navbar ni linkeada desde ninguna página.
 
-`Navbar.astro` define `navLinks` en su frontmatter y marca activo con `currentPath.startsWith(href)`. Los links son `hidden md:flex` y **no hay menú móvil** — bajo `md` no hay navegación, solo el logo y el CTA. El botón "UNIRSE AHORA" es un `<button>` sin handler.
+`Navbar.astro` define `navLinks` en su frontmatter (única fuente de la navegación) y marca activo con `currentPath.startsWith(href)`. El mismo array alimenta dos vistas: los links horizontales `hidden min-[880px]:flex` y el drawer lateral móvil (`min-[880px]:hidden`) que se abre con el botón hamburguesa a la izquierda del logo. Agregar una ruta al menú = agregarla a `navLinks`, aparece en ambas.
+
+**El navbar usa un breakpoint propio de 880px, no `md` (768px)**, porque entre esos dos anchos el logo y los 5 links ya no caben. Está como valor arbitrario de Tailwind (`min-[880px]:`) en tres clases y **duplicado en el `matchMedia('(min-width: 880px)')` del script** — si se cambia, hay que cambiar los cuatro. El resto del sitio sigue usando `md`.
+
+El drawer **no usa el patrón `hidden`/`flex`** de los modales: queda siempre en el DOM para poder animar el `translate-x`, y cerrado se marca con el atributo `inert` (fuera de pantalla, sin foco ni clicks). Su `closeMenu()` sale temprano si ya estaba cerrado, para no resetear `document.body.style.overflow` que comparte con los modales. También cierra al pasar a desktop vía `matchMedia('(min-width: 768px)')`, si no el scroll quedaría bloqueado.
+
+El botón "UNIRSE AHORA" está comentado en el markup.
 
 En `Footer.astro` los links de Contacto son placeholders `href="#"` y el bloque "Explora" está comentado. El único link de WhatsApp real y funcional es el FAB flotante (`wa.me/56932818911`), el mismo número que usan los modales de coaches.
 
@@ -129,6 +135,5 @@ Hay referencias aún no implementadas (`plan-fundadores`, el flujo de agendamien
 - Formularios sin conectar: el de prueba gratuita en `conocenos.astro` no tiene `action` ni handler.
 - Botones de compra en los modales de planes sin integración de pago (Transbank/Stripe).
 - SEO: `Layout.astro` tiene `<meta name="description" content="Astro description" />` (placeholder). Sin Open Graph ni schema markup.
-- Todas las imágenes son URLs de `lh3.googleusercontent.com` (Google Drive/AI Studio) — sin `astro:assets`, sin optimización, sin garantía de permanencia.
-- Sin menú de navegación móvil.
+- Salvo el logo del Navbar (`public/img/urbanlift-logo.png`), todas las imágenes son URLs de `lh3.googleusercontent.com` (Google Drive/AI Studio) — sin `astro:assets`, sin optimización, sin garantía de permanencia.
 - Sin analítica ni CI/CD.
