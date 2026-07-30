@@ -20,8 +20,16 @@ const isActive = (href: string) => {
 };
 ---
 
-<nav class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md grid grid-cols-[1fr_auto_1fr] items-center px-8 py-4">
-  <div class="text-2xl font-bold tracking-tighter text-on-background font-headline uppercase justify-self-start">URBANLIFT</div>
+<nav class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md grid grid-cols-[1fr_auto_1fr] items-center px-8 py-2">
+  <a href="/" class="justify-self-start" aria-label="URBANLIFT - Ir al inicio">
+    <img
+      src="/img/urbanlift-logo.png"
+      alt="URBANLIFT"
+      width="581"
+      height="241"
+      class="h-12 w-auto"
+    />
+  </a>
 
   <!-- Desktop Nav -->
   <div class="hidden md:flex items-center gap-8 justify-self-center">

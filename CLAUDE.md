@@ -129,6 +129,6 @@ Hay referencias aún no implementadas (`plan-fundadores`, el flujo de agendamien
 - Formularios sin conectar: el de prueba gratuita en `conocenos.astro` no tiene `action` ni handler.
 - Botones de compra en los modales de planes sin integración de pago (Transbank/Stripe).
 - SEO: `Layout.astro` tiene `<meta name="description" content="Astro description" />` (placeholder). Sin Open Graph ni schema markup.
-- Todas las imágenes son URLs de `lh3.googleusercontent.com` (Google Drive/AI Studio) — sin `astro:assets`, sin optimización, sin garantía de permanencia.
+- Salvo el logo del Navbar (`public/img/urbanlift-logo.png`), todas las imágenes son URLs de `lh3.googleusercontent.com` (Google Drive/AI Studio) — sin `astro:assets`, sin optimización, sin garantía de permanencia.
 - Sin menú de navegación móvil.
 - Sin analítica ni CI/CD.
