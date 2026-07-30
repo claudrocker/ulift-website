@@ -1,4 +1,14 @@
 ---
+// Ubicación del gimnasio. El href base es el link universal de Google Maps
+// (funciona en web y hace deep link a la app si está instalada); el script
+// al final lo reemplaza por el esquema nativo en iOS y Android.
+const lat = -33.428703;
+const lng = -70.645791;
+const mapLabel = 'URBANLIFT';
+
+const mapWeb = `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`;
+const mapApple = `https://maps.apple.com/?q=${encodeURIComponent(mapLabel)}&ll=${lat},${lng}`;
+const mapGeo = `geo:${lat},${lng}?q=${lat},${lng}(${encodeURIComponent(mapLabel)})`;
 ---
 <footer class="bg-[#0e0e0e] w-full py-12 px-8">
   <div class="flex flex-col md:flex-row justify-between items-start gap-8 w-full max-w-7xl mx-auto">
@@ -14,7 +24,14 @@
         <span class="text-xs font-bold text-primary-container uppercase tracking-widest mb-2">Contacto</span>
         <a class="font-body text-sm text-on-background hover:text-primary underline underline-offset-4 transition-opacity duration-300" href="https://wa.me/56932818911" target="_blank" rel="noopener noreferrer">WhatsApp</a>
         <a class="font-body text-sm text-on-background hover:text-primary underline underline-offset-4 transition-opacity duration-300" href="https://instagram.com/urbanlift.cl" target="_blank" rel="noopener noreferrer">Instagram</a>
-        <a class="font-body text-sm text-on-background hover:text-primary underline underline-offset-4 transition-opacity duration-300" href="#">Ubicación</a>
+        <a
+          class="font-body text-sm text-on-background hover:text-primary underline underline-offset-4 transition-opacity duration-300"
+          href={mapWeb}
+          data-map-apple={mapApple}
+          data-map-geo={mapGeo}
+          target="_blank"
+          rel="noopener noreferrer"
+        >Ubicación</a>
       </div>
       <!-- 
       <div class="hidden sm:flex flex-col gap-3">
@@ -34,3 +51,31 @@
 <a class="fixed bottom-8 right-8 w-16 h-16 kinetic-gradient rounded-full shadow-2xl flex items-center justify-center z-40 hover:scale-110 active:scale-95 transition-all" href="https://wa.me/56932818911" target="_blank" rel="noopener noreferrer">
   <span class="material-symbols-outlined text-on-primary-container text-3xl">chat</span>
 </a>
+
+<script>
+  // El link de Ubicación sale con la URL de Google Maps (web + deep link).
+  // En iOS y Android lo cambiamos al esquema nativo para que abra la app
+  // de mapas del dispositivo en vez de una pestaña del navegador.
+  const mapLink = document.querySelector<HTMLAnchorElement>('[data-map-geo]');
+
+  if (mapLink) {
+    const ua = navigator.userAgent;
+    const isIOS =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isAndroid = /Android/.test(ua);
+
+    const nativeUrl = isIOS
+      ? mapLink.dataset.mapApple
+      : isAndroid
+        ? mapLink.dataset.mapGeo
+        : null;
+
+    if (nativeUrl) {
+      mapLink.href = nativeUrl;
+      // Abrir una app nativa en pestaña nueva deja un tab en blanco.
+      mapLink.removeAttribute('target');
+      mapLink.removeAttribute('rel');
+    }
+  }
+</script>
