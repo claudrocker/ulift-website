@@ -20,11 +20,11 @@ const isActive = (href: string) => {
 };
 ---
 
-<nav class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md flex justify-between items-center px-8 py-4">
-  <div class="text-2xl font-bold tracking-tighter text-on-background font-headline uppercase">URBANLIFT</div>
-  
+<nav class="fixed top-0 w-full z-50 bg-background/70 backdrop-blur-md grid grid-cols-[1fr_auto_1fr] items-center px-8 py-4">
+  <div class="text-2xl font-bold tracking-tighter text-on-background font-headline uppercase justify-self-start">URBANLIFT</div>
+
   <!-- Desktop Nav -->
-  <div class="hidden md:flex items-center gap-8">
+  <div class="hidden md:flex items-center gap-8 justify-self-center">
     {navLinks.map((link) => (
       <a 
         href={link.href}
@@ -40,7 +40,9 @@ const isActive = (href: string) => {
     ))}
   </div>
 
+  <!--
   <button class="kinetic-gradient text-on-primary-container font-bold px-6 py-2 rounded-xl uppercase text-xs tracking-widest scale-95 active:duration-100 hover:brightness-110 transition-all">
     UNIRSE AHORA
   </button>
+  -->
 </nav>

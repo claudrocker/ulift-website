@@ -70,7 +70,12 @@
     text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
   .industrial-texture {
-    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuAXRsmpUEJ3ZRnLKRWSAeqz9QgSZ8p_20aWXqaYg8cgEpkmIY3n4zas0wqpgKaQGby5zeGNVgLjCWHpy5a1Jb7zy-wYiFBEXtNAWuvISK_87GnuPmo8C02o5_GfLRDAVL0Nn5r9ObESQFrTGm1ryW_sEgfeZSeWNC1LjruxvFbFBVsrUVu-t8iA_2bqQlzgUWIDyujNndRJBfpF7xzNRQhW3VUWDa-np4r7fEf3aEvxFk0sJ_XNb5ocye1nHKpxnV0eh4rf7HhXYhc);
+    background:
+      radial-gradient(circle at 12% 15%, rgba(238, 232, 178, 0.9) 0%, rgba(238, 232, 178, 0) 40%),
+      radial-gradient(circle at 88% 10%, rgba(238, 230, 171, 0.85) 0%, rgba(238, 230, 171, 0) 38%),
+      radial-gradient(circle at 92% 92%, rgba(168, 219, 213, 0.9) 0%, rgba(168, 219, 213, 0) 45%),
+      radial-gradient(circle at 25% 85%, rgba(20, 68, 76, 0.9) 0%, rgba(20, 68, 76, 0) 55%),
+      linear-gradient(155deg, #2f7b7a 0%, #1d5f66 45%, #123f47 100%);
   }
   .glass-panel {
     background: rgba(19, 19, 19, 0.7);
