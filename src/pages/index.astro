@@ -14,7 +14,12 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
     <!-- Video Background Mock -->
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-black/40 z-10"></div>
-      <img alt="Gym background" class="w-full h-full object-cover video-mask-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO5cX3KIQsBNajjJqNH_r8XKjwXIcESD_NjfjR5vXp1Whi4eiquSk-4rDHv5rlwbegsrxdVeyeqnzXvGrrD7s2Zlyc7GfeYWw_0j66Igx9M3Ci9lLer7U19sofG__7VJEDo8NxDBwgr3yuHJwrmh8a4mGQ2KK2opZitlQDRWXbX76RzKVBwMV-PX3XJZqJp89QNjRajosWjFZl2oGoyGXwibH3Dm-CP3yYSmCBZ9M79mQB-NFD0jmq7JJ14NiUjeqiuQyeF7RIi44"/>
+      <!--
+        Máscara propia del home (no la utilidad `video-mask-bottom`, que la
+        comparte el hero de /calistenia): el fade arranca más arriba para que
+        el párrafo del hero caiga sobre fondo oscuro y se lea mejor.
+      -->
+      <img alt="Sala de máquinas del gimnasio URBANLIFT" class="w-full h-full object-cover grayscale-30 [mask-image:linear-gradient(to_bottom,black_40%,transparent_95%)]" src="/img/home.jpg" width="1280" height="1104" fetchpriority="high" />
     </div>
     <div class="relative z-20 max-w-4xl">
       <h1 class="font-headline text-6xl md:text-8xl font-extrabold uppercase leading-none tracking-tighter text-on-background mb-6 text-overlap">
