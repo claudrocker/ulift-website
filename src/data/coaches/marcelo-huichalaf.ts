@@ -2,9 +2,9 @@ export const coach = {
   id: 'marcelo-huichalaf',
   name: 'Marcelo Huichalaf',
   specialty: 'Profesor de Musculación',
-  description: 'Marcelo acompaña a cada atleta en la construcción de una base sólida de fuerza y técnica, con programas de musculación adaptados a los objetivos y nivel de cada persona.',
+  description: ['Preparador Físico titulado de Duoc UC, con más de siete años de experiencia como entrenador. Especializado en el desarrollo de fuerza y rendimiento, acompaña a sus alumnos con un enfoque técnico y personalizado para ayudarlos a alcanzar sus objetivos.','Como deportista, ha competido en disciplinas de fuerza, destacando con un tercer lugar en Strongman (categoría -93 kg) y su participación en competencias de Deadlift War, experiencia que complementa su labor como entrenador.'],
   quote: '"La constancia transforma el cuerpo. Yo solo pongo el camino, tú pones la disciplina."',
-  photo: 'https://lh3.googleusercontent.com/aida-public/AB6AXuD2Vz5zasWSg958cRTtTQb2GXAMm2Cy_W1fmhCfS_V6bU6-kgiaU8QtpvdtQb739SkfSXMe-OP59b34Vk0AcOgFv8irrJfZXo37gq1S0mIr9xlJIM7Rjrc7-AJF4rU-NpcKO8Tb53dAHtCoj9f2mERgyuijbLRBuEDeOP3Qkw52HOvQr5ALs0UcCJ-FlsRKCmhvkmOz0g1hr7oeXdP0po5vDEHvSGH3j1WbdGcjlh76KaEdv4NyIKL43sPYUJVUGIuwJPZIx1mbD6Q',
+  photo: '/img/coaches/marcelo-huichalaf.jpg',
   instagramUrl: '#',
   whatsappUrl: 'https://wa.me/56932818911',
 };
