@@ -2,9 +2,9 @@ export const coach = {
   id: 'marisa-trujillo',
   name: 'Marisa Trujillo',
   specialty: 'Musculación y Fitness',
-  description: 'Marisa diseña programas de musculación y fitness orientados a resultados reales. Su metodología combina ciencia del entrenamiento con motivación genuina para transformar cuerpos y hábitos de vida.',
+  description: ['Personal Trainer e instructora de clases dirigidas, con 18 años de experiencia en el ámbito del entrenamiento físico. Cuenta con certificaciones en Spinning, Aerobox, Pole Sport, GAP y entrenamiento funcional.','Especializada en musculación, con enfoque en hipertrofia y tonificación, además de entrenamiento cardiovascular orientado a la reducción del porcentaje de grasa. Su objetivo es acompañar a cada alumno con una planificación personalizada, adaptada a sus necesidades y metas.'],
   quote: '"Cada repetición es una decisión. Elige ser más fuerte cada día."',
-  photo: 'https://lh3.googleusercontent.com/aida/ADBb0ugAH8gTIaDvTYZ2wAImOu2_KSO2GX16V7DaU0v89_ySvojtIPFOCXYrieNeMaAf86wm-A-VFEtf3LepLoVia8mdgI76CECpkEF48nd2RYcZnJlS3bFCxyaOT-dEFFcnstMqfOaApGtyhE9j6DUknhFRPqnCk7IaekbL3SGzujNTqpyKwkZZnjUdZOdhqndDrdrh8EaaJ9pl30ytC3CsPV1QI9HVHK2Y5VrBSYBENsiDQ_hLOkukuYIdvcpxeLpDwHJIQes8luaC',
+  photo: '/img/coaches/marisa-trujillo.jpg',
   instagramUrl: '#',
   whatsappUrl: 'https://wa.me/56932818911',
 };
