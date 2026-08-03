@@ -19,7 +19,16 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
         comparte el hero de /calistenia): el fade arranca más arriba para que
         el párrafo del hero caiga sobre fondo oscuro y se lea mejor.
       -->
-      <img alt="Sala de máquinas del gimnasio URBANLIFT" class="w-full h-full object-cover grayscale-25 [mask-image:linear-gradient(to_bottom,black_40%,transparent_95%)]" src="/img/home2.jpg" width="1280" height="1104" fetchpriority="high" />
+      <img
+        id="hero-parallax-img"
+        alt="Sala de máquinas del gimnasio URBANLIFT"
+        class="w-full h-full object-cover grayscale-25 [mask-image:linear-gradient(to_bottom,black_40%,transparent_95%)]"
+        src="/img/home2.jpg"
+        width="1280"
+        height="1104"
+        fetchpriority="high"
+        style="transform: scale(1.25);"
+      />
     </div>
     <div class="relative z-20 max-w-4xl">
       <h1 class="font-headline text-6xl md:text-8xl font-extrabold uppercase leading-none tracking-tighter text-on-background mb-6 text-overlap">
@@ -292,4 +301,18 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
       document.querySelectorAll<HTMLElement>('[id^="modal-plan-"].flex').forEach(closePlanModal);
     }
   });
+
+  // Parallax de la foto del hero: el scale-1.25 del <img> es el buffer
+  // que evita que se revelen bordes vacíos al desplazarla.
+  const heroParallaxImg = document.getElementById('hero-parallax-img');
+  if (heroParallaxImg) {
+    const maxOffset = 80;
+    const speed = 0.3;
+    const updateParallax = () => {
+      const offset = Math.min(maxOffset, window.scrollY * speed);
+      heroParallaxImg.style.transform = `scale(1.25) translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+  }
 </script>
