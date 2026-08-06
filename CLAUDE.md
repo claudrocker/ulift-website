@@ -66,7 +66,7 @@ Solo los coaches están extraídos a módulos tipados: `src/data/coaches/<slug>.
 
 Todo lo demás (horarios, promoción de socios fundadores, textos de planes, feed de comunidad, zonas del espacio) está hardcodeado en el markup. No hay Content Collections.
 
-**Los precios están duplicados** entre las cards de la grilla en `index.astro` y los fragmentos en `components/plans/`. Al cambiar un precio hay que actualizar ambos lugares. Ya existe una divergencia: trimestral figura como `$94.473` en `index.astro` y `$95.823` en `PlanTrimestral.astro`.
+**Los precios están duplicados** entre las cards de la grilla en `index.astro` y los fragmentos en `components/plans/`. Al cambiar un precio hay que actualizar ambos lugares, y dentro del fragmento hay además tres cifras derivadas que deben cuadrar: el precio referencial por mes, el total y el "Ahorra $X". Ya hubo una divergencia por esto (trimestral con `$95.823` en el modal contra `$94.473` en la grilla).
 
 ### Rutas
 
