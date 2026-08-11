@@ -45,14 +45,6 @@ import Layout from '../layouts/Layout.astro';
         <p class="font-body text-xl md:text-2xl text-on-surface-variant leading-relaxed font-light">
         Entrenamos en grupos multinivel y con cupos limitados para que recibas una atención cercana y puedas avanzar a tu propio ritmo. Además, contamos con un espacio diseñado especialmente para la calistenia, equipado con implementos de alta calidad para que disfrutes cada entrenamiento y saques lo mejor de ti.
         </p>
-        <p >
-<h2>Planes de entrenamiento:</h2>
-
-4 clases: $30.000
-8 clases: $50.000
-12 clases: $65.000
-        </p>
-
 
         </p>
         <div class="grid grid-cols-2 gap-8 pt-8">
@@ -71,12 +63,42 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- Training Plans (mismo patrón que "Horarios de Apertura" en el home) -->
+  <section class="py-24 px-6">
+    <div class="w-full max-w-7xl mx-auto bg-surface-container-low p-10 md:p-16 relative overflow-hidden group">
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <h3 class="font-headline text-4xl md:text-5xl font-bold uppercase mb-12 text-center">Planes de entrenamiento</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 font-body">
+          <!-- Plan 1 -->
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <span class="text-on-surface/60 uppercase text-base tracking-widest mb-4">4 clases</span>
+            <div class="text-2xl font-headline font-bold text-on-background">$30.000</div>
+            <div class="w-12 h-1 bg-primary-container mt-6"></div>
+          </div>
+          <!-- Plan 2 -->
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <span class="text-on-surface/60 uppercase text-base tracking-widest mb-4">8 clases</span>
+            <div class="text-2xl font-headline font-bold text-on-background">$50.000</div>
+            <div class="w-12 h-1 bg-primary-container mt-6"></div>
+          </div>
+          <!-- Plan 3 -->
+          <div class="flex flex-col items-center md:items-start text-center md:text-left">
+            <span class="text-on-surface/60 uppercase text-base tracking-widest mb-4">12 clases</span>
+            <div class="text-2xl font-headline font-bold text-on-background">$65.000</div>
+            <div class="w-12 h-1 bg-primary-container mt-6"></div>
+          </div>
+        </div>
+      </div>
+      <span class="material-symbols-outlined absolute -bottom-12 -right-12 text-surface-container-high text-9xl opacity-10 pointer-events-none" style="font-size: 20rem;">payments</span>
+    </div>
+  </section>
+
   <!-- Schedules Section -->
   <section class="bg-surface py-32 px-6 relative overflow-hidden" id="calendario">
     <div class="max-w-7xl mx-auto">
       <div class="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <h2 class="font-headline text-6xl md:text-8xl font-black uppercase tracking-tighter mt-4">CALENDARIO SEMANAL</h2>
+          <h2 class="font-headline text-5xl md:text-7xl font-extrabold uppercase leading-none tracking-tighter mb-4">Calendario <span class="text-primary">Semanal</span></h2>
         </div>
       </div>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">

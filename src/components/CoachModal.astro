@@ -44,6 +44,13 @@ const paragraphs = Array.isArray(description) ? description : [description];
         src={photo}
       />
       <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-surface-container"></div>
+
+      <!-- Quote sobre el pie de la foto -->
+      <div class="absolute bottom-0 left-0 right-0 z-10 bg-black/50 px-6 py-3">
+        <p class="text-on-surface/80 text-sm italic">
+          {quote}
+        </p>
+      </div>
     </div>
 
     <!-- Right: Details -->
@@ -54,17 +61,12 @@ const paragraphs = Array.isArray(description) ? description : [description];
       <h2 class="text-xl md:text-2xl font-body font-light text-primary-fixed mb-8 tracking-wide">
         {specialty}
       </h2>
-      <div class="space-y-6 mb-10">
-        <div class="space-y-4">
-          {paragraphs.map((paragraph) => (
-            <p class="text-on-surface/80 text-base leading-relaxed font-light">
-              {paragraph}
-            </p>
-          ))}
-        </div>
-        <p class="text-on-surface/60 text-sm italic border-l-2 border-primary-container pl-4">
-          {quote}
-        </p>
+      <div class="space-y-4 mb-10">
+        {paragraphs.map((paragraph) => (
+          <p class="text-on-surface/80 text-base leading-relaxed font-light">
+            {paragraph}
+          </p>
+        ))}
       </div>
       <div class="flex flex-col sm:flex-row gap-4">
         <a
