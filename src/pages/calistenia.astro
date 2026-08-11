@@ -7,7 +7,16 @@ import Layout from '../layouts/Layout.astro';
   <header class="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-black/40 z-10"></div>
-      <img alt="Industrial gym interior with high contrast lighting, steel pull-up bars, and a gritty atmospheric aesthetic with dark shadows" class="w-full h-full object-cover video-mask-bottom" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9R3xVI_S1tFDWMT9wtbah3vcMfQqoi6x3rFj6d_-KkbqiqkjwS28moaR5NPmoriUPfPndvil1wTFIh5DLAs2SEmh0ddZjgQmE6FqYT1Ojxmhe-AAEX9B_02TZv7GApY0rSFSBsoH16tqN2B_JddinVgkSMFC2Lgoqvn93oLPtVSnUiJ3AfCLkeHpOvXrV4KqNBYe4KU-wqbJoBG8H_ZdUnkg2_3InTdKtWhg_iBHiYueX2SY27TEKYsnwnI7lC9rdam7S5eC2n1I"/>
+      <img
+        id="hero-parallax-img"
+        alt="Zona de calistenia del gimnasio URBANLIFT"
+        class="w-full h-full object-cover video-mask-bottom"
+        src="/img/home-calistenia.jpg"
+        width="1600"
+        height="1736"
+        fetchpriority="high"
+        style="transform: scale(1.25);"
+      />
     </div>
     <div class="relative z-20 text-center px-4 max-w-5xl">
       <h1 class="font-headline font-black text-6xl md:text-9xl uppercase tracking-tighter leading-none mb-6 text-on-surface text-overlap">
@@ -164,3 +173,19 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 </Layout>
+
+<script>
+  // Parallax de la foto del hero: el scale-1.25 del <img> es el buffer
+  // que evita que se revelen bordes vacíos al desplazarla.
+  const heroParallaxImg = document.getElementById('hero-parallax-img');
+  if (heroParallaxImg) {
+    const maxOffset = 80;
+    const speed = 0.3;
+    const updateParallax = () => {
+      const offset = Math.min(maxOffset, window.scrollY * speed);
+      heroParallaxImg.style.transform = `scale(1.25) translateY(${offset}px)`;
+    };
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    updateParallax();
+  }
+</script>
