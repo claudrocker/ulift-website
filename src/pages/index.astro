@@ -27,7 +27,7 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
         width="1280"
         height="1104"
         fetchpriority="high"
-        style="transform: scale(1.25);"
+        style="transform: scale(1.5);"
       />
     </div>
     <div class="relative z-20 max-w-4xl">
@@ -302,17 +302,37 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
     }
   });
 
-  // Parallax de la foto del hero: el scale-1.25 del <img> es el buffer
-  // que evita que se revelen bordes vacíos al desplazarla.
+  // Parallax de la foto del hero. El scale del <img> es el buffer que evita
+  // que asomen bordes vacíos al desplazarla: deja (SCALE - 1) / 2 del alto
+  // libre a cada lado, y ese es todo el recorrido disponible.
+  //
+  // El tope y la velocidad se derivan de ese margen para que el recorrido se
+  // agote justo cuando el hero acaba de salir de pantalla; así el clamp nunca
+  // se ve como un frenazo. Subir SCALE = más recorrido y más velocidad, a
+  // costa de recortar más la foto. Debe coincidir con el `transform` inline.
+  const HERO_SCALE = 1.5;
   const heroParallaxImg = document.getElementById('hero-parallax-img');
   if (heroParallaxImg) {
-    const maxOffset = 80;
-    const speed = 0.3;
+    let maxOffset = 0;
+    let speed = 0;
+
+    const measure = () => {
+      const heroHeight = heroParallaxImg.parentElement?.offsetHeight || window.innerHeight;
+      maxOffset = (heroHeight * (HERO_SCALE - 1)) / 2;
+      speed = maxOffset / heroHeight;
+    };
+
     const updateParallax = () => {
       const offset = Math.min(maxOffset, window.scrollY * speed);
-      heroParallaxImg.style.transform = `scale(1.25) translateY(${offset}px)`;
+      heroParallaxImg.style.transform = `scale(${HERO_SCALE}) translateY(${offset}px)`;
     };
-    window.addEventListener('scroll', updateParallax, { passive: true });
+
+    measure();
     updateParallax();
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', () => {
+      measure();
+      updateParallax();
+    });
   }
 </script>
