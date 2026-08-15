@@ -30,6 +30,7 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
         style="transform: scale(1.5);"
       />
     </div>
+
     <div class="relative z-20 max-w-4xl">
       <h1 class="font-headline text-6xl md:text-8xl font-extrabold uppercase leading-none tracking-tighter text-on-background mb-6 text-overlap">
         Forjando <span class="text-primary italic">atletas</span>,<br/>esculpiendo cuerpos
@@ -310,21 +311,31 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
   // agote justo cuando el hero acaba de salir de pantalla; así el clamp nunca
   // se ve como un frenazo. Subir SCALE = más recorrido y más velocidad, a
   // costa de recortar más la foto. Debe coincidir con el `transform` inline.
+  //
+  // Junto con el parallax, la foto se desenfoca suavemente a medida que se
+  // hace scroll a lo largo del hero (mismo `progress` 0→1 que agota el
+  // recorrido del parallax), reforzando la transición hacia el resto del
+  // sitio.
   const HERO_SCALE = 1.5;
+  const BLUR_MAX = 8;
   const heroParallaxImg = document.getElementById('hero-parallax-img');
   if (heroParallaxImg) {
     let maxOffset = 0;
     let speed = 0;
+    let heroHeight = 0;
 
     const measure = () => {
-      const heroHeight = heroParallaxImg.parentElement?.offsetHeight || window.innerHeight;
+      heroHeight = heroParallaxImg.parentElement?.offsetHeight || window.innerHeight;
       maxOffset = (heroHeight * (HERO_SCALE - 1)) / 2;
       speed = maxOffset / heroHeight;
     };
 
     const updateParallax = () => {
       const offset = Math.min(maxOffset, window.scrollY * speed);
+      const progress = heroHeight ? Math.min(1, window.scrollY / heroHeight) : 0;
+      const blurAmount = BLUR_MAX * progress;
       heroParallaxImg.style.transform = `scale(${HERO_SCALE}) translateY(${offset}px)`;
+      heroParallaxImg.style.filter = `blur(${blurAmount}px)`;
     };
 
     measure();
