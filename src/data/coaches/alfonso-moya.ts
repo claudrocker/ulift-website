@@ -6,5 +6,5 @@ export const coach = {
   quote: '"El progreso constante supera a la perfección esporádica. Cada sesión cuenta."',
   photo: '/img/coaches/alfonso-moya.jpg',
   instagramUrl: 'https://www.instagram.com/alfooonsoo_m',
-  whatsappUrl: 'https://wa.me/56932818911',
+  whatsappUrl: 'https://wa.me/56966068022',
 };

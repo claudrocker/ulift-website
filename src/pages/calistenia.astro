@@ -178,21 +178,32 @@ import Layout from '../layouts/Layout.astro';
   // Parallax de la foto del hero. Mismo cálculo que en index.astro: el tope y
   // la velocidad se derivan del margen que deja el scale, para que el recorrido
   // se agote justo cuando el hero sale de pantalla y el clamp no se note.
+  //
+  // Junto con el parallax, la foto se desvanece (fade out) a medida que se
+  // hace scroll a lo largo del hero — mismo patrón que el blur del home,
+  // pero acá con opacity en vez de blur. FADE_DISTANCE_RATIO < 1 hace que el
+  // fade agote su recorrido antes que el parallax (más rápido y notorio):
+  // con 0.4, llega al mínimo de opacidad al 40% del alto del hero.
   const HERO_SCALE = 1.5;
+  const FADE_MIN = 0.15;
+  const FADE_DISTANCE_RATIO = 0.4;
   const heroParallaxImg = document.getElementById('hero-parallax-img');
   if (heroParallaxImg) {
     let maxOffset = 0;
     let speed = 0;
+    let heroHeight = 0;
 
     const measure = () => {
-      const heroHeight = heroParallaxImg.parentElement?.offsetHeight || window.innerHeight;
+      heroHeight = heroParallaxImg.parentElement?.offsetHeight || window.innerHeight;
       maxOffset = (heroHeight * (HERO_SCALE - 1)) / 2;
       speed = maxOffset / heroHeight;
     };
 
     const updateParallax = () => {
       const offset = Math.min(maxOffset, window.scrollY * speed);
+      const fadeProgress = heroHeight ? Math.min(1, window.scrollY / (heroHeight * FADE_DISTANCE_RATIO)) : 0;
       heroParallaxImg.style.transform = `scale(${HERO_SCALE}) translateY(${offset}px)`;
+      heroParallaxImg.style.opacity = String(1 - fadeProgress * (1 - FADE_MIN));
     };
 
     measure();

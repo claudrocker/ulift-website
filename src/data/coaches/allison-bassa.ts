@@ -6,5 +6,5 @@ export const coach = {
   quote: '"El cuerpo es capaz de todo. La mente es lo que necesitas entrenar primero."',
   photo: '/img/coaches/allison-bassa.jpg',
   instagramUrl: 'https://www.instagram.com/mutualtuning',
-  whatsappUrl: 'https://wa.me/56932818911',
+  whatsappUrl: 'https://wa.me/56994709419 ',
 };

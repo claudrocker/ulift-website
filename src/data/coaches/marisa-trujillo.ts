@@ -6,5 +6,5 @@ export const coach = {
   quote: '"Cada repetición es una decisión. Elige ser más fuerte cada día."',
   photo: '/img/coaches/marisa-trujillo.jpg',
   instagramUrl: 'https://www.instagram.com/trujillo.marisa',
-  whatsappUrl: 'https://wa.me/56932818911',
+  whatsappUrl: 'https://wa.me/56979941567',
 };

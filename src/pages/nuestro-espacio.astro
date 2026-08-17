@@ -1,5 +1,67 @@
 ---
+import fs from 'node:fs';
+import path from 'node:path';
 import Layout from '../layouts/Layout.astro';
+
+// Galería dinámica: lee todas las fotos de public/img/zonas en build time.
+// Agregar/quitar un archivo en esa carpeta actualiza la galería sin tocar código.
+const zonasDir = path.join(process.cwd(), 'public/img/zonas');
+const zonaFiles = fs
+  .readdirSync(zonasDir)
+  .filter((file) => /\.(jpe?g|png|webp)$/i.test(file))
+  .sort();
+
+// Orden y títulos de la galería: un solo array define ambas cosas. `label`
+// es opcional — si se omite, se usa el título automático derivado del
+// nombre de archivo (ver `toLabel`). El nombre de archivo es la clave, tal
+// como se escribe en el código (NFC); ver nota de normalización más abajo.
+const ZONA_ORDER: { file: string; label?: string }[] = [
+  { file: 'calistenia.jpg', label: 'Zona de Calistenia y Street Lifting' },
+  { file: 'calistenia-2.jpg', label: 'Zona de Calistenia y Street Lifting' },
+  { file: 'calistenia-3.jpg', label: 'Zona de Calistenia y Street Lifting' },
+  { file: 'peso-libre.jpg', label: 'Zona de Peso Libre' },
+  { file: 'peso-libre-2.jpg', label: 'Zona de Peso Libre' },
+  { file: 'cardio.jpg', label: 'Zona de Cardio' },
+  { file: 'selfies-camarines.jpg', label: 'Zona de Selfies' },
+  { file: 'baños.jpg', label: 'Baños' },
+  { file: 'duchas.jpg', label:'Duchas' },
+  { file: 'camarines.jpg', label: 'Camarines' },
+  
+];
+
+// Nota: macOS guarda nombres de archivo con tildes en NFD (ej. "ñ" como
+// "n" + tilde combinada), pero el código fuente los escribe en NFC ("ñ"
+// como un solo carácter) — son bytes distintos aunque se vean igual. Sin
+// normalizar, ni el match contra ZONA_ORDER ni un `\b\w` regex funcionan
+// bien con acentos, así que se normaliza antes de ambas cosas.
+const toLabel = (filename: string) => {
+  const base = filename.replace(/\.[^.]+$/, '').replace(/-\d+$/, '');
+  return base
+    .split('-')
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+// Mapa nombre-normalizado → nombre real en disco, para poder ordenar por
+// ZONA_ORDER y a la vez servir la foto con el nombre de archivo real.
+const zonaFilesByKey = new Map(zonaFiles.map((file) => [file.normalize('NFC'), file]));
+const orderedKeys = new Set(ZONA_ORDER.map((z) => z.file));
+
+const zonaImages = [
+  // 1. Fotos listadas en ZONA_ORDER, en ese orden (se saltan si el archivo ya no existe).
+  ...ZONA_ORDER.filter((z) => zonaFilesByKey.has(z.file)).map((z) => ({
+    src: `/img/zonas/${zonaFilesByKey.get(z.file)}`,
+    alt: z.label ?? toLabel(z.file),
+  })),
+  // 2. Fotos nuevas que aún no están en ZONA_ORDER: aparecen al final, en orden alfabético.
+  ...zonaFiles
+    .filter((file) => !orderedKeys.has(file.normalize('NFC')))
+    .map((file) => {
+      const key = file.normalize('NFC');
+      return { src: `/img/zonas/${file}`, alt: toLabel(key) };
+    }),
+];
 ---
 
 <Layout title="Nuestro Espacio - URBANLIFT">
@@ -12,7 +74,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
       <div class="relative z-10 max-w-4xl">
         <h1 class="font-headline text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-[0.85] text-on-background">
-          NUESTRO <br/> <span class="text-primary italic">SANTUARIO</span>
+          NUESTRO <br/> <span class="text-primary italic">ESPACIO</span>
         </h1>
         <p class="mt-6 text-xl text-on-surface-variant max-w-xl font-light">
           Conoce nuestras instalaciones pensadas y diseñadas para ti. Entrena con el equipo de más alta calidad
@@ -20,60 +82,143 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <!-- Bento Grid Zones Section -->
+    <!-- Masonry Gallery: fotos de public/img/zonas, click para ampliar con navegación prev/next -->
     <section class="px-8 py-24 bg-surface-container-lowest">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto">
-        <!-- Zone: Calistenia -->
-        <div class="md:col-span-4 md:row-span-2 group relative overflow-hidden rounded-none border-none bg-surface-container-high aspect-[3/4] md:aspect-auto">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq8o3qx493MVZmUoNliaMYYcjdgMXDhNGgBkqqQjGCclardSNfnGYEabLoIRMPrqeApkIuF00p-l8N9Q1p7Bdb8IKLyHRFLU9WMEecjG5sU2h8j_o48fbdFC48VVttc1rLJQ1rV-B_l8KCiuiS0G4IDoArABbNB-JChlJ1qHojLCURq5dLpI2Y98QFNYu7GlHESMfTLtIi_rUgF39KDbhAw_hVWDusPynAZJrs0d9sQO_TbqMuIy17h8WlH9qWHpdxLB8sHP-QHZI" alt="Calistenia Zone" />
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-headline text-3xl font-bold uppercase tracking-tight">Zona calistenia y stret lifting</h3>
-            <div class="h-1 w-0 group-hover:w-full bg-primary transition-all duration-500 mt-2"></div>
-          </div>
-        </div>
-        <!-- Zone: Powerlifting -->
-        <div class="md:col-span-8 group relative overflow-hidden rounded-none bg-surface-container-high aspect-video md:aspect-auto h-[300px]">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAklvuafn7V9iIy1ZypK08ZSgEUqNk4Cu2i23RShgBmcpfhY9S2uJsxRiLQzIDyEuKZxtVo599Z9e_ENwte3FwJ7ctjulN-fJYO7ZlFlPuBYAWH4IatpTImPuyHyIE5Pf8AkeEOUurvv913kXbAE66m5nZzvwL442rxE3MvCRDwgBzUkcXVBtYau_jj0Sv5js6BY8SEv_wUPWpRwB94uAxZ7CA3KDOePeZpursWxplLarDsEQEeTDECYJG3JDzTvKB16up3r0KB2t0" alt="Powerlifting Zone" />
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-headline text-3xl font-bold uppercase tracking-tight">Zona powerlifting</h3>
-          </div>
-        </div>
-        <!-- Zone: Máquinas -->
-        <div class="md:col-span-4 group relative overflow-hidden rounded-none bg-surface-container-high aspect-square">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCguMQFlOT1OKDLdA3m4v0mqZdXzuaYF4MKPSEa4K_E7bHOHz-xQP5ZZQOTn0DMPpdwWcMcuhKLU8881qVN7XY1lb-ONWrb7BnGp9j55i8G5PfTflJHuRMCnnmSTzkLgLWLZvXrkrqoJhHr03EuLc6dxylfZVmyT3y_aYXIaJnWMGPe8N02_I2WfseyLL5luKXQ7Epk2kUIcQg7dkOsVzDw2uUerLo3tCSwqzo6Ni7lqL8gU4cyBcpgvLLk353eA2aavLE-27OCrIY" alt="Machines Zone" />
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-headline text-2xl font-bold uppercase tracking-tight">Zona máquinas</h3>
-          </div>
-        </div>
-        <!-- Zone: Peso Libre -->
-        <div class="md:col-span-4 group relative overflow-hidden rounded-none bg-surface-container-high aspect-square">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBhuxfQPl6j6YozwBUNwi38372m3eJFc7j6ek_T6Ya5Te5jB1bpmnse49n6EY4EiCRBKrBYv7TC2-6RwvNxUyArZzClZbuXS0IH3jI6lubleyUChlHy9DhUWCOLIaMTjwHyU-aeIIp7BRHpffX3f7vq7PRUtPqiJzT7ZfaAuh-Net7lVxAmej0QArCiLQ1RTxA-mswlp3zZnopBaZj0OwNBf99hZPexTtTpOvLlhKW5qs8Tqo0yuU0RYPhnDjumtazPujkQCHmm-0" alt="Free Weights Zone" />
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-headline text-2xl font-bold uppercase tracking-tight">Zona peso libre</h3>
-          </div>
-        </div>
-        <!-- Zone: Descanso -->
-        <div class="md:col-span-7 group relative overflow-hidden rounded-none bg-surface-container-high h-[400px]">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD20d6CH5U7lYloYovns5hQe5RUfFyYuQ2dIbjwlGCjT41BYWqyoVNitGw1V8J5t_KI2fo81vJMEEv-c2Gk7oj6cD4E7eVO1wMY_XiUT7ffD2hk9n6INLcxOZhLq_g_--EsXyqJMI6GP-IfH84aei_Mlu9SbRycPdZPGxDSjgygDer2Udi1vprCtBZ2gJOdpvDTI7Mj9SA1oQoFRzP7P7Bl1e1JLv-AeEIoQz4nOoeYKdPLh9SpgWcg0gK_NCTkd1qEH1BrdqyAzfs" alt="Lounge Zone" />
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-headline text-3xl font-bold uppercase tracking-tight">Zona de selfies</h3>
-          </div>
-        </div>
-        <!-- Zone: Camarines -->
-        <div class="md:col-span-5 group relative overflow-hidden rounded-none bg-surface-container-high h-[400px]">
-          <img class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBl1sknUuS9_g6FqlYKkj62yQSiZXEc9Hy_vv8oigA__IgAHz_uwM9WPS0PlXH15T37Lw_Lk_F0bkLX40s3kbKeVsPZg1v4baIfFVO7WGX7kp48zZvbcHEO-_quDW82bnJH_juAk5FuduqyHbSbxfB9tJl2sgp_oK7BIldfy7BZ6lfCdvv3vHzPkQZ6AlY4IGRYQ5u4C2Q6aUyAgvCwqlCCnHxTKeKhy00xWD2AADy_belFhk2uXoYI1r89mCFhO9iJ2los4aZhLG8" alt="Locker Room Zone" />
-          <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 p-8">
-            <h3 class="font-headline text-3xl font-bold uppercase tracking-tight">Zona baños y camarines</h3>
-          </div>
+      <div class="max-w-7xl mx-auto">
+        <div id="zonas-masonry" class="relative">
+          <div class="masonry-sizer w-full sm:w-1/2 lg:w-1/3"></div>
+          {zonaImages.map((img, index) => (
+            <div class="masonry-item w-full sm:w-1/2 lg:w-1/3 p-3">
+              <button
+                type="button"
+                class="group relative block w-full overflow-hidden bg-surface-container-high cursor-zoom-in outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface-container-lowest"
+                data-gallery-trigger
+                data-gallery-index={index}
+                aria-label={`Ampliar foto: ${img.alt}`}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  class="w-full h-auto object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                  <h3 class="font-headline text-lg font-bold uppercase tracking-tight text-on-background opacity-0 group-hover:opacity-100 transition-opacity">{img.alt}</h3>
+                </div>
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </section>
 
+    <!-- Lightbox de la galería -->
+    <div id="zona-lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center p-4" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+      <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" data-zona-lightbox-backdrop></div>
+
+      <button
+        class="absolute top-6 right-6 z-20 text-white/60 hover:text-primary transition-colors"
+        data-zona-lightbox-close
+        aria-label="Cerrar"
+      >
+        <span class="material-symbols-outlined text-4xl">close</span>
+      </button>
+
+      <button
+        class="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 text-white/60 hover:text-primary transition-colors"
+        data-zona-lightbox-prev
+        aria-label="Foto anterior"
+      >
+        <span class="material-symbols-outlined text-5xl">chevron_left</span>
+      </button>
+
+      <button
+        class="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 text-white/60 hover:text-primary transition-colors"
+        data-zona-lightbox-next
+        aria-label="Foto siguiente"
+      >
+        <span class="material-symbols-outlined text-5xl">chevron_right</span>
+      </button>
+
+      <div class="relative z-10 max-w-5xl max-h-[85vh] w-full flex flex-col items-center gap-4">
+        <img id="zona-lightbox-img" src="" alt="" class="max-w-full max-h-[75vh] object-contain" />
+        <p id="zona-lightbox-caption" class="text-on-background font-headline uppercase tracking-widest text-sm"></p>
+      </div>
+    </div>
   </main>
 </Layout>
+
+<script>
+  import Masonry from 'masonry-layout';
+  import imagesLoaded from 'imagesloaded';
+
+  // Grid tipo muro de fotos (Pinterest-style). imagesLoaded relayoutea a
+  // medida que cada foto termina de cargar, porque Masonry calcula alturas
+  // apenas se inicializa y las fotos aún no tienen su tamaño real.
+  const grid = document.getElementById('zonas-masonry');
+  if (grid) {
+    // Sin `gutter` numérico: con percentPosition el gutter en px se suma
+    // aparte del ancho porcentual de cada columna y puede hacer que sobre
+    // ancho y Masonry descarte una columna. El espaciado va por padding
+    // en `.masonry-item` en su lugar.
+    const masonry = new Masonry(grid, {
+      itemSelector: '.masonry-item',
+      columnWidth: '.masonry-sizer',
+      percentPosition: true,
+    });
+
+    imagesLoaded(grid).on('progress', () => {
+      masonry.layout();
+    });
+  }
+
+  // Lightbox: click en una foto la abre ampliada, con flechas y teclado
+  // (← → para navegar, Escape para cerrar), igual que los modales del sitio.
+  const triggers = Array.from(document.querySelectorAll<HTMLElement>('[data-gallery-trigger]'));
+  const lightbox = document.getElementById('zona-lightbox');
+  const lightboxImg = document.getElementById('zona-lightbox-img') as HTMLImageElement | null;
+  const lightboxCaption = document.getElementById('zona-lightbox-caption');
+  let currentIndex = 0;
+
+  function showImage(index: number) {
+    if (!lightboxImg || triggers.length === 0) return;
+    currentIndex = (index + triggers.length) % triggers.length;
+    const img = triggers[currentIndex].querySelector('img');
+    if (!img) return;
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    if (lightboxCaption) lightboxCaption.textContent = img.alt;
+  }
+
+  function openLightbox(index: number) {
+    if (!lightbox) return;
+    showImage(index);
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.classList.add('hidden');
+    lightbox.classList.remove('flex');
+    document.body.style.overflow = '';
+  }
+
+  triggers.forEach((trigger, index) => {
+    trigger.addEventListener('click', () => openLightbox(index));
+  });
+
+  document.querySelector('[data-zona-lightbox-close]')?.addEventListener('click', closeLightbox);
+  document.querySelector('[data-zona-lightbox-backdrop]')?.addEventListener('click', closeLightbox);
+  document.querySelector('[data-zona-lightbox-prev]')?.addEventListener('click', () => showImage(currentIndex - 1));
+  document.querySelector('[data-zona-lightbox-next]')?.addEventListener('click', () => showImage(currentIndex + 1));
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox || lightbox.classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+</script>

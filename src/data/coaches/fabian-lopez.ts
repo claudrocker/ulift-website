@@ -6,5 +6,5 @@ export const coach = {
   quote: '"La fuerza es una habilidad. No solo levantamos; ingeniamos el movimiento para el máximo rendimiento."',
   photo: '/img/coaches/fabian-lopez.jpg',
   instagramUrl: 'https://www.instagram.com/fabian.lopezs',
-  whatsappUrl: 'https://wa.me/56932818911',
+  whatsappUrl: 'https://wa.me/56986932756',
 };

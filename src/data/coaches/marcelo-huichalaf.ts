@@ -6,5 +6,5 @@ export const coach = {
   quote: '"La constancia transforma el cuerpo. Yo solo pongo el camino, tú pones la disciplina."',
   photo: '/img/coaches/marcelo-huichalaf.jpg',
   instagramUrl: 'https://www.instagram.com/coach.m_alejandro',
-  whatsappUrl: 'https://wa.me/56932818911',
+  whatsappUrl: 'https://wa.me/56993130896',
 };
