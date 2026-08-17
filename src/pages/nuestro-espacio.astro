@@ -69,8 +69,19 @@ const zonaImages = [
     <!-- Hero Section -->
     <section class="relative h-[614px] flex items-end px-8 pb-16 overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <img class="w-full h-full object-cover opacity-40 desaturate-[15%]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9zEMBwOmYsDANHlL-4XPSZMIgn_-dL3zxtjWQA4Z3m9McDHMu9-5e1tGwWRQHqTeJCCPle6QMOLlhBGDP9GG_I13uemMwU1MhdV_Dx9BSu2PvE1gopwhqBhjHNh7tbcTtQD9yy2DQT6DnedosQ1nDSD6U7pcoL2hDaUttZyAvxy2IMxLmia-ee7uToSI58NWc3wIO3bVZvMA9y3zc8EOj2ZyJ6B1baViIk3EFuQylThN3j7sL24Yayt9pkle9739JkiOMGUDjM5U" alt="Gym interior" />
-        <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+        <div class="absolute inset-0 bg-black/40 z-10"></div>
+        <!-- Mismo tratamiento que el hero del home: filtro grayscale, máscara
+             que desvanece el pie de la foto y parallax al hacer scroll. -->
+        <img
+          id="hero-parallax-img"
+          alt="Interior del gimnasio URBANLIFT"
+          class="w-full h-full object-cover [mask-image:linear-gradient(to_bottom,black_80%,transparent_95%)]"
+          src="/img/nuestro-espacio.jpg"
+          width="1600"
+          height="1200"
+          fetchpriority="high"
+          style="transform: scale(1.5);"
+        />
       </div>
       <div class="relative z-10 max-w-4xl">
         <h1 class="font-headline text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-[0.85] text-on-background">
@@ -151,6 +162,48 @@ const zonaImages = [
     </div>
   </main>
 </Layout>
+
+<script>
+  // Parallax de la foto del hero. Mismo cálculo que en index.astro y
+  // calistenia.astro: el tope y la velocidad se derivan del margen que deja el
+  // scale, para que el recorrido se agote justo cuando el hero sale de pantalla
+  // y el clamp no se note. Debe coincidir con el `transform` inline del <img>.
+  //
+  // Junto con el parallax, la foto se desenfoca suavemente a medida que se
+  // hace scroll a lo largo del hero (mismo `progress` 0→1 que agota el
+  // recorrido del parallax), reforzando la transición hacia el resto del
+  // sitio.
+  const HERO_SCALE = 1.5;
+  const BLUR_MAX = 8;
+  const heroParallaxImg = document.getElementById('hero-parallax-img');
+  if (heroParallaxImg) {
+    let maxOffset = 0;
+    let speed = 0;
+    let heroHeight = 0;
+
+    const measure = () => {
+      heroHeight = heroParallaxImg.parentElement?.offsetHeight || window.innerHeight;
+      maxOffset = (heroHeight * (HERO_SCALE - 1)) / 2;
+      speed = maxOffset / heroHeight;
+    };
+
+    const updateParallax = () => {
+      const offset = Math.min(maxOffset, window.scrollY * speed);
+      const progress = heroHeight ? Math.min(1, window.scrollY / heroHeight) : 0;
+      const blurAmount = BLUR_MAX * progress;
+      heroParallaxImg.style.transform = `scale(${HERO_SCALE}) translateY(${offset}px)`;
+      heroParallaxImg.style.filter = `blur(${blurAmount}px)`;
+    };
+
+    measure();
+    updateParallax();
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', () => {
+      measure();
+      updateParallax();
+    });
+  }
+</script>
 
 <script>
   import Masonry from 'masonry-layout';
