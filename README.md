@@ -1,4 +1,4 @@
-# Astro Starter Kit: Minimal
+# Urbanlift website with Astro
 
 ```sh
 npm create astro@latest -- --template minimal
