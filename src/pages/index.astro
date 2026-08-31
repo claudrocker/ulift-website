@@ -141,8 +141,18 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
   )}
 
   <!-- Plans Section -->
-  <section class="py-24 bg-surface-container-lowest" id="plans">
-    <div class="px-8 max-w-[1600px] mx-auto">
+  <section class="relative py-24 bg-surface-container-lowest overflow-hidden" id="plans">
+    <div class="absolute inset-0 z-0">
+      <img
+        id="plans-parallax-img"
+        alt=""
+        class="w-full h-full object-cover opacity-50"
+        src="/img/dragon-1.jpg"
+        style="transform: scale(1.2); object-position: 40% 34%;"
+      />
+      <div class="absolute inset-0 bg-surface-container-lowest/60"></div>
+    </div>
+    <div class="relative z-10 px-8 max-w-[1600px] mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
         <div>
           <h2 class="font-headline text-5xl md:text-7xl font-extrabold uppercase leading-none tracking-tighter mb-4">Elige tu <span class="text-primary">PLAN</span></h2>
@@ -348,6 +358,40 @@ import SuscripcionAnual from '../components/plans/SuscripcionAnual.astro';
     window.addEventListener('resize', () => {
       measure();
       updateParallax();
+    });
+  }
+
+  // Parallax del fondo (dragón) en "Elige tu plan": se mueve al scrollear,
+  // sin blur. A diferencia del hero (que arranca en scrollY 0), esta sección
+  // está más abajo en la página, así que el movimiento se calcula sobre la
+  // posición de la sección en el viewport (getBoundingClientRect) en vez del
+  // scroll absoluto. El scale del <img> es el mismo buffer que evita bordes
+  // vacíos al desplazarlo.
+  const PLANS_SCALE = 1.2;
+  const PLANS_SPEED = 0.15;
+  const plansParallaxImg = document.getElementById('plans-parallax-img');
+  if (plansParallaxImg) {
+    const plansSection = plansParallaxImg.closest('section');
+    let plansMaxOffset = 0;
+
+    const measurePlans = () => {
+      const sectionHeight = plansSection?.getBoundingClientRect().height || window.innerHeight;
+      plansMaxOffset = (sectionHeight * (PLANS_SCALE - 1)) / 2;
+    };
+
+    const updatePlansParallax = () => {
+      if (!plansSection) return;
+      const rect = plansSection.getBoundingClientRect();
+      const offset = Math.max(-plansMaxOffset, Math.min(plansMaxOffset, -rect.top * PLANS_SPEED));
+      plansParallaxImg.style.transform = `scale(${PLANS_SCALE}) translateY(${offset}px)`;
+    };
+
+    measurePlans();
+    updatePlansParallax();
+    window.addEventListener('scroll', updatePlansParallax, { passive: true });
+    window.addEventListener('resize', () => {
+      measurePlans();
+      updatePlansParallax();
     });
   }
 </script>
