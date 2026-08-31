@@ -55,14 +55,14 @@ import Layout from '../layouts/Layout.astro';
           <div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10 sticky top-28">
             <h3 class="font-headline text-xl uppercase tracking-tighter mb-8 border-b border-primary/20 pb-4">Sincroniza tu Fuerza</h3>
             <div class="space-y-4">
-              <a class="flex items-center justify-between p-5 bg-surface rounded-lg hover:bg-primary/10 transition-all group border border-outline-variant/5" href="#">
+              <a class="flex items-center justify-between p-5 bg-surface rounded-lg hover:bg-primary/10 transition-all group border border-outline-variant/5" href="https://wa.me/56932818911" target="_blank" rel="noopener noreferrer">
                 <div class="flex items-center gap-4">
                   <span class="material-symbols-outlined text-primary text-2xl">chat</span>
                   <span class="font-bold uppercase tracking-wider text-sm">WhatsApp</span>
                 </div>
                 <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-primary">arrow_forward</span>
               </a>
-              <a class="flex items-center justify-between p-5 bg-surface rounded-lg hover:bg-primary/10 transition-all group border border-outline-variant/5" href="#">
+              <a class="flex items-center justify-between p-5 bg-surface rounded-lg hover:bg-primary/10 transition-all group border border-outline-variant/5" href="https://instagram.com/urbanlift.cl" target="_blank" rel="noopener noreferrer">
                 <div class="flex items-center gap-4">
                   <span class="material-symbols-outlined text-primary text-2xl">share</span>
                   <span class="font-bold uppercase tracking-wider text-sm">Instagram</span>
@@ -70,6 +70,8 @@ import Layout from '../layouts/Layout.astro';
                 <span class="material-symbols-outlined opacity-0 group-hover:opacity-100 transition-all text-primary">arrow_forward</span>
               </a>
             </div>
+            <!-- "Próximo campeonato" oculto: {false && (...)} en vez de comentario HTML -->
+            {false && (
             <div class="mt-12">
               <p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-4">nUESTRO PRÓXIMO CAMPEONATO</p>
               <div class="relative overflow-hidden rounded-lg aspect-square group cursor-pointer">
@@ -81,6 +83,7 @@ import Layout from '../layouts/Layout.astro';
                 </div>
               </div>
             </div>
+            )}
           </div>
         </aside>
       </div>
