@@ -9,6 +9,9 @@ COPY . .
 RUN npm run build
 # Etapa 2: Servidor de producción
 FROM nginx:alpine
+# Config con Cache-Control explícito: el HTML nunca se cachea (revalida
+# siempre), los assets con hash de Astro (_astro/*) sí, "para siempre".
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 # Copiar el resultado de la construcción (carpeta dist) al directorio de Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 # Exponer el puerto 80
