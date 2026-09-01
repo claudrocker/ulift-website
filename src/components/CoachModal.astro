@@ -45,12 +45,14 @@ const paragraphs = Array.isArray(description) ? description : [description];
       />
       <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-surface-container"></div>
 
-      <!-- Quote sobre el pie de la foto -->
+      <!-- Quote sobre el pie de la foto (oculta) -->
+      {false && (
       <div class="absolute bottom-0 left-0 right-0 z-10 bg-black/50 px-6 py-3">
         <p class="text-on-surface/80 text-sm italic">
           {quote}
         </p>
       </div>
+      )}
     </div>
 
     <!-- Right: Details -->
