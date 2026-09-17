@@ -135,11 +135,21 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
 
       <!-- Team CTA -->
       <section class="bg-surface-container-lowest p-12 lg:col-span-2">
-        <img
-          alt="Equipo URBANLIFT"
-          class="w-full h-auto object-cover rounded-lg"
-          src="/img/team.jpg"
-        />
+        <!-- El fondo gris de esta grilla de 12 cols se ve como un marco grueso
+             de 1 columna alrededor de la foto, que ocupa solo 10 cols
+             centrada; en pantallas muy anchas la foto a ancho completo se ve mal.
+             padding-top/bottom en % se calcula sobre el ANCHO del contenedor
+             (no el alto), así que 8.3333% (=100%/12) da exactamente el mismo
+             grosor que 1 columna, arriba/abajo igual que a los costados. -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 bg-white/10 lg:pt-[8.3333%] lg:pb-[8.3333%]">
+          <div class="lg:col-start-2 lg:col-span-10">
+            <img
+              alt="Equipo URBANLIFT"
+              class="w-full h-auto object-cover rounded-lg"
+              src="/img/team.jpg"
+            />
+          </div>
+        </div>
         <p class="font-headline text-4xl md:text-5xl font-extrabold uppercase tracking-tighter text-center mt-8 text-primary">
           ¡Te esperamos!
         </p>
