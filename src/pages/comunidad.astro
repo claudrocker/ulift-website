@@ -5,10 +5,18 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Comunidad - URBANLIFT">
   <main class="min-h-screen">
     <!-- Hero Section: Community Voice -->
-    <section class="relative h-[650px] flex items-center px-8 overflow-hidden">
+    <section class="relative h-[750px] flex items-center px-8 overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <img alt="Comunidad URBANLIFT" class="w-full h-full object-cover opacity-70 desaturate-[0.15]" src="/img/comunidad.jpg" />
-        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        <img
+          id="hero-parallax-img"
+          alt="Comunidad URBANLIFT"
+          class="w-full h-full object-cover opacity-70 desaturate-[0.15]"
+          src="/img/comunidad.jpg"
+          width="1586"
+          height="1060"
+          fetchpriority="high"
+          style="transform: scale(1.5);"
+        />
       </div>
       <div class="relative z-10 max-w-4xl">
         <h1 class="font-headline text-6xl md:text-8xl font-bold uppercase tracking-tighter leading-none mb-4 -ml-1">
@@ -21,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <!-- Community Feed Layout -->
-    <section class="px-8 pb-24">
+    <section class="px-8 mt-8 pt-8 pb-8">
       <div class="flex flex-col lg:flex-row gap-8">
         <!-- Main Feed Grid: Reels Style -->
         <div class="flex-grow">
@@ -90,3 +98,41 @@ import Layout from '../layouts/Layout.astro';
     </section>
   </main>
 </Layout>
+
+<script>
+  // Parallax de la foto del hero. Mismo cálculo que en index.astro,
+  // calistenia.astro y nuestro-espacio.astro: el tope y la velocidad se derivan
+  // del margen que deja el scale, para que el recorrido se agote justo cuando
+  // el hero sale de pantalla y el clamp no se note. Debe coincidir con el
+  // `transform` inline del <img>. El blur acompaña con el mismo `progress`.
+  const HERO_SCALE = 1.5;
+  const BLUR_MAX = 8;
+  const heroParallaxImg = document.getElementById('hero-parallax-img');
+  if (heroParallaxImg) {
+    let maxOffset = 0;
+    let speed = 0;
+    let heroHeight = 0;
+
+    const measure = () => {
+      heroHeight = heroParallaxImg.parentElement?.offsetHeight || window.innerHeight;
+      maxOffset = (heroHeight * (HERO_SCALE - 1)) / 2;
+      speed = maxOffset / heroHeight;
+    };
+
+    const updateParallax = () => {
+      const offset = Math.min(maxOffset, window.scrollY * speed);
+      const progress = heroHeight ? Math.min(1, window.scrollY / heroHeight) : 0;
+      const blurAmount = BLUR_MAX * progress;
+      heroParallaxImg.style.transform = `scale(${HERO_SCALE}) translateY(${offset}px)`;
+      heroParallaxImg.style.filter = `blur(${blurAmount}px)`;
+    };
+
+    measure();
+    updateParallax();
+    window.addEventListener('scroll', updateParallax, { passive: true });
+    window.addEventListener('resize', () => {
+      measure();
+      updateParallax();
+    });
+  }
+</script>

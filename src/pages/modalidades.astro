@@ -25,8 +25,10 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
       </p>
     </header>
 
-    <!-- Category Grid: 2x2 Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 border-t border-white/5">
+    <!-- Las 2 cards de arriba van acotadas al ancho de contenido del sitio;
+         las secciones de abajo siguen a ancho completo. -->
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 border-t border-white/5">
       <!-- Category 1: Clases grupales de calistenia -->
       <section class="relative group overflow-hidden border-b border-r border-white/5 bg-surface min-h-[600px] flex flex-col">
         <div class="absolute inset-0 z-0">
@@ -68,7 +70,11 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzSorOP0McSQrXfAcVBw9dTuXoC4kiqwrmrnh9a6Z4iK_dtQ/viewform" target="_blank" rel="noopener noreferrer" class="block text-center border-2 border-brand-orange w-full mt-auto py-4 text-white font-headline font-bold uppercase tracking-widest rounded-sm hover:bg-brand-orange transition-all">encuentra tu coach ideal</a>
         </div>
       </section>
+      </div>
+    </div>
 
+    <!-- Secciones a ancho completo -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
       <!-- Category 4: Conoce a nuestros profesionales -->
       <section class="relative group overflow-hidden bg-surface-container-lowest min-h-[600px] flex flex-col p-12 lg:col-span-2">
         <div class="absolute inset-0 z-0">
