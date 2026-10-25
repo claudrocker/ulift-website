@@ -25,30 +25,32 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
       </p>
     </header>
 
-    <!-- Category Grid: 2x2 Layout -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 border-t border-white/5">
+    <!-- Las 2 cards de arriba van acotadas al ancho de contenido del sitio;
+         las secciones de abajo siguen a ancho completo. -->
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 border-t border-white/5">
       <!-- Category 1: Clases grupales de calistenia -->
       <section class="relative group overflow-hidden border-b border-r border-white/5 bg-surface min-h-[600px] flex flex-col">
         <div class="absolute inset-0 z-0">
-          <img alt="Calistenia" class="w-full h-full object-cover grayscale opacity-40 transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtQRBJfoZGMoc5VWznNmbrxSGU8CHZBhqajGXGyIjr0PibT6182qgGoqfqEe6CH0bLaqfPukmYKHXUBtcXDdY4suwklU5Bj6jWOunF8rZwmxktmpqzk4STmIpJYjomVNLj8kl0HF0zbz0VwFzJddsryXDyLw0QPESo4DwCmjMXc1c6tjgm3K2qhFAMtH40SpDndhA7zE5jRjH7lHkiKAwTB32-4EoTPVaBA1C-ttcdMAbs7G1vmpw_PuQLkfFW8Y62Yb20i7lO9mQ" />
+          <img alt="Clases grupales de calistenia" class="w-full h-full object-cover opacity-75 transition-transform duration-700 group-hover:scale-105" src="/img/clases-grupales.jpg" />
           <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
         </div>
         <div class="relative z-10 p-12 flex-1 flex flex-col">
           <h2 class="font-headline text-4xl font-bold uppercase tracking-tighter mb-4 text-white">Clases grupales de calistenia</h2>
-          <p class="font-body text-on-surface-variant mb-8 max-w-md text-lg">Únete a nuestras clases grupales de calistenia mulnivel. En dónde aprenderas todo lo necesario para dominar tu cuerpo.</p>
-          <a href="/calistenia" class="block text-center border-2 border-brand-orange w-full mt-auto py-4 text-white font-headline font-bold uppercase tracking-widest rounded-xl hover:bg-brand-orange transition-all">Revisa nuestros horarios y valores</a>
+          <p class="font-body text-white mb-8 max-w-md text-lg">Únete a nuestras clases grupales de calistenia multinivel. En dónde aprenderas todo lo necesario para dominar tu cuerpo.</p>
+          <a href="/calistenia" class="block text-center border-2 border-brand-orange w-full mt-auto py-4 text-white font-headline font-bold uppercase tracking-widest rounded-sm hover:bg-brand-orange transition-all">Revisa nuestros horarios y valores</a>
         </div>
       </section>
 
       <!-- Category 2: Clases semi-personalizadas -->
       <section class="relative group overflow-hidden border-b border-white/5 bg-surface-container-low min-h-[600px] flex flex-col">
         <div class="absolute inset-0 z-0">
-          <img alt="Clases exclusivas" class="w-full h-full object-cover grayscale opacity-20 transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2Vz5zasWSg958cRTtTQb2GXAMm2Cy_W1fmhCfS_V6bU6-kgiaU8QtpvdtQb739SkfSXMe-OP59b34Vk0AcOgFv8irrJfZXo37gq1S0mIr9xlJIM7Rjrc7-AJF4rU-NpcKO8Tb53dAHtCoj9f2mERgyuijbLRBuEDeOP3Qkw52HOvQr5ALs0UcCJ-FlsRKCmhvkmOz0g1hr7oeXdP0po5vDEHvSGH3j1WbdGcjlh76KaEdv4NyIKL43sPYUJVUGIuwJPZIx1mbD6Q" />
+          <img alt="Clases semi-personalizadas" class="w-full h-full object-cover opacity-75 transition-transform duration-700 group-hover:scale-105" src="/img/clases-semi-personalizadas.jpg" />
           <div class="absolute inset-0 bg-gradient-to-t from-surface via-surface/80 to-transparent"></div>
         </div>
         <div class="relative z-10 p-12 flex-1 flex flex-col">
           <h2 class="font-headline text-4xl font-bold uppercase tracking-tighter mb-4 text-white">Clases semi-personalizadas</h2>
-          <p class="font-body text-on-surface-variant mb-8 max-w-md text-lg">Entrena 1:1 junto a tu coach o en un grupo reducido (máx 4 personas).</p>
+          <p class="font-body text-white mb-8 max-w-md text-lg">Entrena 1:1 junto a tu coach o en un grupo reducido (máx 4 personas).</p>
           <div class="space-y-4 mb-8">
             <div class="flex items-start gap-4 p-4 bg-white/5 border-l-2 border-brand-orange">
               <span class="material-symbols-outlined text-brand-orange">groups</span>
@@ -65,10 +67,14 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
               </div>
             </div>
           </div>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzSorOP0McSQrXfAcVBw9dTuXoC4kiqwrmrnh9a6Z4iK_dtQ/viewform" target="_blank" rel="noopener noreferrer" class="block text-center border-2 border-brand-orange w-full mt-auto py-4 text-white font-headline font-bold uppercase tracking-widest rounded-xl hover:bg-brand-orange transition-all">encuentra tu coach ideal</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzSorOP0McSQrXfAcVBw9dTuXoC4kiqwrmrnh9a6Z4iK_dtQ/viewform" target="_blank" rel="noopener noreferrer" class="block text-center border-2 border-brand-orange w-full mt-auto py-4 text-white font-headline font-bold uppercase tracking-widest rounded-sm hover:bg-brand-orange transition-all">encuentra tu coach ideal</a>
         </div>
       </section>
+      </div>
+    </div>
 
+    <!-- Secciones a ancho completo -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
       <!-- Category 4: Conoce a nuestros profesionales -->
       <section class="relative group overflow-hidden bg-surface-container-lowest min-h-[600px] flex flex-col p-12 lg:col-span-2">
         <div class="absolute inset-0 z-0">
@@ -77,60 +83,82 @@ const coaches = [allisonBassa, thomasCabezas, fabianLopez, alfonsoMoya, marisaTr
         </div>
         <div class="relative z-10 w-full flex flex-col h-full">
           <header class="mb-12">
-            <h2 class="font-headline text-4xl font-bold uppercase tracking-tighter text-white">CONOCE A NUESTROS<br /><span class="text-brand-orange">PROFESIONALES</span></h2>
+            <h2 class="font-headline text-5xl md:text-6xl font-extrabold uppercase leading-none tracking-tighter mb-4">Conoce a nuestros <br/><span class="text-primary">Profesionales</span></h2>
             <p class="font-body text-on-surface-variant mt-2 text-sm uppercase tracking-widest">El equipo de élite detrás de tu transformación</p>
           </header>
           <div class="grid grid-cols-2 md:grid-cols-3 gap-6 flex-grow">
             <!-- Coach 1 -->
             <div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50 cursor-pointer" data-coach-id="allison-bassa">
-              <div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
-                <img alt="Allison Bassa" class="w-full h-full object-cover" src="/img/coaches/allison-bassa-thumb.jpg" />
+              <div class="w-24 h-24 mb-4 rounded-sm bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+                <img alt="Allison Bassa" class="w-full h-full object-cover grayscale group-hover/coach:grayscale-0 transition-all duration-500" src="/img/coaches/allison-bassa-thumb.jpg" />
               </div>
               <div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors">Allison Bassa</div>
               <div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest">Calistenia y stret lifting</div>
             </div>
             <!-- Coach 2 -->
             <div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50 cursor-pointer" data-coach-id="thomas-cabezas">
-              <div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
-                <img alt="Thomas Cabezas" class="w-full h-full object-cover" src="/img/coaches/thomas-cabezas-thumb.jpg" />
+              <div class="w-24 h-24 mb-4 rounded-sm bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+                <img alt="Thomas Cabezas" class="w-full h-full object-cover grayscale group-hover/coach:grayscale-0 transition-all duration-500" src="/img/coaches/thomas-cabezas-thumb.jpg" />
               </div>
               <div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors">Thomas Cabezas</div>
               <div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest">Calistenia y stret lifting</div>
             </div>
             <!-- Coach 3 -->
             <div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50 cursor-pointer" data-coach-id="fabian-lopez">
-              <div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
-                <img alt="Fabian Lopez" class="w-full h-full object-cover" src="/img/coaches/fabian-lopez-thumb.jpg" />
+              <div class="w-24 h-24 mb-4 rounded-sm bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+                <img alt="Fabian Lopez" class="w-full h-full object-cover grayscale group-hover/coach:grayscale-0 transition-all duration-500" src="/img/coaches/fabian-lopez-thumb.jpg" />
               </div>
               <div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors">Fabian Lopez</div>
               <div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest">Power lifting</div>
             </div>
             <!-- Coach 4 -->
             <div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50 cursor-pointer" data-coach-id="alfonso-moya">
-              <div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
-                <img alt="Alfonso Moya" class="w-full h-full object-cover" src="/img/coaches/alfonso-moya-thumb.jpg" />
+              <div class="w-24 h-24 mb-4 rounded-sm bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+                <img alt="Alfonso Moya" class="w-full h-full object-cover grayscale group-hover/coach:grayscale-0 transition-all duration-500" src="/img/coaches/alfonso-moya-thumb.jpg" />
               </div>
               <div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors">Alfonso Moya</div>
               <div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest">Musculación/fitness y powerlifting</div>
             </div>
             <!-- Coach 5 -->
             <div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50 cursor-pointer" data-coach-id="marisa-trujillo">
-              <div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
-                <img alt="Marisa Trujillo" class="w-full h-full object-cover" src="/img/coaches/marisa-trujillo-thumb.jpg" />
+              <div class="w-24 h-24 mb-4 rounded-sm bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+                <img alt="Marisa Trujillo" class="w-full h-full object-cover grayscale group-hover/coach:grayscale-0 transition-all duration-500" src="/img/coaches/marisa-trujillo-thumb.jpg" />
               </div>
               <div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors">Marisa Trujillo</div>
               <div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest">Musculación fitness</div>
             </div>
             <!-- Coach 6 -->
             <div class="group/coach relative overflow-hidden bg-surface-container-high border border-white/10 rounded-lg p-4 flex flex-col items-center text-center transition-all hover:border-brand-orange/50 cursor-pointer" data-coach-id="marcelo-huichalaf">
-              <div class="w-24 h-24 mb-4 rounded-full bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
-                <img alt="Marcelo Huichalaf" class="w-full h-full object-cover" src="/img/coaches/marcelo-huichalaf-thumb.jpg" />
+              <div class="w-24 h-24 mb-4 rounded-sm bg-surface-container-highest border-2 border-brand-orange/20 overflow-hidden flex items-center justify-center group-hover/coach:border-brand-orange transition-colors">
+                <img alt="Marcelo Huichalaf" class="w-full h-full object-cover grayscale group-hover/coach:grayscale-0 transition-all duration-500" src="/img/coaches/marcelo-huichalaf-thumb.jpg" />
               </div>
               <div class="font-headline font-bold text-white uppercase tracking-tighter group-hover/coach:text-brand-orange transition-colors">Marcelo Huichalaf</div>
               <div class="text-[10px] text-on-surface-variant font-bold uppercase mt-1 tracking-widest">Profesor de Musculación</div>
             </div>
           </div>
         </div>
+      </section>
+
+      <!-- Team CTA -->
+      <section class="bg-surface-container-lowest p-12 lg:col-span-2">
+        <!-- El fondo gris de esta grilla de 12 cols se ve como un marco grueso
+             de 1 columna alrededor de la foto, que ocupa solo 10 cols
+             centrada; en pantallas muy anchas la foto a ancho completo se ve mal.
+             padding-top/bottom en % se calcula sobre el ANCHO del contenedor
+             (no el alto), así que 8.3333% (=100%/12) da exactamente el mismo
+             grosor que 1 columna, arriba/abajo igual que a los costados. -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 bg-white/10 lg:pt-[8.3333%] lg:pb-[8.3333%]">
+          <div class="lg:col-start-2 lg:col-span-10">
+            <img
+              alt="Equipo URBANLIFT"
+              class="w-full h-auto object-cover rounded-lg"
+              src="/img/team.jpg"
+            />
+          </div>
+        </div>
+        <p class="font-headline text-4xl md:text-5xl font-extrabold uppercase tracking-tighter text-center mt-8 text-primary">
+          ¡Te esperamos!
+        </p>
       </section>
     </div>
   </main>

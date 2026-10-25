@@ -14,6 +14,12 @@
   "dependencies": {
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
+    "imagesloaded": "^5.0.0",
+    "masonry-layout": "^4.2.2",
     "tailwindcss": "^4.2.4"
+  },
+  "devDependencies": {
+    "@types/imagesloaded": "^4.1.7",
+    "@types/masonry-layout": "^4.2.8"
   }
 }
