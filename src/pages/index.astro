@@ -65,11 +65,11 @@ import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
             <div class="space-y-2">
               <div class="flex items-center gap-4 justify-center md:justify-start">
                 <span class="text-sm font-bold opacity-50">SÁB</span>
-                <span class="text-xl font-headline font-bold">09:00 - 16:00</span>
+                <span class="text-2xl font-headline font-bold">09:00 - 17:30</span>
               </div>
               <div class="flex items-center gap-4 justify-center md:justify-start">
                 <span class="text-sm font-bold opacity-50">DOM</span>
-                <span class="text-xl font-headline font-bold">09:00 - 16:00</span>
+                <span class="text-2xl font-headline font-bold">09:00 - 16:00</span>
               </div>
             </div>
             <div class="w-12 h-1 bg-primary-container mt-6"></div>
@@ -158,29 +158,12 @@ import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
           <p class="text-on-surface-variant max-w-xl font-body">Evoluciona con el plan que mejor se adapte a tu estilo de entrenamiento. Transparencia total y sin sorpresas.</p>
         </div>
       </div>
-      <!-- Matricula Sub-section -->
-      <div class="mt-12 bg-surface-container-low p-6 flex flex-col md:flex-row items-center justify-between border-dashed border border-outline-variant/40">
-        <div class="flex items-center gap-4 mb-4 md:mb-0">
-          <div class="bg-primary-container/20 p-3 rounded-sm">
-            <span class="material-symbols-outlined text-primary-container">description</span>
-          </div>
-          <div>
-            <h5 class="font-bold uppercase font-headline">MATRÍCULA</h5>
-            <p class="text-xs text-on-surface-variant">Válida por un año desde la fecha de inscripción.</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-6">
-          <span class="text-2xl font-bold font-headline">$14.990</span>
-          <a href="https://www.tuu.cl/urbanlift-matricula" target="_blank" rel="noopener noreferrer" class="bg-on-surface text-surface font-bold px-6 py-2 rounded-sm text-xs uppercase tracking-tighter hover:bg-primary transition-colors">Matricularse</a>
-        </div>
-      </div>
-
       <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <!-- Plan 1 -->
         <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
           <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
           <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN MENSUAL (PREPAGO)</h4>
-          <div class="text-3xl font-extrabold font-headline mb-8">$35.000</div>
+          <div class="text-3xl font-extrabold font-headline mb-8">$37.990</div>
           <ul class="space-y-4 mb-10 flex-grow">
             <li class="flex items-start gap-3 text-sm">
               <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
@@ -188,7 +171,7 @@ import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
             </li>
             <li class="flex items-start gap-3 text-sm">
               <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-              <span>Requiere matrícula vigente</span>
+              <span>Requiere matrícula</span>
             </li>
           </ul>
           <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-mensual">ver plan</button>
@@ -197,19 +180,15 @@ import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
         <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
           <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
           <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN TRIMESTRAL (PREPAGO)</h4>
-          <div class="text-3xl font-extrabold font-headline mb-8">$94.990</div>
+          <div class="text-3xl font-extrabold font-headline mb-8">$99.990</div>
           <ul class="space-y-4 mb-10 flex-grow">
             <li class="flex items-start gap-3 text-sm">
               <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
               Acceso Total Gimnasio
             </li>
             <li class="flex items-start gap-3 text-sm">
-              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
-              Precio preferencial por trimestre
-            </li>
-            <li class="flex items-start gap-3 text-sm">
               <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-              <span>Requiere matrícula vigente</span>
+              <span>Requiere matrícula</span>
             </li>
           </ul>
           <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-trimestral">ver plan</button>
@@ -218,7 +197,7 @@ import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
         <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
           <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
           <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN SEMESTRAL (PREPAGO)</h4>
-          <div class="text-3xl font-extrabold font-headline mb-8">$178.990</div>
+          <div class="text-3xl font-extrabold font-headline mb-8">$189.990</div>
           <ul class="space-y-4 mb-10 flex-grow">
             <li class="flex items-start gap-3 text-sm">
               <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
@@ -226,11 +205,7 @@ import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
             </li>
             <li class="flex items-start gap-3 text-sm">
               <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-              Precio preferencial por semestre
-            </li>
-            <li class="flex items-start gap-3 text-sm">
-              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-              <span>Requiere matrícula vigente</span>
+              <span>Requiere matrícula</span>
             </li>
           </ul>
           <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-semestral">ver plan</button>
@@ -239,42 +214,19 @@ import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
         <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
           <span class="text-primary font-headline font-bold text-xs mb-2 uppercase tracking-widest">PAGO ÚNICO</span>
           <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">PLAN ANUAL (PREPAGO)</h4>
-          <div class="text-3xl font-extrabold font-headline mb-8">$335.990</div>
+          <div class="text-3xl font-extrabold font-headline mb-8">$359.990</div>
           <ul class="space-y-4 mb-10 flex-grow">
             <li class="flex items-start gap-3 text-sm">
               <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
               Acceso Total Gimnasio
             </li>
             <li class="flex items-start gap-3 text-sm">
-              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span> 
-              Precio preferencial anual
-            </li>
-            <li class="flex items-start gap-3 text-sm">
               <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-              <span>Requiere matrícula vigente</span>
+              <span>Requiere matrícula</span>
             </li>
           </ul>
           <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-anual-prepago">ver plan</button>
         </div>
-        <!-- Plan 5 -->
-        <!--
-        <div class="bg-surface hover:bg-surface-container-low p-6 rounded-none border-l-2 border-transparent hover:border-primary-container transition-all group flex flex-col h-full">
-          <span class="text-primary font-headline font-bold text-[9px] mb-2 uppercase tracking-tighter">DESCUENTA MES A MES DE TU TARJETA</span>
-          <h4 class="text-xl font-bold uppercase mb-6 font-headline leading-tight">SUSCRIPCIÓN ANUAL 20%OFF (CREDITO)</h4>
-          <div class="text-3xl font-extrabold font-headline mb-8">$335.904</div>
-          <ul class="space-y-4 mb-10 flex-grow">
-            <li class="flex items-start gap-3 text-sm">
-              <span class="material-symbols-outlined text-primary text-lg mt-0.5">check_circle</span>
-              <span>MATRÍCULA $0 POR MAYO Y JUNIO</span>
-            </li>
-            <li class="flex items-start gap-3 text-sm">
-              <span class="material-symbols-outlined text-primary text-lg mt-0.5">credit_card</span> 
-              Cargo mensual automático
-            </li>
-          </ul>
-          <button class="w-full py-4 border border-outline-variant/30 font-bold uppercase text-[10px] tracking-widest hover:bg-primary-container hover:text-on-primary-container transition-all" data-plan-id="plan-suscripcion-anual">ver plan</button>
-        </div>
-         -->
       </div>
       <!-- Daily Pass Sub-section -->
       <div class="mt-12 bg-surface-container-low p-6 flex flex-col md:flex-row items-center justify-between border-dashed border border-outline-variant/40">
@@ -288,7 +240,7 @@ import PlanAnualPrepago from '../components/plans/PlanAnualPrepago.astro';
           </div>
         </div>
         <div class="flex items-center gap-6">
-          <span class="text-2xl font-bold font-headline">$5.000</span>
+          <span class="text-2xl font-bold font-headline">$5.990</span>
           <a href="https://www.tuu.cl/urbanlift-pase-diario" target="_blank" rel="noopener noreferrer" class="bg-on-surface text-surface font-bold px-6 py-2 rounded-sm text-xs uppercase tracking-tighter hover:bg-primary transition-colors">Comprar Pase</a>
         </div>
       </div>
